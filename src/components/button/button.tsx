@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, Prop } from '@stencil/core'
 
 type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
 
@@ -32,7 +32,7 @@ export class MyComponent {
         }
 
         if (this.disabled) {
-            cssClass = "disabled"
+            cssClass = 'disabled'
         }
 
         cssClass = `${cssClass}${this.outline ? '-outline' : ''}`

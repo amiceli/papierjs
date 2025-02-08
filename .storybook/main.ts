@@ -1,4 +1,4 @@
-import type {StorybookConfig} from '@storybook/html-vite'
+import type { StorybookConfig } from '@storybook/html-vite'
 import remarkGfm from 'remark-gfm'
 
 const config: StorybookConfig = {
