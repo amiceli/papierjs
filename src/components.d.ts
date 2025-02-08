@@ -6,56 +6,44 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface PButton {
+        "block"?: boolean;
+        "disabled"?: boolean;
+        "large"?: boolean;
+        "outline"?: boolean;
+        "small"?: boolean;
+        "type"?: ButtonColor;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLPButtonElement extends Components.PButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLPButtonElement: {
+        prototype: HTMLPButtonElement;
+        new (): HTMLPButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "p-button": HTMLPButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface PButton {
+        "block"?: boolean;
+        "disabled"?: boolean;
+        "large"?: boolean;
+        "outline"?: boolean;
+        "small"?: boolean;
+        "type"?: ButtonColor;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "p-button": PButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
         }
     }
 }
