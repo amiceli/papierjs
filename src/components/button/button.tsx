@@ -46,8 +46,8 @@ export class Button {
         return cssClass
     }
 
-    public getParentClass () {
-        let cssClass = "papier"
+    public getParentClass() {
+        let cssClass = 'papier'
 
         if (this.block) {
             cssClass = `${cssClass} is--block`
