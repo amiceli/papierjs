@@ -13,10 +13,10 @@ papierjs will implements new components not in papercss like dropdown.
 
 Components :
 - [X] button
-- [] image
-- [] card
-- [] dialog
-- [] dropdown
+- [ ] image
+- [ ] card
+- [ ] dialog
+- [ ] dropdown
 
 ## Dev
 
