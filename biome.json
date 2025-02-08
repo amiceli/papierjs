@@ -10,7 +10,8 @@
             "package.json",
             "package-lock.json",
             "dist/",
-            "www"
+            "www",
+            "src/components.d.ts"
         ]
     },
     "linter": {
