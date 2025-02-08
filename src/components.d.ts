@@ -6,6 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface PAlert {
+        "closable"?: boolean;
+        "dark"?: boolean;
+        "type"?: AlertColor;
+    }
     interface PButton {
         "block"?: boolean;
         "dark"?: boolean;
@@ -22,7 +27,28 @@ export namespace Components {
         "value"?: number;
     }
 }
+export interface PAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPAlertElement;
+}
 declare global {
+    interface HTMLPAlertElementEventMap {
+        "close": any;
+    }
+    interface HTMLPAlertElement extends Components.PAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPAlertElementEventMap>(type: K, listener: (this: HTMLPAlertElement, ev: PAlertCustomEvent<HTMLPAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPAlertElementEventMap>(type: K, listener: (this: HTMLPAlertElement, ev: PAlertCustomEvent<HTMLPAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPAlertElement: {
+        prototype: HTMLPAlertElement;
+        new (): HTMLPAlertElement;
+    };
     interface HTMLPButtonElement extends Components.PButton, HTMLStencilElement {
     }
     var HTMLPButtonElement: {
@@ -36,11 +62,18 @@ declare global {
         new (): HTMLPProgressBarElement;
     };
     interface HTMLElementTagNameMap {
+        "p-alert": HTMLPAlertElement;
         "p-button": HTMLPButtonElement;
         "p-progress-bar": HTMLPProgressBarElement;
     }
 }
 declare namespace LocalJSX {
+    interface PAlert {
+        "closable"?: boolean;
+        "dark"?: boolean;
+        "onClose"?: (event: PAlertCustomEvent<any>) => void;
+        "type"?: AlertColor;
+    }
     interface PButton {
         "block"?: boolean;
         "dark"?: boolean;
@@ -57,6 +90,7 @@ declare namespace LocalJSX {
         "value"?: number;
     }
     interface IntrinsicElements {
+        "p-alert": PAlert;
         "p-button": PButton;
         "p-progress-bar": PProgressBar;
     }
@@ -65,6 +99,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
             "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
         }
