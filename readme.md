@@ -11,18 +11,42 @@ papercss style.
 
 papierjs will implements new components not in papercss like dropdown.
 
-Components :
-- [X] button
-- [ ] image
-- [ ] card
-- [ ] dialog
-- [ ] dropdown
+Available components:
+- Button
+- Alert
+- Progress bar
 
-## Dev
+Component ideas :
+- [ ] dropdown
+- [ ] notification
+- [ ] spinner
+- [ ] password
+
+## Install
+
+    npm install @amiceli/papierjs -S
+
+Init components : 
+
+```javascript
+import { defineCustomElements } from '@amiceli/papierjs'
+
+defineCustomElements()
+```
+
+## To run project
+
+To build project :
 
 ```bash
 npm install
 npm run build
+npm run build-storybook
+```
+
+To run storybook : 
+
+```bash
 npm run build:watch
 npm run storybook
 ```

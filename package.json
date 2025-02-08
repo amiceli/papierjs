@@ -1,13 +1,21 @@
 {
-  "name": "papierjs",
+  "name": "@amiceli/papierjs",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "Papercss web components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/papierjs/papierjs.esm.js",
+  "keywords": [
+    "stencil",
+    "papercss"
+  ],
+  "homepage": "https://github.com/amiceli/papierjs",
+  "bugs": {
+    "url": "https://github.com/amiceli/papierjs/issues"
+  },
   "exports": {
     ".": {
       "import": "./dist/papierjs/papierjs.esm.js",
@@ -25,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "https://github.com/amiceli/papierjs.git"
   },
   "files": [
     "dist/",
