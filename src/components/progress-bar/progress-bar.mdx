@@ -1,0 +1,62 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+<Meta title="Components/Progress bar" />
+
+# p-progress-bar
+
+```html
+<p-progress-bar value="20" type="success">20%</p-progress-bar>
+<p-progress-bar value="69" type="danger">69%</p-progress-bar>
+<p-progress-bar value="50" type="muted"></p-progress-bar>
+```
+
+<p-progress-bar value="20" type="secondary">10%</p-progress-bar>
+<br />
+<p-progress-bar value="30" type="success">30%</p-progress-bar>
+<br />
+<p-progress-bar value="40" type="warning">40%</p-progress-bar>
+<br />
+<p-progress-bar value="50" type="muted">50%</p-progress-bar>
+<br />
+<p-progress-bar value="60" type="primary">60%</p-progress-bar>
+<br />
+<p-progress-bar value="69" type="danger">69%</p-progress-bar>
+
+**Without label :**
+
+<p-progress-bar value="50" type="muted"></p-progress-bar>
+
+<br />
+
+## Striped
+
+```html
+<p-progress-bar striped value="50" type="muted">50%</p-progress-bar>
+<p-progress-bar striped value="69" type="danger">69%</p-progress-bar>
+```
+
+<p-progress-bar striped value="50" type="muted">50%</p-progress-bar>
+<br />
+<p-progress-bar striped value="60" type="primary">60%</p-progress-bar>
+<br />
+<p-progress-bar striped value="69" type="danger">69%</p-progress-bar>
+
+## Dark mode
+
+```html
+<p-progress-bar dark value="40" type="warning">40%</p-progress-bar>
+<p-progress-bar dark striped value="90" type="success">90%</p-progress-bar>
+```
+
+<p-progress-bar dark value="40" type="warning">40%</p-progress-bar>
+<br />
+<p-progress-bar dark striped value="90" type="success">90%</p-progress-bar>
+
+## Properties
+
+| Property  | Attribute | Description | Type                                                                        | Default     |
+| --------- | --------- | ----------- | --------------------------------------------------------------------------- | ----------- |
+| `dark`    | `dark`    |             | `boolean`                                                                   | `false`     |
+| `striped` | `striped` |             | `boolean`                                                                   | `false`     |
+| `type`    | `type`    |             | `"danger" \| "muted" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| `value`   | `value`   |             | `number`                                                                    | `0`         |
