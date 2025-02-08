@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface PButton {
         "block"?: boolean;
+        "dark"?: boolean;
         "disabled"?: boolean;
         "large"?: boolean;
         "outline"?: boolean;
@@ -29,6 +30,7 @@ declare global {
 declare namespace LocalJSX {
     interface PButton {
         "block"?: boolean;
+        "dark"?: boolean;
         "disabled"?: boolean;
         "large"?: boolean;
         "outline"?: boolean;

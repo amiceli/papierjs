@@ -1,57 +1,5 @@
-.papier {
-    @import "../../../node_modules/papercss/dist/paper.css";
-    display: inline-block;
-}
-
 :host {
-    --primary: #41403e;
-    --secondary: #0b74d5;
-    --success: #86a361;
-    --warning: #ddcd45;
-    --danger: #a7342d;
-    --muted: #868e96;
-    --primary-light: #cdcccb;
-    --secondary-light: #d8ebfd;
-    --success-light: #d5dfc8;
-    --warning-light: #f5f0c6;
-    --danger-light: #f0cbc9;
-    --muted-light: #e6e7e9;
-    --primary-dark: black;
-    --secondary-dark: black;
-    --success-dark: #374427;
-    --warning-dark: #746a15;
-    --danger-dark: black;
-    --muted-dark: #313538;
-    --primary-light-10: #5b5a57;
-    --secondary-light-10: #208ef3;
-    --success-light-10: #9fb681;
-    --warning-light-10: #e5d970;
-    --danger-light-10: #cb453c;
-    --muted-light-10: #a1a8ae;
-    --primary-dark-10: #272625;
-    --secondary-dark-10: #085aa5;
-    --success-dark-10: #4a5a35;
-    --warning-dark-10: #746a15;
-    --danger-dark-10: #7f2722;
-    --muted-dark-10: #6c757d;
-    --primary-shaded-50: #c1c0bd;
-    --primary-shaded-70: #f2f2f2;
-    --white-dark: rgba(0, 0, 0, 0.03);
-    --white-dark-light-80: rgba(204, 204, 204, 0.03);
-    --light-dark: rgba(0, 0, 0, 0.7);
-    --white: white;
-    --main-background: white;
-    --main-background-light: white;
-    --black: black;
-    --primary-text: #272625;
-    --secondary-text: #085aa5;
-    --success-text: #4a5a35;
-    --warning-text: #746a15;
-    --danger-text: #7f2722;
-    --muted-text: #6c757d;
-    --shadow-color-regular: rgba(0, 0, 0, 0.2);
-    --shadow-color-hover: rgba(0, 0, 0, 0.3);
-    --primary-inverse: #fff;
+    @import "../common";
 
     .papier.is--block {
         display: block;
@@ -59,5 +7,4 @@
     .papier:not(.is--block) {
         display: inline-block;
     }
-    
 }

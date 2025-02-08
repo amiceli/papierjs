@@ -21,6 +21,8 @@ export class MyComponent {
     block?: boolean = false
     @Prop()
     disabled?: boolean = false
+    @Prop()
+    dark?: boolean = false
 
     public getClass(): string {
         const types = ['success', 'secondary', 'primary', 'danger', 'warning']
@@ -44,15 +46,28 @@ export class MyComponent {
         return cssClass
     }
 
+    public getParentClass () {
+        let cssClass = "papier"
+
+        if (this.block) {
+            cssClass = `${cssClass} is--block`
+        }
+
+        if (this.dark) {
+            cssClass = `${cssClass} is--dark`
+        }
+
+        return cssClass
+    }
     render() {
         return (
-            <div class={`papier ${this.block ? 'is--block' : ''}`}>
+            <div class={this.getParentClass()}>
                 <button
                     disabled={this.disabled}
                     type="button"
                     class={this.getClass()}
                 >
-                    <slot />
+                    zeubi : <slot />
                 </button>
             </div>
         )

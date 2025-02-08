@@ -10,6 +10,7 @@
 | Property   | Attribute  | Description | Type                                                             | Default     |
 | ---------- | ---------- | ----------- | ---------------------------------------------------------------- | ----------- |
 | `block`    | `block`    |             | `boolean`                                                        | `false`     |
+| `dark`     | `dark`     |             | `boolean`                                                        | `false`     |
 | `disabled` | `disabled` |             | `boolean`                                                        | `false`     |
 | `large`    | `large`    |             | `boolean`                                                        | `false`     |
 | `outline`  | `outline`  |             | `boolean`                                                        | `false`     |
