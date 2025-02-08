@@ -2,6 +2,10 @@
 
 # papierjs - papercss with web components
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/amiceli/papierjs/refs/heads/main/src/assets/papierjs.webp" width="100" />
+</p>
+
 papierjs *(papier is paper in french)* provides web component built with stencil with 
 papercss style.
 
