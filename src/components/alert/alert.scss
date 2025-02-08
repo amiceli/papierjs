@@ -1,0 +1,14 @@
+:host {
+    @import "../common";
+
+    @include useBlock();
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    .alert, .papier {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
