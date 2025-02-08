@@ -103,3 +103,12 @@
     --shadow-color-hover: rgba(0, 0, 0, 0.3);
     --primary-inverse: #fff;
 }
+
+@mixin useBlock() {
+    .papier.is--block {
+        display: block;
+    }
+    .papier:not(.is--block) {
+        display: inline-block;
+    }
+}

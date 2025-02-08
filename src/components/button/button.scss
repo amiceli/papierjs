@@ -1,10 +1,5 @@
 :host {
     @import "../common";
 
-    .papier.is--block {
-        display: block;
-    }
-    .papier:not(.is--block) {
-        display: inline-block;
-    }
+    @include useBlock();
 }

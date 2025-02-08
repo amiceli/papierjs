@@ -15,6 +15,12 @@ export namespace Components {
         "small"?: boolean;
         "type"?: ButtonColor;
     }
+    interface PProgressBar {
+        "dark"?: boolean;
+        "striped"?: boolean;
+        "type"?: ProgressBarColor;
+        "value"?: number;
+    }
 }
 declare global {
     interface HTMLPButtonElement extends Components.PButton, HTMLStencilElement {
@@ -23,8 +29,15 @@ declare global {
         prototype: HTMLPButtonElement;
         new (): HTMLPButtonElement;
     };
+    interface HTMLPProgressBarElement extends Components.PProgressBar, HTMLStencilElement {
+    }
+    var HTMLPProgressBarElement: {
+        prototype: HTMLPProgressBarElement;
+        new (): HTMLPProgressBarElement;
+    };
     interface HTMLElementTagNameMap {
         "p-button": HTMLPButtonElement;
+        "p-progress-bar": HTMLPProgressBarElement;
     }
 }
 declare namespace LocalJSX {
@@ -37,8 +50,15 @@ declare namespace LocalJSX {
         "small"?: boolean;
         "type"?: ButtonColor;
     }
+    interface PProgressBar {
+        "dark"?: boolean;
+        "striped"?: boolean;
+        "type"?: ProgressBarColor;
+        "value"?: number;
+    }
     interface IntrinsicElements {
         "p-button": PButton;
+        "p-progress-bar": PProgressBar;
     }
 }
 export { LocalJSX as JSX };
@@ -46,6 +66,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
+            "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
         }
     }
 }

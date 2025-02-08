@@ -8,7 +8,7 @@ type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
     styleUrl: 'button.scss',
     shadow: true,
 })
-export class MyComponent {
+export class Button {
     @Prop()
     type?: ButtonColor = 'primary'
     @Prop()
@@ -67,7 +67,7 @@ export class MyComponent {
                     type="button"
                     class={this.getClass()}
                 >
-                    zeubi : <slot />
+                    <slot />
                 </button>
             </div>
         )
