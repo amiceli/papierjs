@@ -20,6 +20,16 @@ export namespace Components {
         "small"?: boolean;
         "type"?: ButtonColor;
     }
+    interface PInputText {
+        "block"?: boolean;
+        "dark"?: boolean;
+        "disabled"?: boolean;
+        "hasError"?: boolean;
+        "label"?: string;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "value"?: string;
+    }
     interface PProgressBar {
         "dark"?: boolean;
         "striped"?: boolean;
@@ -30,6 +40,10 @@ export namespace Components {
 export interface PAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPAlertElement;
+}
+export interface PInputTextCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPInputTextElement;
 }
 declare global {
     interface HTMLPAlertElementEventMap {
@@ -55,6 +69,23 @@ declare global {
         prototype: HTMLPButtonElement;
         new (): HTMLPButtonElement;
     };
+    interface HTMLPInputTextElementEventMap {
+        "change": string;
+    }
+    interface HTMLPInputTextElement extends Components.PInputText, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPInputTextElementEventMap>(type: K, listener: (this: HTMLPInputTextElement, ev: PInputTextCustomEvent<HTMLPInputTextElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPInputTextElementEventMap>(type: K, listener: (this: HTMLPInputTextElement, ev: PInputTextCustomEvent<HTMLPInputTextElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPInputTextElement: {
+        prototype: HTMLPInputTextElement;
+        new (): HTMLPInputTextElement;
+    };
     interface HTMLPProgressBarElement extends Components.PProgressBar, HTMLStencilElement {
     }
     var HTMLPProgressBarElement: {
@@ -64,6 +95,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "p-alert": HTMLPAlertElement;
         "p-button": HTMLPButtonElement;
+        "p-input-text": HTMLPInputTextElement;
         "p-progress-bar": HTMLPProgressBarElement;
     }
 }
@@ -83,6 +115,17 @@ declare namespace LocalJSX {
         "small"?: boolean;
         "type"?: ButtonColor;
     }
+    interface PInputText {
+        "block"?: boolean;
+        "dark"?: boolean;
+        "disabled"?: boolean;
+        "hasError"?: boolean;
+        "label"?: string;
+        "onChange"?: (event: PInputTextCustomEvent<string>) => void;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "value"?: string;
+    }
     interface PProgressBar {
         "dark"?: boolean;
         "striped"?: boolean;
@@ -92,6 +135,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "p-alert": PAlert;
         "p-button": PButton;
+        "p-input-text": PInputText;
         "p-progress-bar": PProgressBar;
     }
 }
@@ -101,6 +145,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
             "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
+            "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
         }
     }

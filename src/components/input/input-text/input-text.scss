@@ -1,0 +1,45 @@
+:host {
+    @import "../../common";
+
+    @include useBlock();
+
+    label {
+        color : var(--primary);
+    }
+
+    .is--block {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+
+        input {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+    .papier {
+        &.is--dark {
+
+            &.has--error {
+                label {
+                    color : var(--danger-light);
+                }
+                input {
+                    border-color : var(--danger-light);
+                }
+            }
+        }
+        &:not(.is--dark) {
+            &.has--error {
+                label {
+                    color : var(--danger-text);
+                }
+                input {
+                    border-color : var(--danger-text);
+                }
+            }
+        }
+    }
+}
