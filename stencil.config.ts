@@ -2,7 +2,11 @@ import type { Config } from '@stencil/core'
 import { sass } from '@stencil/sass'
 
 export const config: Config = {
-    plugins: [sass()],
+    plugins: [
+        sass({
+            includePaths: ['node_modules'],
+        }),
+    ],
     namespace: 'papierjs',
     extras: {
         enableImportInjection: true,
