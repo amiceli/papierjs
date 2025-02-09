@@ -6,6 +6,19 @@ defineCustomElements()
 const observer = new MutationObserver((mutationsList, observer) => {
     const alert = document.querySelector('#onClose')
     const videoGame = document.querySelector('#video-game')
+    const dropdownItem = Array.from(
+        document.querySelectorAll('p-dropdown-item'),
+    )
+    if (dropdownItem.length > 0) {
+        for (const item of dropdownItem) {
+            item.addEventListener('change', () => {
+                for (const sub of dropdownItem) {
+                    sub.removeAttribute('selected')
+                }
+                item.setAttribute('selected', 'true')
+            })
+        }
+    }
     if (alert) {
         alert.addEventListener('close', () => {
             alert.removeAttribute('closable')

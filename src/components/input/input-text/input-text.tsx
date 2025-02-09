@@ -1,4 +1,3 @@
-// biome-ignore lint/correctness/noUnusedImports: required for jsx
 import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
 
 @Component({

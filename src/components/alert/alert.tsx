@@ -1,4 +1,3 @@
-// biome-ignore lint/correctness/noUnusedImports: required for jsx
 import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
 
 type AlertColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
@@ -56,7 +55,6 @@ export class Alert {
                 <div class={this.getClass()}>
                     <slot />
                     {this.closable && (
-                        // biome-ignore lint/a11y/useKeyWithClickEvents: useless
                         <span
                             class="btn-close"
                             onClick={() => this.closeAlert()}

@@ -1,0 +1,93 @@
+:host {
+    @import "../common";
+
+    @include useBlock();
+
+    height: 27px;
+
+    .dropdown-item {
+        width: 100%;
+        background: white;
+        height: 27px;
+
+        &:hover {
+            cursor: pointer;
+
+            .border {
+                cursor: pointer;
+            }
+        }
+
+        .border {
+            height: 27px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            border-top: none;
+        }
+    }
+
+    .dropdown {
+        position: relative;
+        height: 27px;
+
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        &__children {
+            position: absolute;
+            z-index: 200;
+            top: 31px;
+            left: 0;
+            width: 100%;
+            max-height: 200px;
+            display: grid;
+            grid-auto-rows: 27px;
+            max-height: calc(27px * 5);
+            overflow-y: auto;
+            background: white;
+        }
+
+        .for--icon {
+            position: relative;
+            top: 2px;
+            transition: all 0.3s linear;
+            transform: rotate(0deg);
+        }
+
+        &:not(.is--open) {
+            .dropdown__children {
+                display: none;
+            }
+        }
+
+        &.is--open {
+            .dropdown__children {
+                display: grid;
+            }
+
+            .for--icon {
+                transform: rotate(180deg);
+                top: -3px;
+            }
+        }
+    }
+
+    .dropdown {
+        &:not(.is--block) {
+            display: inline-block;
+            width: 200px;
+        }
+
+        &.is--block {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+}

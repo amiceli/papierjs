@@ -1,0 +1,27 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+<Meta title="Components/Dropdown" />
+
+# p-dropdown & p-dropdown-item
+
+```html
+<p-dropdown>
+    <p-dropdown-item value="test">test</p-dropdown-item>
+    <p-dropdown-item value="test_2" selected>test 2</p-dropdown-item>
+</p-dropdown>
+```
+
+<p-dropdown>
+    <p-dropdown-item value="test">test</p-dropdown-item>
+    <p-dropdown-item value="test_2" selected>test 2</p-dropdown-item>
+</p-dropdown>
+
+<br />
+<br />
+
+## onChange
+
+`p-dropdown` listen `change` event on each `p-dropdown-item`. 
+
+When catch this event,
+`p-dropdown` will display selected item `innerText`.
