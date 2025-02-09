@@ -1,0 +1,20 @@
+:host {
+    @import "../../common";
+
+    @include useBlock();
+
+    label {
+        color : var(--primary);
+    }
+    .is--block {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+
+        input {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+}

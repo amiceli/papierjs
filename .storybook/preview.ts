@@ -4,14 +4,26 @@ import { defineCustomElements } from '../loader'
 defineCustomElements()
 
 const observer = new MutationObserver((mutationsList, observer) => {
-    const element = document.querySelector('#onClose') // Remplace par ton sélecteur
-    if (element) {
-        element.addEventListener('close', () => {
-            element.removeAttribute('closable')
-            element.textContent = 'Closed !'
+    const alert = document.querySelector('#onClose')
+    const videoGame = document.querySelector('#video-game')
+    if (alert) {
+        alert.addEventListener('close', () => {
+            alert.removeAttribute('closable')
+            alert.textContent = 'Closed !'
         })
 
-        observer.disconnect() // Arrêter l'observateur une fois que l'élément est trouvé
+        observer.disconnect()
+    }
+    if (videoGame) {
+        // @ts-ignore
+        videoGame.addEventListener('change', (e: CustomEvent) => {
+            const span = document.querySelector('#video-game-answer')
+
+            if (span) {
+                span.textContent = e.detail
+            }
+        })
+        observer.disconnect()
     }
 })
 

@@ -1,0 +1,83 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+<Meta title="Input/Text" />
+
+# p-input-text
+
+```html
+<p-input-text placeholder="Dot Paper" value="Paper"/>
+<p-input-text placeholder="placeholder" label="Name" />
+<p-input-text placeholder="Name is required" required label="Full name" />
+```
+
+<p-input-text placeholder="Dot Paper" value="Paper"/>
+<br />
+<p-input-text placeholder="placeholder" label="Name" />
+<br />
+<p-input-text placeholder="Full name is required" required label="Full name" />
+<br />
+<br />
+
+## Disabled
+
+```html
+<p-input-text 
+    placeholder="Name is required" 
+    disabled 
+    label="Name" 
+/>
+```
+
+<p-input-text placeholder="Name is required" disabled label="Name" />
+
+## Dark
+
+```html
+<p-input-text 
+    placeholder="placeholder" 
+    label="Name" 
+    dark
+    block
+    required
+/>
+```
+
+<div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
+    <p-input-text 
+        placeholder="placeholder" 
+        label="Name" 
+        dark
+        block
+        required
+    />
+</div>
+
+## onChange
+
+```html
+<p-input-text id="video-game" label="Video Game" />
+```
+
+```javascript
+const videoGame = document.querySelector('#video-game')
+
+videoGame.addEventListener('change', (e: CustomEvent) => {
+    console.log(e.detail)
+})
+```
+
+<p-input-text id="video-game" label="Video Game" />
+
+Answer: <span id="video-game-answer"></span>
+
+## Properties
+
+| Property      | Attribute     | Description | Type      | Default     |
+| ------------- | ------------- | ----------- | --------- | ----------- |
+| `block`       | `block`       |             | `boolean` | `false`     |
+| `dark`        | `dark`        |             | `boolean` | `false`     |
+| `disabled`    | `disabled`    |             | `boolean` | `false`     |
+| `label`       | `label`       |             | `string`  | `undefined` |
+| `placeholder` | `placeholder` |             | `string`  | `undefined` |
+| `required`    | `required`    |             | `boolean` | `false`     |
+| `value`       | `value`       |             | `string`  | `""`        |
