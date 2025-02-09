@@ -100,9 +100,9 @@ const generateSvgComponent = async () => {
         await Promise.all(
             files.map((file) => {
                 const iconName = file.replace('.svg', '')
-                const folder = 'lsi-icons'
+                const folder = 'icons'
                 const template = getTemplateSvg(file, iconName)
-                const path = `./src/components/${folder}/lsi-icon-${iconName}/lsi-icon-${iconName}.tsx`
+                const path = `./src/components/${folder}/icon-${iconName}/icon-${iconName}.tsx`
 
                 return writeFile(path, template)
             }),
@@ -119,7 +119,7 @@ const cleanComponents = async () => {
 
     await Promise.all(
         files
-            .filter((f) => !['icon.css'].includes(f))
+            .filter((f) => !['icon.css', '.gitkeep'].includes(f))
             .map((f) => {
                 console.info(`🤘🏻 src/components/icons/${f} removed`)
 
@@ -141,10 +141,6 @@ cleanComponents()
         console.info('🤘🏻 all svg components generated')
 
         const dirs = await listIconFolders()
-        await fs.writeFile(
-            'src/components/lsi-icons/lsi-icon.smala.js',
-            `export const all = ${JSON.stringify(dirs)}`,
-        )
     })
     .catch((e) => {
         console.info(`💩 script failed, ${e}`)
