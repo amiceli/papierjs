@@ -21,6 +21,8 @@ export class InputText {
     disabled?: boolean = false
     @Prop()
     block?: boolean = false
+    @Prop()
+    hasError?: boolean = false
 
     @Event({ eventName: 'change' })
     public changeEvent: EventEmitter<string>
@@ -33,6 +35,9 @@ export class InputText {
         }
         if (this.block) {
             cssClass = `${cssClass} is--block`
+        }
+        if (this.hasError) {
+            cssClass = `${cssClass} has--error`
         }
 
         return cssClass

@@ -24,6 +24,7 @@ export namespace Components {
         "block"?: boolean;
         "dark"?: boolean;
         "disabled"?: boolean;
+        "hasError"?: boolean;
         "label"?: string;
         "placeholder"?: string;
         "required"?: boolean;
@@ -118,6 +119,7 @@ declare namespace LocalJSX {
         "block"?: boolean;
         "dark"?: boolean;
         "disabled"?: boolean;
+        "hasError"?: boolean;
         "label"?: string;
         "onChange"?: (event: PInputTextCustomEvent<string>) => void;
         "placeholder"?: string;

@@ -30,6 +30,14 @@ import { Canvas, Meta } from '@storybook/blocks';
 
 <p-input-text placeholder="Name is required" disabled label="Name" />
 
+## Error
+
+```html
+<p-input-text label="Video Game" has-error/>
+```
+
+<p-input-text label="Video Game" has-error/>
+
 ## Dark
 
 ```html
@@ -40,6 +48,7 @@ import { Canvas, Meta } from '@storybook/blocks';
     block
     required
 />
+<p-input-text dark  block value="GTA" label="Video Game" has-error/>
 ```
 
 <div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
@@ -50,6 +59,8 @@ import { Canvas, Meta } from '@storybook/blocks';
         block
         required
     />
+    <br />
+    <p-input-text dark  block value="GTA" label="Video Game" has-error/>
 </div>
 
 ## onChange
