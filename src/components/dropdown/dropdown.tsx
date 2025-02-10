@@ -3,6 +3,7 @@ import {
     Element,
     Event,
     type EventEmitter,
+    Listen,
     Prop,
     State,
     h,
@@ -38,6 +39,14 @@ export class Alert {
         }
 
         return cssClass
+    }
+
+    @Listen('click', { target: 'window' })
+    public detectOutsideClick(ev) {
+        if (this.el.contains(ev.target)) {
+            return
+        }
+        this.open = false
     }
 
     public componentDidLoad() {

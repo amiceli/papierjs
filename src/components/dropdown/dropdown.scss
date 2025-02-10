@@ -36,11 +36,14 @@
             justify-content: space-between;
             padding-left: 10px;
             padding-right: 10px;
+            cursor: pointer;
+            position: relative;
+            z-index: 20;
         }
 
         &__children {
             position: absolute;
-            z-index: 200;
+            z-index: 10;
             top: 31px;
             left: 0;
             width: 100%;
