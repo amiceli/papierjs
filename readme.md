@@ -48,6 +48,6 @@ npm run build-storybook
 To run storybook : 
 
 ```bash
-npm run start
+npm run build:watch
 npm run storybook
 ```
