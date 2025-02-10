@@ -1,6 +1,8 @@
 import type { Config } from '@stencil/core'
 import { sass } from '@stencil/sass'
 
+require('dotenv').config()
+
 export const config: Config = {
     plugins: [
         sass({
@@ -31,5 +33,6 @@ export const config: Config = {
     ],
     testing: {
         browserHeadless: 'shell',
+        browserExecutablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
     },
 }
