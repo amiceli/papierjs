@@ -19,7 +19,9 @@ export class Alert {
     @Prop()
     dark?: boolean = false
     @State()
-    open: boolean = false
+    open?: boolean = false
+    @Prop()
+    placeholder?: string
     @State()
     selectedValue?: string
     @Element()
@@ -55,6 +57,9 @@ export class Alert {
         )
 
         for (const item of items) {
+            if (this.dark) {
+                item.setAttribute('dark', 'true')
+            }
             item.addEventListener('change', (e) => {
                 this.selectEvent.emit(e.detail)
                 this.open = !this.open
@@ -75,7 +80,7 @@ export class Alert {
             return attr === 'true' || attr === ''
         })
 
-        return selected?.innerText || ''
+        return selected?.innerText || this.placeholder || ''
     }
 
     render() {

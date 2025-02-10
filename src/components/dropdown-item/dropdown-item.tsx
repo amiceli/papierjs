@@ -10,12 +10,18 @@ export class Alert {
     value: string
     @Prop()
     selected?: boolean = false
+    @Prop()
+    dark?: boolean = false
 
     @Event({ eventName: 'change' })
     public changeEvent: EventEmitter<string>
 
     public getParentClass() {
-        const cssClass = 'papier dropdown-item'
+        let cssClass = 'papier dropdown-item'
+
+        if (this.dark) {
+            cssClass = `${cssClass} is--dark`
+        }
 
         return cssClass
     }

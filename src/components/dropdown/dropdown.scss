@@ -10,6 +10,10 @@
         background: white;
         height: 27px;
 
+        &.is--dark {
+            background: #41403e;
+        }
+
         &:hover {
             cursor: pointer;
 
@@ -29,6 +33,13 @@
     .dropdown {
         position: relative;
         height: 27px;
+
+        &.is--dark {
+            color : white;
+            .dropdown__header, .dropdown__children {
+                background: #41403e;
+            }
+        }
 
         &__header {
             display: flex;
@@ -83,7 +94,7 @@
     .dropdown {
         &:not(.is--block) {
             display: inline-block;
-            width: 200px;
+            min-width: 200px;
         }
 
         &.is--block {
