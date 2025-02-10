@@ -22,8 +22,10 @@ export namespace Components {
     }
     interface PDropdown {
         "dark"?: boolean;
+        "placeholder"?: string;
     }
     interface PDropdownItem {
+        "dark"?: boolean;
         "selected"?: boolean;
         "value": string;
     }
@@ -169,8 +171,10 @@ declare namespace LocalJSX {
     interface PDropdown {
         "dark"?: boolean;
         "onSelect"?: (event: PDropdownCustomEvent<string>) => void;
+        "placeholder"?: string;
     }
     interface PDropdownItem {
+        "dark"?: boolean;
         "onChange"?: (event: PDropdownItemCustomEvent<string>) => void;
         "selected"?: boolean;
         "value"?: string;

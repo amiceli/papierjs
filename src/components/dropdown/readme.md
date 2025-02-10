@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default |
-| -------- | --------- | ----------- | --------- | ------- |
-| `dark`   | `dark`    |             | `boolean` | `false` |
+| Property      | Attribute     | Description | Type      | Default     |
+| ------------- | ------------- | ----------- | --------- | ----------- |
+| `dark`        | `dark`        |             | `boolean` | `false`     |
+| `placeholder` | `placeholder` |             | `string`  | `undefined` |
 
 
 ## Events
