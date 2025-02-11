@@ -1,0 +1,105 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Components/Dropdown" />
+
+# p-dropdown & p-dropdown-item
+
+```html
+<p-dropdown>
+    <p-dropdown-item value="test">test</p-dropdown-item>
+    <p-dropdown-item value="test_2" selected>test 2</p-dropdown-item>
+</p-dropdown>
+```
+
+<p-dropdown>
+    <p-dropdown-item value="test">test</p-dropdown-item>
+    <p-dropdown-item value="test_2" selected>test 2</p-dropdown-item>
+</p-dropdown>
+
+<br />
+<br />
+
+## Dark mode
+
+```html
+<p-dropdown dark>
+    <p-dropdown-item value="unity">AC Unity</p-dropdown-item>
+    <p-dropdown-item value="origin" selected>AC Origin</p-dropdown-item>
+</p-dropdown>
+```
+
+<p-dropdown dark>
+    <p-dropdown-item value="unity">AC Unity</p-dropdown-item>
+    <p-dropdown-item value="origin" selected>AC Origin</p-dropdown-item>
+</p-dropdown>
+
+## onChange
+
+`p-dropdown` listen `change` event on each `p-dropdown-item`. 
+
+When catch this event,
+`p-dropdown` will fire `select` event.
+
+```javascript
+const onChange = document.querySelector('#on-change-dropdown')
+onChange.addEventListener('select', (e: CustomEvent) => {
+    window.alert(e.detail)
+})
+```
+
+### Placeholder
+
+If any `p-dropdown-item` is `selected`, you can set a placeholder.
+
+```html
+<p-dropdown placeholder="Choose video game">
+    <p-dropdown-item value="unity">AC Unity</p-dropdown-item>
+    <p-dropdown-item value="origin">AC Origin</p-dropdown-item>
+</p-dropdown>
+```
+
+<p-dropdown 
+    placeholder="Choose video game" 
+    id="on-change-dropdown"
+>
+    <p-dropdown-item value="unity">AC Unity</p-dropdown-item>
+    <p-dropdown-item value="origin">AC Origin</p-dropdown-item>
+</p-dropdown>
+
+<br />
+<br />
+
+---
+
+## p-dropdown
+
+### Properties
+
+| Property      | Attribute     | Description | Type      | Default     |
+| ------------- | ------------- | ----------- | --------- | ----------- |
+| `dark`        | `dark`        |             | `boolean` | `false`     |
+| `placeholder` | `placeholder` |             | `string`  | `undefined` |
+
+
+### Events
+
+| Event    | Description | Type                  |
+| -------- | ----------- | --------------------- |
+| `select` |             | `CustomEvent<string>` |
+
+## p-dropdown-item
+
+### Properties
+
+| Property   | Attribute  | Description | Type      | Default     |
+| ---------- | ---------- | ----------- | --------- | ----------- |
+| `dark`     | `dark`     |             | `boolean` | `false`     |
+| `selected` | `selected` |             | `boolean` | `false`     |
+| `value`    | `value`    |             | `string`  | `undefined` |
+
+
+### Events
+
+| Event    | Description | Type                  |
+| -------- | ----------- | --------------------- |
+| `change` |             | `CustomEvent<string>` |

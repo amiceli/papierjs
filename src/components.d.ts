@@ -20,6 +20,15 @@ export namespace Components {
         "small"?: boolean;
         "type"?: ButtonColor;
     }
+    interface PDropdown {
+        "dark"?: boolean;
+        "placeholder"?: string;
+    }
+    interface PDropdownItem {
+        "dark"?: boolean;
+        "selected"?: boolean;
+        "value": string;
+    }
     interface PInputText {
         "block"?: boolean;
         "dark"?: boolean;
@@ -40,6 +49,14 @@ export namespace Components {
 export interface PAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPAlertElement;
+}
+export interface PDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPDropdownElement;
+}
+export interface PDropdownItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPDropdownItemElement;
 }
 export interface PInputTextCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -69,6 +86,40 @@ declare global {
         prototype: HTMLPButtonElement;
         new (): HTMLPButtonElement;
     };
+    interface HTMLPDropdownElementEventMap {
+        "select": string;
+    }
+    interface HTMLPDropdownElement extends Components.PDropdown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPDropdownElementEventMap>(type: K, listener: (this: HTMLPDropdownElement, ev: PDropdownCustomEvent<HTMLPDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPDropdownElementEventMap>(type: K, listener: (this: HTMLPDropdownElement, ev: PDropdownCustomEvent<HTMLPDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPDropdownElement: {
+        prototype: HTMLPDropdownElement;
+        new (): HTMLPDropdownElement;
+    };
+    interface HTMLPDropdownItemElementEventMap {
+        "change": string;
+    }
+    interface HTMLPDropdownItemElement extends Components.PDropdownItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPDropdownItemElementEventMap>(type: K, listener: (this: HTMLPDropdownItemElement, ev: PDropdownItemCustomEvent<HTMLPDropdownItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPDropdownItemElementEventMap>(type: K, listener: (this: HTMLPDropdownItemElement, ev: PDropdownItemCustomEvent<HTMLPDropdownItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPDropdownItemElement: {
+        prototype: HTMLPDropdownItemElement;
+        new (): HTMLPDropdownItemElement;
+    };
     interface HTMLPInputTextElementEventMap {
         "change": string;
     }
@@ -95,6 +146,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "p-alert": HTMLPAlertElement;
         "p-button": HTMLPButtonElement;
+        "p-dropdown": HTMLPDropdownElement;
+        "p-dropdown-item": HTMLPDropdownItemElement;
         "p-input-text": HTMLPInputTextElement;
         "p-progress-bar": HTMLPProgressBarElement;
     }
@@ -114,6 +167,17 @@ declare namespace LocalJSX {
         "outline"?: boolean;
         "small"?: boolean;
         "type"?: ButtonColor;
+    }
+    interface PDropdown {
+        "dark"?: boolean;
+        "onSelect"?: (event: PDropdownCustomEvent<string>) => void;
+        "placeholder"?: string;
+    }
+    interface PDropdownItem {
+        "dark"?: boolean;
+        "onChange"?: (event: PDropdownItemCustomEvent<string>) => void;
+        "selected"?: boolean;
+        "value"?: string;
     }
     interface PInputText {
         "block"?: boolean;
@@ -135,6 +199,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "p-alert": PAlert;
         "p-button": PButton;
+        "p-dropdown": PDropdown;
+        "p-dropdown-item": PDropdownItem;
         "p-input-text": PInputText;
         "p-progress-bar": PProgressBar;
     }
@@ -145,6 +211,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
             "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
+            "p-dropdown": LocalJSX.PDropdown & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
+            "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
             "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
         }

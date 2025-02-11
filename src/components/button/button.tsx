@@ -1,4 +1,3 @@
-// biome-ignore lint/correctness/noUnusedImports: required for jsx
 import { Component, Prop, h } from '@stencil/core'
 
 type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'

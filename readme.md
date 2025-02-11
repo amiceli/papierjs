@@ -15,9 +15,10 @@ Available components:
 - Button
 - Alert
 - Progress bar
+- Text input
 
 Component ideas :
-- [ ] dropdown
+- [X] dropdown
 - [ ] notification
 - [ ] spinner
 - [ ] password
