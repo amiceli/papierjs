@@ -25,9 +25,10 @@ Component features :
 
 ## Using papercss
 
-**papierjs** use papercss style by only in shadow root. So you don't need to import papercss.
+**papierjs** uses papercss style only in shadow root.
+So you don't need to import papercss.
 
-And papercss global style isn't applied on your website.
+Papercss style isn't applied on your website.
 
 ## Install
 
