@@ -39,6 +39,9 @@ export namespace Components {
         "required"?: boolean;
         "value"?: string;
     }
+    interface PLeaf {
+        "dark"?: boolean;
+    }
     interface PProgressBar {
         "dark"?: boolean;
         "striped"?: boolean;
@@ -137,6 +140,12 @@ declare global {
         prototype: HTMLPInputTextElement;
         new (): HTMLPInputTextElement;
     };
+    interface HTMLPLeafElement extends Components.PLeaf, HTMLStencilElement {
+    }
+    var HTMLPLeafElement: {
+        prototype: HTMLPLeafElement;
+        new (): HTMLPLeafElement;
+    };
     interface HTMLPProgressBarElement extends Components.PProgressBar, HTMLStencilElement {
     }
     var HTMLPProgressBarElement: {
@@ -149,6 +158,7 @@ declare global {
         "p-dropdown": HTMLPDropdownElement;
         "p-dropdown-item": HTMLPDropdownItemElement;
         "p-input-text": HTMLPInputTextElement;
+        "p-leaf": HTMLPLeafElement;
         "p-progress-bar": HTMLPProgressBarElement;
     }
 }
@@ -190,6 +200,9 @@ declare namespace LocalJSX {
         "required"?: boolean;
         "value"?: string;
     }
+    interface PLeaf {
+        "dark"?: boolean;
+    }
     interface PProgressBar {
         "dark"?: boolean;
         "striped"?: boolean;
@@ -202,6 +215,7 @@ declare namespace LocalJSX {
         "p-dropdown": PDropdown;
         "p-dropdown-item": PDropdownItem;
         "p-input-text": PInputText;
+        "p-leaf": PLeaf;
         "p-progress-bar": PProgressBar;
     }
 }
@@ -214,6 +228,7 @@ declare module "@stencil/core" {
             "p-dropdown": LocalJSX.PDropdown & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
             "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
             "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
+            "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
         }
     }

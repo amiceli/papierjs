@@ -1,0 +1,20 @@
+@import '../mixins.scss';
+
+p-leaf {
+    display: inline-block;;
+
+    .papier {
+        @import "papercss/dist/paper";
+    
+        font-family: "Neucha", sans-serif;
+        font-size: 20px;
+    }
+}
+
+p-leaf:not([dark]) {
+    @include lightVariables();
+}
+
+p-leaf[dark] {
+    @include darkVariables();
+}
