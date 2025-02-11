@@ -6,7 +6,7 @@
 
 # papierjs - papercss with web components
 
-papierjs *(papier is paper in french)* provides web component built with stencil with 
+**papierjs** *(papier is paper in french)* provides web component built with stencil with 
 papercss style.
 
 papierjs will implements new components not in papercss like dropdown.
@@ -17,11 +17,17 @@ Available components:
 - Progress bar
 - Text input
 
-Component ideas :
-- [X] dropdown
+Component features :
+- [X] dropdown since `v0.1.0`
 - [ ] notification
 - [ ] spinner
 - [ ] password
+
+## Using papercss
+
+**papierjs** use papercss style by only in shadow root. So you don't need to import papercss.
+
+And papercss global style isn't applied on your website.
 
 ## Install
 
