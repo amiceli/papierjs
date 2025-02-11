@@ -1,3 +1,5 @@
+@import "./mixins.scss";
+
 .papier {
     @import "papercss/dist/paper";
 
@@ -6,111 +8,18 @@
 }
 
 .papier.is--dark {
-    --primary: #fff;
-    --secondary: #5595ce;
-    --success: #70c272;
-    --warning: #d4c252;
-    --danger: #df4c57;
-    --muted: #868e96;
-    --primary-light: white;
-    --secondary-light: #69a1d4;
-    --success-light: #82ca84;
-    --warning-light: #d9c966;
-    --danger-light: #e3626b;
-    --muted-light: #949ba2;
-    --primary-dark: gray;
-    --secondary-dark: #1f476b;
-    --success-dark: #265927;
-    --warning-dark: #71651c;
-    --danger-dark: #7c161e;
-    --muted-dark: #313538;
-    --primary-light-10: white;
-    --secondary-light-10: #7daed9;
-    --success-light-10: #94d195;
-    --warning-light-10: #ded07b;
-    --danger-light-10: #e77780;
-    --muted-light-10: #a1a8ae;
-    --primary-dark-10: #e6e6e6;
-    --secondary-dark-10: #367cba;
-    --success-dark-10: #4cb34f;
-    --warning-dark-10: #c3ae30;
-    --danger-dark-10: #d22633;
-    --muted-dark-10: #6c757d;
-    --primary-shaded-50: #343332;
-    --primary-shaded-70: #2f2e2d;
-    --white-dark: rgba(255, 255, 255, 0.03);
-    --white-dark-light-80: rgba(255, 255, 255, 0.03);
-    --light-dark: rgba(255, 255, 255, 0.7);
-    --white: white;
-    --main-background: #41403e;
-    --main-background-light: #c1c0bd;
-    --black: black;
-    --primary-text: #41403e;
-    --secondary-text: #1f476b;
-    --success-text: #265927;
-    --warning-text: #71651c;
-    --danger-text: #7c161e;
-    --muted-text: #949ba2;
-    --shadow-color-regular: rgba(0, 0, 0, 0.2);
-    --shadow-color-hover: rgba(0, 0, 0, 0.3);
-    --primary-inverse: #41403e;
+    @include darkVariables();
 }
 
 .papier:not(.is--dark) {
-    --primary: #41403e;
-    --secondary: #0b74d5;
-    --success: #86a361;
-    --warning: #ddcd45;
-    --danger: #a7342d;
-    --muted: #868e96;
-    --primary-light: #cdcccb;
-    --secondary-light: #d8ebfd;
-    --success-light: #d5dfc8;
-    --warning-light: #f5f0c6;
-    --danger-light: #f0cbc9;
-    --muted-light: #e6e7e9;
-    --primary-dark: black;
-    --secondary-dark: black;
-    --success-dark: #374427;
-    --warning-dark: #746a15;
-    --danger-dark: black;
-    --muted-dark: #313538;
-    --primary-light-10: #5b5a57;
-    --secondary-light-10: #208ef3;
-    --success-light-10: #9fb681;
-    --warning-light-10: #e5d970;
-    --danger-light-10: #cb453c;
-    --muted-light-10: #a1a8ae;
-    --primary-dark-10: #272625;
-    --secondary-dark-10: #085aa5;
-    --success-dark-10: #4a5a35;
-    --warning-dark-10: #746a15;
-    --danger-dark-10: #7f2722;
-    --muted-dark-10: #6c757d;
-    --primary-shaded-50: #c1c0bd;
-    --primary-shaded-70: #f2f2f2;
-    --white-dark: rgba(0, 0, 0, 0.03);
-    --white-dark-light-80: rgba(204, 204, 204, 0.03);
-    --light-dark: rgba(0, 0, 0, 0.7);
-    --white: white;
-    --main-background: white;
-    --main-background-light: white;
-    --black: black;
-    --primary-text: #272625;
-    --secondary-text: #085aa5;
-    --success-text: #4a5a35;
-    --warning-text: #746a15;
-    --danger-text: #7f2722;
-    --muted-text: #6c757d;
-    --shadow-color-regular: rgba(0, 0, 0, 0.2);
-    --shadow-color-hover: rgba(0, 0, 0, 0.3);
-    --primary-inverse: #fff;
+    @include lightVariables();
 }
 
 @mixin useBlock() {
     .papier.is--block {
         display: block;
     }
+
     .papier:not(.is--block) {
         display: inline-block;
     }
