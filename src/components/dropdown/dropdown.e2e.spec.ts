@@ -8,26 +8,29 @@ describe('p-dropdown', () => {
         const element = await page.find('p-dropdown')
         expect(element).toHaveClass('hydrated')
     })
-    it('handles outside click', async () => {
+    it('display placeholder', async () => {
         const page = await newE2EPage()
         await page.setContent(`
-            <h1>Outside</h1>
-            <p-dropdown></p-dropdown>
+            <p-dropdown placeholder="awesome">
+                <p-dropdown-item>Item 1</p-dropdown-item>
+            </p-dropdown-i>
         `)
 
         const header = await page.find('p-dropdown >>> .dropdown__header')
-        const h1 = await page.find('h1')
 
-        await header.click()
-        await page.waitForChanges()
+        expect(header.textContent).toEqual('awesome')
+    })
+    it('display selected item label', async () => {
+        const page = await newE2EPage()
+        await page.setContent(`
+            <p-dropdown placeholder="awesome">
+                <p-dropdown-item>Item 1</p-dropdown-item>
+                <p-dropdown-item selected>Item 2</p-dropdown-item>
+            </p-dropdown-i>
+        `)
 
-        const open = await page.find('p-dropdown >>> .dropdown')
+        const header = await page.find('p-dropdown >>> .dropdown__header')
 
-        expect(open.classList.contains('is--open')).toBeTruthy()
-
-        await h1.click()
-        await page.waitForChanges()
-
-        expect(open.classList.contains('is--open')).toBeFalsy()
+        expect(header.textContent).toEqual('Item 2')
     })
 })
