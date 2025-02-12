@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Components/Breadcrumb" />
+
+# p-breadcrumb - [papercss](https://www.getpapercss.com/docs/components/breadcrumb/)
+
+```html
+<p-breadcrumb>
+    <p-breadcrumb-item link="#">
+        Home
+    </p-breadcrumb-item>
+    <p-breadcrumb-item link="#">
+        Maison
+    </p-breadcrumb-item>
+    <p-breadcrumb-item>
+        Casa
+    </p-breadcrumb-item>
+</p-breadcrumb>
+```
+
+<p-breadcrumb>
+    <p-breadcrumb-item link="#">
+        <dpan>Home</dpan>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item link="#">
+        <span>Maison</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item>
+        <span>Casa</span>
+    </p-breadcrumb-item>
+</p-breadcrumb>
+
+<br />
+<br />
+
+## Dark mode
+
+```html
+<p-breadcrumb dark>
+    <p-breadcrumb-item link="#">
+        Home
+    </p-breadcrumb-item>
+</p-breadcrumb>
+```
+
+In dark mode all `p-breadcrumb-item` inherit dark mode.
+
+<div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
+    <p-breadcrumb dark>
+        <p-breadcrumb-item link="#">
+            <dpan>Home</dpan>
+        </p-breadcrumb-item>
+        <p-breadcrumb-item link="#">
+            <span>Maison</span>
+        </p-breadcrumb-item>
+        <p-breadcrumb-item>
+            <span>Casa</span>
+        </p-breadcrumb-item>
+    </p-breadcrumb>
+</div>
