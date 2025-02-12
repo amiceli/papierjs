@@ -1,0 +1,13 @@
+:host {
+    @import "../common";
+
+    .papier {
+        font-size: inherit;
+        font-family: inherit;
+    }
+    
+    &, & *{
+        font-size: inherit;
+        font-family: inherit;
+    }
+}
