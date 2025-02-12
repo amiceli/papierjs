@@ -12,13 +12,20 @@ papercss style.
 papierjs will implements new components not in papercss like dropdown.
 
 Available components:
-- Button
-- Alert
-- Progress bar
-- Text input
+- [X] Button
+- [X] Alert
+- [X] Progress bar
+- [X] Text input
+- [X] Badge
+- [ ] Card
+- [ ] Breadcrumb
+- [ ] Modals
+- [ ] NavBar
+- [ ] Tabs
 
 Component features :
 - [X] dropdown since `v0.1.0`
+- [X] `p-leaf` allow to use papercss style anywhere
 - [ ] notification
 - [ ] spinner
 - [ ] password
