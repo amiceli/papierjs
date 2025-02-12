@@ -11,6 +11,10 @@ export namespace Components {
         "dark"?: boolean;
         "type"?: AlertColor;
     }
+    interface PBadge {
+        "dark"?: boolean;
+        "type"?: BadgeColor;
+    }
     interface PButton {
         "block"?: boolean;
         "dark"?: boolean;
@@ -83,6 +87,12 @@ declare global {
         prototype: HTMLPAlertElement;
         new (): HTMLPAlertElement;
     };
+    interface HTMLPBadgeElement extends Components.PBadge, HTMLStencilElement {
+    }
+    var HTMLPBadgeElement: {
+        prototype: HTMLPBadgeElement;
+        new (): HTMLPBadgeElement;
+    };
     interface HTMLPButtonElement extends Components.PButton, HTMLStencilElement {
     }
     var HTMLPButtonElement: {
@@ -154,6 +164,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "p-alert": HTMLPAlertElement;
+        "p-badge": HTMLPBadgeElement;
         "p-button": HTMLPButtonElement;
         "p-dropdown": HTMLPDropdownElement;
         "p-dropdown-item": HTMLPDropdownItemElement;
@@ -168,6 +179,10 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "onClose"?: (event: PAlertCustomEvent<any>) => void;
         "type"?: AlertColor;
+    }
+    interface PBadge {
+        "dark"?: boolean;
+        "type"?: BadgeColor;
     }
     interface PButton {
         "block"?: boolean;
@@ -211,6 +226,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "p-alert": PAlert;
+        "p-badge": PBadge;
         "p-button": PButton;
         "p-dropdown": PDropdown;
         "p-dropdown-item": PDropdownItem;
@@ -224,6 +240,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
+            "p-badge": LocalJSX.PBadge & JSXBase.HTMLAttributes<HTMLPBadgeElement>;
             "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
             "p-dropdown": LocalJSX.PDropdown & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
             "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
