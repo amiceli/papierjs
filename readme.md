@@ -19,7 +19,7 @@ Available components:
 - [X] Badge
 - [ ] Card
 - [X] Breadcrumb
-- [ ] Modals
+- [W] Modals
 - [ ] NavBar
 - [ ] Tabs
 
