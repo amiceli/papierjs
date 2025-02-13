@@ -1,0 +1,33 @@
+:host {
+    @import "../common";
+    @import '../../../node_modules/papercss/src/core/config';
+
+    .breadcrumb {
+        .border {
+            padding: 10px 16px;
+        }
+    }
+
+    .breadcrumb-item {
+        font-size: 20px;
+        
+        &.is--dark {
+            @include color('color', 'white');
+        }
+
+        a {
+            @include color('color', 'secondary');
+
+            &:visited {
+                @include color('color', 'secondary');
+            }
+        }
+
+        &:not(.is--first) {
+            &:before {
+                content: '/\00a0';
+                padding: 8px;
+            }
+        }
+    }
+}

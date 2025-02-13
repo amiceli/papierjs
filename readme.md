@@ -18,7 +18,7 @@ Available components:
 - [X] Text input
 - [X] Badge
 - [ ] Card
-- [ ] Breadcrumb
+- [X] Breadcrumb
 - [ ] Modals
 - [ ] NavBar
 - [ ] Tabs

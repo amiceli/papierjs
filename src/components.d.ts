@@ -15,6 +15,14 @@ export namespace Components {
         "dark"?: boolean;
         "type"?: BadgeColor;
     }
+    interface PBreadcrumb {
+        "dark"?: boolean;
+    }
+    interface PBreadcrumbItem {
+        "dark"?: boolean;
+        "first"?: boolean;
+        "link"?: string;
+    }
     interface PButton {
         "block"?: boolean;
         "dark"?: boolean;
@@ -93,6 +101,18 @@ declare global {
         prototype: HTMLPBadgeElement;
         new (): HTMLPBadgeElement;
     };
+    interface HTMLPBreadcrumbElement extends Components.PBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLPBreadcrumbElement: {
+        prototype: HTMLPBreadcrumbElement;
+        new (): HTMLPBreadcrumbElement;
+    };
+    interface HTMLPBreadcrumbItemElement extends Components.PBreadcrumbItem, HTMLStencilElement {
+    }
+    var HTMLPBreadcrumbItemElement: {
+        prototype: HTMLPBreadcrumbItemElement;
+        new (): HTMLPBreadcrumbItemElement;
+    };
     interface HTMLPButtonElement extends Components.PButton, HTMLStencilElement {
     }
     var HTMLPButtonElement: {
@@ -165,6 +185,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "p-alert": HTMLPAlertElement;
         "p-badge": HTMLPBadgeElement;
+        "p-breadcrumb": HTMLPBreadcrumbElement;
+        "p-breadcrumb-item": HTMLPBreadcrumbItemElement;
         "p-button": HTMLPButtonElement;
         "p-dropdown": HTMLPDropdownElement;
         "p-dropdown-item": HTMLPDropdownItemElement;
@@ -183,6 +205,14 @@ declare namespace LocalJSX {
     interface PBadge {
         "dark"?: boolean;
         "type"?: BadgeColor;
+    }
+    interface PBreadcrumb {
+        "dark"?: boolean;
+    }
+    interface PBreadcrumbItem {
+        "dark"?: boolean;
+        "first"?: boolean;
+        "link"?: string;
     }
     interface PButton {
         "block"?: boolean;
@@ -227,6 +257,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "p-alert": PAlert;
         "p-badge": PBadge;
+        "p-breadcrumb": PBreadcrumb;
+        "p-breadcrumb-item": PBreadcrumbItem;
         "p-button": PButton;
         "p-dropdown": PDropdown;
         "p-dropdown-item": PDropdownItem;
@@ -241,6 +273,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
             "p-badge": LocalJSX.PBadge & JSXBase.HTMLAttributes<HTMLPBadgeElement>;
+            "p-breadcrumb": LocalJSX.PBreadcrumb & JSXBase.HTMLAttributes<HTMLPBreadcrumbElement>;
+            "p-breadcrumb-item": LocalJSX.PBreadcrumbItem & JSXBase.HTMLAttributes<HTMLPBreadcrumbItemElement>;
             "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
             "p-dropdown": LocalJSX.PDropdown & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
             "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
