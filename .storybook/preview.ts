@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/html'
 import { defineCustomElements } from '../loader'
+import { previewModal } from '../src/components/p-modal/p-modal.preview'
 
 defineCustomElements()
 
@@ -89,5 +90,7 @@ const preview: Preview = {
 handleDropdownOnChange()
 handleAlertClose()
 handleInputCahnge()
+
+previewModal()
 
 export default preview

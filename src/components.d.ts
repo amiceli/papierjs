@@ -54,6 +54,10 @@ export namespace Components {
     interface PLeaf {
         "dark"?: boolean;
     }
+    interface PModal {
+        "close": () => Promise<void>;
+        "open": () => Promise<void>;
+    }
     interface PProgressBar {
         "dark"?: boolean;
         "striped"?: boolean;
@@ -176,6 +180,12 @@ declare global {
         prototype: HTMLPLeafElement;
         new (): HTMLPLeafElement;
     };
+    interface HTMLPModalElement extends Components.PModal, HTMLStencilElement {
+    }
+    var HTMLPModalElement: {
+        prototype: HTMLPModalElement;
+        new (): HTMLPModalElement;
+    };
     interface HTMLPProgressBarElement extends Components.PProgressBar, HTMLStencilElement {
     }
     var HTMLPProgressBarElement: {
@@ -192,6 +202,7 @@ declare global {
         "p-dropdown-item": HTMLPDropdownItemElement;
         "p-input-text": HTMLPInputTextElement;
         "p-leaf": HTMLPLeafElement;
+        "p-modal": HTMLPModalElement;
         "p-progress-bar": HTMLPProgressBarElement;
     }
 }
@@ -248,6 +259,8 @@ declare namespace LocalJSX {
     interface PLeaf {
         "dark"?: boolean;
     }
+    interface PModal {
+    }
     interface PProgressBar {
         "dark"?: boolean;
         "striped"?: boolean;
@@ -264,6 +277,7 @@ declare namespace LocalJSX {
         "p-dropdown-item": PDropdownItem;
         "p-input-text": PInputText;
         "p-leaf": PLeaf;
+        "p-modal": PModal;
         "p-progress-bar": PProgressBar;
     }
 }
@@ -280,6 +294,7 @@ declare module "@stencil/core" {
             "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
             "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
             "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
+            "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
         }
     }

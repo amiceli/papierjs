@@ -1,0 +1,16 @@
+:host {
+    @import "../common";
+
+    .modal {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .modal-body {
+        top: 50% !important;
+    }
+
+    h4.modal-title ::slotted([slot="title"]) {
+        all: inherit !important;
+    }
+}
