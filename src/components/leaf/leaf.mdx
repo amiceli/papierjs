@@ -1,5 +1,5 @@
-import { Meta } from '@storybook/blocks';
-
+import { Meta, Markdown } from '@storybook/blocks';
+import Docs from './readme.md?raw' 
 
 <Meta title="Utils/Leaf" />
 
@@ -45,3 +45,6 @@ import { Meta } from '@storybook/blocks';
         <input type="button" className="btn-secondary" value="Secondary"/>
     </p-leaf>
 </div>
+
+<br />
+<Markdown>{Docs}</Markdown>
