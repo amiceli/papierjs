@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Markdown } from '@storybook/blocks';
+import Docs from './readme.md?raw' 
 
 <Meta title="Components/Alert" />
 
@@ -48,18 +49,5 @@ element.addEventListener('close', () => {
     <p-alert dark closable type="danger">PaperCss</p-alert>
 </div>
 
-## Properties
-
-| Property   | Attribute  | Description | Type                                                             | Default     |
-| ---------- | ---------- | ----------- | ---------------------------------------------------------------- | ----------- |
-| `closable` | `closable` |             | `boolean`                                                        | `false`     |
-| `dark`     | `dark`     |             | `boolean`                                                        | `false`     |
-| `type`     | `type`     |             | `"danger" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
-
-
-## Events
-
-| Event   | Description | Type               |
-| ------- | ----------- | ------------------ |
-| `close` |             | `CustomEvent<any>` |
-
+<br />
+<Markdown>{Docs}</Markdown>
