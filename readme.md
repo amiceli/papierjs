@@ -17,6 +17,7 @@ Available components:
 - [X] Progress bar
 - [X] Text input
 - [X] Badge
+- [X] Slider
 - [ ] Card
 - [X] Breadcrumb
 - [X] Modals
