@@ -1,4 +1,4 @@
-# p-alert
+# Docs
 
 
 
@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                                                             | Default     |
-| ---------- | ---------- | ----------- | ---------------------------------------------------------------- | ----------- |
-| `closable` | `closable` |             | `boolean`                                                        | `false`     |
-| `dark`     | `dark`     |             | `boolean`                                                        | `false`     |
-| `type`     | `type`     |             | `"danger" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| Property   | Attribute  | Description     | Type                                                             | Default     |
+| ---------- | ---------- | --------------- | ---------------------------------------------------------------- | ----------- |
+| `closable` | `closable` | Show close icon | `boolean`                                                        | `false`     |
+| `dark`     | `dark`     |                 | `boolean`                                                        | `false`     |
+| `type`     | `type`     |                 | `"danger" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
 
 
 ## Events

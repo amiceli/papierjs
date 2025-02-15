@@ -7,6 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface PAlert {
+        /**
+          * Show close icon
+         */
         "closable"?: boolean;
         "dark"?: boolean;
         "type"?: AlertColor;
@@ -208,6 +211,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface PAlert {
+        /**
+          * Show close icon
+         */
         "closable"?: boolean;
         "dark"?: boolean;
         "onClose"?: (event: PAlertCustomEvent<any>) => void;

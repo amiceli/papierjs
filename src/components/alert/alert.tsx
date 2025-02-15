@@ -10,8 +10,8 @@ type AlertColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 export class Alert {
     @Prop()
     type?: AlertColor = 'primary'
-    @Prop()
-    closable?: boolean = false
+    /** Show close icon */
+    @Prop() closable?: boolean = false
     @Prop()
     dark?: boolean = false
 
