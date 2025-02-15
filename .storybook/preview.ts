@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/html'
 import { defineCustomElements } from '../loader'
 import { previewCloseAlert } from '../src/components/alert/stories/alert.preview'
 import { handleInputCahnge } from '../src/components/input/input-text/stories/input-text.preview'
-import { previewModal } from '../src/components/p-modal/p-modal.preview'
+import { previewModal } from '../src/components/modal/modal.preview'
 
 defineCustomElements()
 

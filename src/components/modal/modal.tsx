@@ -2,7 +2,7 @@ import { Component, Host, Method, State, h } from '@stencil/core'
 
 @Component({
     tag: 'p-modal',
-    styleUrl: 'p-modal.scss',
+    styleUrl: 'modal.scss',
     shadow: true,
 })
 export class PModal {
@@ -10,12 +10,12 @@ export class PModal {
     isOpen: boolean = false
 
     @Method()
-    public open() {
+    public async open() {
         this.isOpen = true
     }
 
     @Method()
-    public close() {
+    public async close() {
         this.isOpen = false
     }
 
