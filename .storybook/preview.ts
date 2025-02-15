@@ -3,6 +3,7 @@ import { defineCustomElements } from '../loader'
 import { previewCloseAlert } from '../src/components/alert/stories/alert.preview'
 import { handleInputCahnge } from '../src/components/input/input-text/stories/input-text.preview'
 import { previewModal } from '../src/components/modal/modal.preview'
+import { previewSlider } from '../src/components/p-sliders/p-sliders.preview'
 
 defineCustomElements()
 
@@ -50,7 +51,7 @@ const preview: Preview = {
 handleDropdownOnChange()
 previewCloseAlert()
 handleInputCahnge()
-
+previewSlider()
 previewModal()
 
 export default preview

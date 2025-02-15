@@ -13,7 +13,7 @@ export function previewCloseAlert() {
     })
 
     alertObserver.observe(document.body, {
-        childList: true, // Observer les ajouts/enlèvements d'enfants
-        subtree: true, // Observer tout le sous-arbre DOM
+        childList: true,
+        subtree: true,
     })
 }

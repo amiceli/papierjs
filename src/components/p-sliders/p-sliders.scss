@@ -1,0 +1,15 @@
+:host {
+    @import "../common";
+
+    .papier {
+        .form-group {
+            margin-bottom: 0;
+        }
+    }
+
+    .papier:not(.is--block) {
+        .form-group {
+            display: inline-block;
+        }
+    }
+}

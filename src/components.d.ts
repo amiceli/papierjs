@@ -67,6 +67,13 @@ export namespace Components {
         "type"?: ProgressBarColor;
         "value"?: number;
     }
+    interface PSliders {
+        "block"?: boolean;
+        "dark"?: boolean;
+        "max"?: number;
+        "min"?: number;
+        "value"?: number;
+    }
 }
 export interface PAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -83,6 +90,10 @@ export interface PDropdownItemCustomEvent<T> extends CustomEvent<T> {
 export interface PInputTextCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPInputTextElement;
+}
+export interface PSlidersCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPSlidersElement;
 }
 declare global {
     interface HTMLPAlertElementEventMap {
@@ -195,6 +206,23 @@ declare global {
         prototype: HTMLPProgressBarElement;
         new (): HTMLPProgressBarElement;
     };
+    interface HTMLPSlidersElementEventMap {
+        "change": number;
+    }
+    interface HTMLPSlidersElement extends Components.PSliders, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPSlidersElementEventMap>(type: K, listener: (this: HTMLPSlidersElement, ev: PSlidersCustomEvent<HTMLPSlidersElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPSlidersElementEventMap>(type: K, listener: (this: HTMLPSlidersElement, ev: PSlidersCustomEvent<HTMLPSlidersElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPSlidersElement: {
+        prototype: HTMLPSlidersElement;
+        new (): HTMLPSlidersElement;
+    };
     interface HTMLElementTagNameMap {
         "p-alert": HTMLPAlertElement;
         "p-badge": HTMLPBadgeElement;
@@ -207,6 +235,7 @@ declare global {
         "p-leaf": HTMLPLeafElement;
         "p-modal": HTMLPModalElement;
         "p-progress-bar": HTMLPProgressBarElement;
+        "p-sliders": HTMLPSlidersElement;
     }
 }
 declare namespace LocalJSX {
@@ -273,6 +302,14 @@ declare namespace LocalJSX {
         "type"?: ProgressBarColor;
         "value"?: number;
     }
+    interface PSliders {
+        "block"?: boolean;
+        "dark"?: boolean;
+        "max"?: number;
+        "min"?: number;
+        "onChange"?: (event: PSlidersCustomEvent<number>) => void;
+        "value"?: number;
+    }
     interface IntrinsicElements {
         "p-alert": PAlert;
         "p-badge": PBadge;
@@ -285,6 +322,7 @@ declare namespace LocalJSX {
         "p-leaf": PLeaf;
         "p-modal": PModal;
         "p-progress-bar": PProgressBar;
+        "p-sliders": PSliders;
     }
 }
 export { LocalJSX as JSX };
@@ -302,6 +340,7 @@ declare module "@stencil/core" {
             "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
             "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
+            "p-sliders": LocalJSX.PSliders & JSXBase.HTMLAttributes<HTMLPSlidersElement>;
         }
     }
 }
