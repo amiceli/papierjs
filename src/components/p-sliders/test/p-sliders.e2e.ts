@@ -1,4 +1,4 @@
-import { E2EElement, newE2EPage } from '@stencil/core/testing'
+import { newE2EPage } from '@stencil/core/testing'
 
 describe('p-sliders', () => {
     it('renders', async () => {
