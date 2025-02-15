@@ -1,23 +1,23 @@
 import { Meta } from '@storybook/blocks';
 
-<Meta title="Components/Slider/Demo" />
+<Meta title="Form/Slider/Demo" />
 
 # Slider
 
 ```html
-<p-sliders></p-sliders>
-<p-sliders 
+<p-slider></p-slider>
+<p-slider 
     block 
     min="10" 
     max="40"
-></p-sliders>
+></p-slider>
 ```
 
-<p-sliders></p-sliders>
+<p-slider></p-slider>
 
-`p-sliders` with block style : 
+`p-slider` with block style : 
 
-<p-sliders block min="10" max="40"></p-sliders>
+<p-slider block min="10" max="40"></p-slider>
 
 <br />
 
@@ -34,19 +34,19 @@ slider.addEventListener('change', (e: CustomEvent) => {
 ```html
 Value is <span id="for-slider-label">0</span>
 
-<p-sliders id="for-slider"></p-sliders>
+<p-slider id="for-slider"></p-slider>
 ```
 
 Value is <span id="for-slider-label">0</span>
 
-<p-sliders id="for-slider"></p-sliders>
+<p-slider id="for-slider"></p-slider>
 
 ## Dark mode
 
 ```html
-<p-sliders dark min="10" max="40"></p-sliders>
+<p-slider dark min="10" max="40"></p-slider>
 ```
 
 <div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
-    <p-sliders dark min="10" max="40"></p-sliders>
+    <p-slider dark min="10" max="40"></p-slider>
 </div>

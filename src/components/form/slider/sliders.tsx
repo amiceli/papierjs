@@ -8,8 +8,8 @@ import {
 } from '@stencil/core'
 
 @Component({
-    tag: 'p-sliders',
-    styleUrl: 'p-sliders.scss',
+    tag: 'p-slider',
+    styleUrl: 'slider.scss',
     shadow: true,
 })
 export class PSliders {

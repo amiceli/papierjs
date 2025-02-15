@@ -1,4 +1,4 @@
-# p-sliders
+# p-slider
 
 
 
