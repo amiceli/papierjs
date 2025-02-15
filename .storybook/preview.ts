@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/html'
 import { defineCustomElements } from '../loader'
+import { previewCloseAlert } from '../src/components/alert/stories/alert.preview'
 import { previewModal } from '../src/components/p-modal/p-modal.preview'
 
 defineCustomElements()
@@ -56,26 +57,6 @@ function handleDropdownOnChange() {
     })
 }
 
-function handleAlertClose() {
-    const alertObserver = new MutationObserver((mutationsList, observer) => {
-        const alert = document.querySelector('#onClose')
-
-        if (alert) {
-            alert.addEventListener('close', () => {
-                alert.removeAttribute('closable')
-                alert.textContent = 'Closed !'
-            })
-
-            alertObserver.disconnect()
-        }
-    })
-
-    alertObserver.observe(document.body, {
-        childList: true, // Observer les ajouts/enlèvements d'enfants
-        subtree: true, // Observer tout le sous-arbre DOM
-    })
-}
-
 const preview: Preview = {
     parameters: {
         controls: {
@@ -88,7 +69,7 @@ const preview: Preview = {
 }
 
 handleDropdownOnChange()
-handleAlertClose()
+previewCloseAlert()
 handleInputCahnge()
 
 previewModal()

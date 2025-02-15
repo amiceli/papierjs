@@ -1,9 +1,8 @@
-import { Meta, Markdown } from '@storybook/blocks';
-import Docs from './readme.md?raw' 
+import { Meta } from '@storybook/blocks';
 
-<Meta title="Components/Alert" />
+<Meta title="Components/Alert/Demo" />
 
-# p-alert
+# Alert
 
 ```html
 <p-alert type="primary">PaperCss</p-alert>
@@ -25,7 +24,7 @@ When you click on *close* `p-alert` will emit `close` event.
 
 ```html
 <p-alert closable type="primary">PaperCss</p-alert>
-<p-alert id="onClose" closable type="danger">PaperCss</p-alert>
+<p-alert id="onClose" closable type="danger">Close me !</p-alert>
 ```
 
 ```javascript
@@ -37,7 +36,7 @@ element.addEventListener('close', () => {
 ```
 
 <p-alert closable type="primary">PaperCss</p-alert>
-<p-alert id="onClose" closable type="danger">PaperCss</p-alert>
+<p-alert id="onClose" closable type="danger">Close me !</p-alert>
 
 ## Dark mode
 
@@ -48,6 +47,3 @@ element.addEventListener('close', () => {
     <p-alert dark closable type="warning">PaperCss</p-alert>
     <p-alert dark closable type="danger">PaperCss</p-alert>
 </div>
-
-<br />
-<Markdown>{Docs}</Markdown>
