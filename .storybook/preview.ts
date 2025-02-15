@@ -1,31 +1,10 @@
 import type { Preview } from '@storybook/html'
 import { defineCustomElements } from '../loader'
 import { previewCloseAlert } from '../src/components/alert/stories/alert.preview'
+import { handleInputCahnge } from '../src/components/input/input-text/stories/input-text.preview'
 import { previewModal } from '../src/components/p-modal/p-modal.preview'
 
 defineCustomElements()
-
-function handleInputCahnge() {
-    const inputObserver = new MutationObserver((mutationsList, observer) => {
-        const videoGame = document.querySelector('#video-game')
-
-        if (videoGame) {
-            // @ts-ignore
-            videoGame.addEventListener('change', (e: CustomEvent) => {
-                const span = document.querySelector('#video-game-answer')
-                if (span) {
-                    span.textContent = e.detail
-                }
-            })
-            inputObserver.disconnect()
-        }
-    })
-
-    inputObserver.observe(document.body, {
-        childList: true, // Observer les ajouts/enlèvements d'enfants
-        subtree: true, // Observer tout le sous-arbre DOM
-    })
-}
 
 function handleDropdownOnChange() {
     const dropdownObserver = new MutationObserver((mutationsList, observer) => {
