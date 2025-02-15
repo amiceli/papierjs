@@ -10,6 +10,7 @@ const config: StorybookConfig = {
         {
             name: '@storybook/addon-docs',
             options: {
+                transcludeMarkdown: true,
                 mdxPluginOptions: {
                     mdxCompileOptions: {
                         remarkPlugins: [remarkGfm],

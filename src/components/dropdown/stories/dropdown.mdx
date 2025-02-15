@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/blocks';
 
-<Meta title="Components/Dropdown" />
+<Meta title="Components/Dropdown/Demo" />
 
-# p-dropdown & p-dropdown-item
+# Dropdwon
 
 ```html
 <p-dropdown>
@@ -65,41 +65,3 @@ If any `p-dropdown-item` is `selected`, you can set a placeholder.
     <p-dropdown-item value="unity">AC Unity</p-dropdown-item>
     <p-dropdown-item value="origin">AC Origin</p-dropdown-item>
 </p-dropdown>
-
-<br />
-<br />
-
----
-
-## p-dropdown
-
-### Properties
-
-| Property      | Attribute     | Description | Type      | Default     |
-| ------------- | ------------- | ----------- | --------- | ----------- |
-| `dark`        | `dark`        |             | `boolean` | `false`     |
-| `placeholder` | `placeholder` |             | `string`  | `undefined` |
-
-
-### Events
-
-| Event    | Description | Type                  |
-| -------- | ----------- | --------------------- |
-| `select` |             | `CustomEvent<string>` |
-
-## p-dropdown-item
-
-### Properties
-
-| Property   | Attribute  | Description | Type      | Default     |
-| ---------- | ---------- | ----------- | --------- | ----------- |
-| `dark`     | `dark`     |             | `boolean` | `false`     |
-| `selected` | `selected` |             | `boolean` | `false`     |
-| `value`    | `value`    |             | `string`  | `undefined` |
-
-
-### Events
-
-| Event    | Description | Type                  |
-| -------- | ----------- | --------------------- |
-| `change` |             | `CustomEvent<string>` |
