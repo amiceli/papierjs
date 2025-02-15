@@ -1,6 +1,6 @@
 :host {
-    @import "../common";
-    @import '../../../node_modules/papercss/src/core/config';
+    @import "../../common";
+    @import '../../../../node_modules/papercss/src/core/config';
 
     .breadcrumb {
         .border {
