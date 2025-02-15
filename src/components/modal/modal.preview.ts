@@ -1,4 +1,4 @@
-import type { PModal } from '../../../dist/types/components/modal/modal'
+import type { PModal } from './modal'
 
 export function previewModal() {
     const inputObserver = new MutationObserver(() => {
