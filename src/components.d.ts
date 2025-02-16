@@ -74,6 +74,38 @@ export namespace Components {
         "min"?: number;
         "value"?: number;
     }
+    interface PSwitch {
+        "checked"?: boolean;
+        "dark"?: boolean;
+        /**
+          * define switch style
+         */
+        "round"?: boolean;
+        /**
+          * define switch parent style
+         */
+        "square"?: boolean;
+    }
+    interface PSwitchTile {
+        "checked"?: boolean;
+        "checkedBackground"?: TileBackground;
+        "checkedText"?: string;
+        "dark"?: boolean;
+        "uncheckedBackground"?: TileBackground;
+        "uncheckedText"?: string;
+    }
+    interface SwitchTile {
+        "checked"?: boolean;
+        "dark"?: boolean;
+        /**
+          * define switch style
+         */
+        "round"?: boolean;
+        /**
+          * define switch parent style
+         */
+        "square"?: boolean;
+    }
 }
 export interface PAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -94,6 +126,18 @@ export interface PInputTextCustomEvent<T> extends CustomEvent<T> {
 export interface PSliderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPSliderElement;
+}
+export interface PSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPSwitchElement;
+}
+export interface PSwitchTileCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPSwitchTileElement;
+}
+export interface SwitchTileCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwitchTileElement;
 }
 declare global {
     interface HTMLPAlertElementEventMap {
@@ -223,6 +267,57 @@ declare global {
         prototype: HTMLPSliderElement;
         new (): HTMLPSliderElement;
     };
+    interface HTMLPSwitchElementEventMap {
+        "change": boolean;
+    }
+    interface HTMLPSwitchElement extends Components.PSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPSwitchElementEventMap>(type: K, listener: (this: HTMLPSwitchElement, ev: PSwitchCustomEvent<HTMLPSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPSwitchElementEventMap>(type: K, listener: (this: HTMLPSwitchElement, ev: PSwitchCustomEvent<HTMLPSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPSwitchElement: {
+        prototype: HTMLPSwitchElement;
+        new (): HTMLPSwitchElement;
+    };
+    interface HTMLPSwitchTileElementEventMap {
+        "change": boolean;
+    }
+    interface HTMLPSwitchTileElement extends Components.PSwitchTile, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPSwitchTileElementEventMap>(type: K, listener: (this: HTMLPSwitchTileElement, ev: PSwitchTileCustomEvent<HTMLPSwitchTileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPSwitchTileElementEventMap>(type: K, listener: (this: HTMLPSwitchTileElement, ev: PSwitchTileCustomEvent<HTMLPSwitchTileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPSwitchTileElement: {
+        prototype: HTMLPSwitchTileElement;
+        new (): HTMLPSwitchTileElement;
+    };
+    interface HTMLSwitchTileElementEventMap {
+        "change": boolean;
+    }
+    interface HTMLSwitchTileElement extends Components.SwitchTile, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwitchTileElementEventMap>(type: K, listener: (this: HTMLSwitchTileElement, ev: SwitchTileCustomEvent<HTMLSwitchTileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwitchTileElementEventMap>(type: K, listener: (this: HTMLSwitchTileElement, ev: SwitchTileCustomEvent<HTMLSwitchTileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwitchTileElement: {
+        prototype: HTMLSwitchTileElement;
+        new (): HTMLSwitchTileElement;
+    };
     interface HTMLElementTagNameMap {
         "p-alert": HTMLPAlertElement;
         "p-badge": HTMLPBadgeElement;
@@ -236,6 +331,9 @@ declare global {
         "p-modal": HTMLPModalElement;
         "p-progress-bar": HTMLPProgressBarElement;
         "p-slider": HTMLPSliderElement;
+        "p-switch": HTMLPSwitchElement;
+        "p-switch-tile": HTMLPSwitchTileElement;
+        "switch-tile": HTMLSwitchTileElement;
     }
 }
 declare namespace LocalJSX {
@@ -310,6 +408,41 @@ declare namespace LocalJSX {
         "onChange"?: (event: PSliderCustomEvent<number>) => void;
         "value"?: number;
     }
+    interface PSwitch {
+        "checked"?: boolean;
+        "dark"?: boolean;
+        "onChange"?: (event: PSwitchCustomEvent<boolean>) => void;
+        /**
+          * define switch style
+         */
+        "round"?: boolean;
+        /**
+          * define switch parent style
+         */
+        "square"?: boolean;
+    }
+    interface PSwitchTile {
+        "checked"?: boolean;
+        "checkedBackground"?: TileBackground;
+        "checkedText"?: string;
+        "dark"?: boolean;
+        "onChange"?: (event: PSwitchTileCustomEvent<boolean>) => void;
+        "uncheckedBackground"?: TileBackground;
+        "uncheckedText"?: string;
+    }
+    interface SwitchTile {
+        "checked"?: boolean;
+        "dark"?: boolean;
+        "onChange"?: (event: SwitchTileCustomEvent<boolean>) => void;
+        /**
+          * define switch style
+         */
+        "round"?: boolean;
+        /**
+          * define switch parent style
+         */
+        "square"?: boolean;
+    }
     interface IntrinsicElements {
         "p-alert": PAlert;
         "p-badge": PBadge;
@@ -323,6 +456,9 @@ declare namespace LocalJSX {
         "p-modal": PModal;
         "p-progress-bar": PProgressBar;
         "p-slider": PSlider;
+        "p-switch": PSwitch;
+        "p-switch-tile": PSwitchTile;
+        "switch-tile": SwitchTile;
     }
 }
 export { LocalJSX as JSX };
@@ -341,6 +477,9 @@ declare module "@stencil/core" {
             "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
             "p-slider": LocalJSX.PSlider & JSXBase.HTMLAttributes<HTMLPSliderElement>;
+            "p-switch": LocalJSX.PSwitch & JSXBase.HTMLAttributes<HTMLPSwitchElement>;
+            "p-switch-tile": LocalJSX.PSwitchTile & JSXBase.HTMLAttributes<HTMLPSwitchTileElement>;
+            "switch-tile": LocalJSX.SwitchTile & JSXBase.HTMLAttributes<HTMLSwitchTileElement>;
         }
     }
 }
