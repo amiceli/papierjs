@@ -24,8 +24,6 @@ export default {
             control: 'boolean',
         },
     },
-
-    tags: ['!autodocs'],
 }
 
 const Template = (args) => {
