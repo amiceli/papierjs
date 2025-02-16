@@ -1,12 +1,8 @@
 import { Meta } from '@storybook/blocks';
 
-<Meta title="Components/Buttons/Demo" />
+<Meta title="Components/Buttons/Overview" />
 
 # Button
-
-```html
-<p-button type="success">Awesome</p-button>
-```
 
 <p-button>Default</p-button>
 &nbsp;
@@ -20,24 +16,13 @@ import { Meta } from '@storybook/blocks';
 &nbsp;
 <p-button type="warning">warning</p-button>
 
-<br />
 ## Outline
-
-```html
-<p-button outline type="success">Awesome</p-button>
-```
 
 <p-button outline type="success">Success</p-button>
 &nbsp;
 <p-button outline type="danger">danger</p-button>
 
 ## Size
-
-```html
-<p-button large type="success">Large</p-button>
-<p-button small type="secondary">Small</p-button>
-<p-button block type="secondary">Block</p-button>
-```
 
 <p-button large type="success">Large</p-button>
 &nbsp;
@@ -48,10 +33,6 @@ import { Meta } from '@storybook/blocks';
 </div>
 
 ## Dark mode
-
-```html
-<p-button dark type="success">Dark</p-button>
-```
 
 <div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
     <p-button dark>Default</p-button>
@@ -65,13 +46,11 @@ import { Meta } from '@storybook/blocks';
     <p-button dark type="danger">danger</p-button>
     &nbsp;
     <p-button dark type="warning">warning</p-button>
+    &nbsp;
+    <p-button dark disabled type="warning">disabled</p-button>
 </div>
 
 ## Disabled
-
-```html
-<p-button disabled type="success">Large</p-button>
-```
 
 With `disabled` prop, button type isn't applied.
 

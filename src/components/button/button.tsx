@@ -2,6 +2,9 @@ import { Component, Prop, h } from '@stencil/core'
 
 type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
 
+/**
+ * @slot - button content
+ */
 @Component({
     tag: 'p-button',
     styleUrl: 'button.scss',
