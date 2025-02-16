@@ -7,22 +7,22 @@ import {
     h,
 } from '@stencil/core'
 
-type TileBackground = 'primary' | 'danger' | 'secondary' | 'success'
+type TileBackground = 'primary' | 'danger' | 'secondary' | 'success' | 'muted'
 
+/**
+ * @slot unchecked-text - displayed text when switch is unchecked
+ * @slot checked-text - displayed text when switch is checked
+ */
 @Component({
     tag: 'p-switch-tile',
     styleUrl: 'switch-tile.scss',
     shadow: true,
 })
 export class SwitchTile {
-    @Prop()
-    public dark?: boolean = false
+    /** Enable dark mode */
+    @Prop() public dark?: boolean = false
     @Prop()
     public checked?: boolean = false
-    @Prop()
-    public checkedText?: string = ''
-    @Prop()
-    public uncheckedText?: string = ''
     @Prop()
     public checkedBackground?: TileBackground = 'primary'
     @Prop()
@@ -76,10 +76,10 @@ export class SwitchTile {
                             />
                             <div class="paper-switch-tile-card border">
                                 <div class={this.getFrontCardClass()}>
-                                    {this.uncheckedText}
+                                    <slot name="unchecked-text" />
                                 </div>
                                 <div class={this.getBackCardClass()}>
-                                    {this.checkedText}
+                                    <slot name="checked-text" />
                                 </div>
                             </div>
                         </label>
