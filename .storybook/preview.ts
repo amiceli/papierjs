@@ -5,6 +5,7 @@ import { handleDropdownOnChange } from '../src/components/dropdown/dropdown/drop
 import { handleInputCahnge } from '../src/components/form/input-text/stories/input-text.preview'
 import { previewSlider } from '../src/components/form/slider/sliders.preview'
 import { previewModal } from '../src/components/modal/modal.preview'
+import { previewProgressbar } from '../src/components/progress-bar/stories/progress-bar.preview'
 
 defineCustomElements()
 
@@ -24,5 +25,6 @@ previewCloseAlert()
 handleInputCahnge()
 previewSlider()
 previewModal()
+previewProgressbar()
 
 export default preview

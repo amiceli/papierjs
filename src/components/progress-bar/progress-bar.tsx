@@ -32,7 +32,9 @@ export class ProgressBar {
             'muted',
             'primary',
         ]
-        let cssClass = `bar w-${this.value}`
+        const value = this.value < 0 ? 0 : this.value > 100 ? 100 : this.value
+
+        let cssClass = `bar w-${value}`
 
         if (!types.includes(this.type)) {
             cssClass = `${cssClass} primary`
