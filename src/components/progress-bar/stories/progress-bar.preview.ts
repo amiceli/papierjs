@@ -4,9 +4,8 @@ export function previewProgressbar() {
         const progressBtn = document.querySelector('#animated-progress-button')
         let value = 10
 
-        progress.setAttribute('value', `${value}`)
-
         if (progress && progressBtn) {
+            progress.setAttribute('value', `${value}`)
             progressBtn.addEventListener('click', () => {
                 if (value === 100) {
                     value = -10
