@@ -38,11 +38,21 @@ export namespace Components {
     interface PDropdown {
         "dark"?: boolean;
         "placeholder"?: string;
+        /**
+          * Prevent dropdown self update selected value
+         */
+        "preventSelected"?: boolean;
+        /**
+          * Selected item value
+         */
+        "value"?: string;
     }
     interface PDropdownItem {
         "dark"?: boolean;
         "selected"?: boolean;
         "value": string;
+    }
+    interface PDropdownPreview {
     }
     interface PInputText {
         "block"?: boolean;
@@ -89,22 +99,11 @@ export namespace Components {
     interface PSwitchTile {
         "checked"?: boolean;
         "checkedBackground"?: TileBackground;
-        "checkedText"?: string;
+        /**
+          * Enable dark mode
+         */
         "dark"?: boolean;
         "uncheckedBackground"?: TileBackground;
-        "uncheckedText"?: string;
-    }
-    interface SwitchTile {
-        "checked"?: boolean;
-        "dark"?: boolean;
-        /**
-          * define switch style
-         */
-        "round"?: boolean;
-        /**
-          * define switch parent style
-         */
-        "square"?: boolean;
     }
 }
 export interface PAlertCustomEvent<T> extends CustomEvent<T> {
@@ -123,6 +122,10 @@ export interface PInputTextCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPInputTextElement;
 }
+export interface PModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPModalElement;
+}
 export interface PSliderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPSliderElement;
@@ -134,10 +137,6 @@ export interface PSwitchCustomEvent<T> extends CustomEvent<T> {
 export interface PSwitchTileCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPSwitchTileElement;
-}
-export interface SwitchTileCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLSwitchTileElement;
 }
 declare global {
     interface HTMLPAlertElementEventMap {
@@ -215,6 +214,12 @@ declare global {
         prototype: HTMLPDropdownItemElement;
         new (): HTMLPDropdownItemElement;
     };
+    interface HTMLPDropdownPreviewElement extends Components.PDropdownPreview, HTMLStencilElement {
+    }
+    var HTMLPDropdownPreviewElement: {
+        prototype: HTMLPDropdownPreviewElement;
+        new (): HTMLPDropdownPreviewElement;
+    };
     interface HTMLPInputTextElementEventMap {
         "change": string;
     }
@@ -238,7 +243,18 @@ declare global {
         prototype: HTMLPLeafElement;
         new (): HTMLPLeafElement;
     };
+    interface HTMLPModalElementEventMap {
+        "close": void;
+    }
     interface HTMLPModalElement extends Components.PModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPModalElementEventMap>(type: K, listener: (this: HTMLPModalElement, ev: PModalCustomEvent<HTMLPModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPModalElementEventMap>(type: K, listener: (this: HTMLPModalElement, ev: PModalCustomEvent<HTMLPModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPModalElement: {
         prototype: HTMLPModalElement;
@@ -301,23 +317,6 @@ declare global {
         prototype: HTMLPSwitchTileElement;
         new (): HTMLPSwitchTileElement;
     };
-    interface HTMLSwitchTileElementEventMap {
-        "change": boolean;
-    }
-    interface HTMLSwitchTileElement extends Components.SwitchTile, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLSwitchTileElementEventMap>(type: K, listener: (this: HTMLSwitchTileElement, ev: SwitchTileCustomEvent<HTMLSwitchTileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLSwitchTileElementEventMap>(type: K, listener: (this: HTMLSwitchTileElement, ev: SwitchTileCustomEvent<HTMLSwitchTileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLSwitchTileElement: {
-        prototype: HTMLSwitchTileElement;
-        new (): HTMLSwitchTileElement;
-    };
     interface HTMLElementTagNameMap {
         "p-alert": HTMLPAlertElement;
         "p-badge": HTMLPBadgeElement;
@@ -326,6 +325,7 @@ declare global {
         "p-button": HTMLPButtonElement;
         "p-dropdown": HTMLPDropdownElement;
         "p-dropdown-item": HTMLPDropdownItemElement;
+        "p-dropdown-preview": HTMLPDropdownPreviewElement;
         "p-input-text": HTMLPInputTextElement;
         "p-leaf": HTMLPLeafElement;
         "p-modal": HTMLPModalElement;
@@ -333,7 +333,6 @@ declare global {
         "p-slider": HTMLPSliderElement;
         "p-switch": HTMLPSwitchElement;
         "p-switch-tile": HTMLPSwitchTileElement;
-        "switch-tile": HTMLSwitchTileElement;
     }
 }
 declare namespace LocalJSX {
@@ -371,12 +370,22 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "onSelect"?: (event: PDropdownCustomEvent<string>) => void;
         "placeholder"?: string;
+        /**
+          * Prevent dropdown self update selected value
+         */
+        "preventSelected"?: boolean;
+        /**
+          * Selected item value
+         */
+        "value"?: string;
     }
     interface PDropdownItem {
         "dark"?: boolean;
         "onChange"?: (event: PDropdownItemCustomEvent<string>) => void;
         "selected"?: boolean;
-        "value"?: string;
+        "value": string;
+    }
+    interface PDropdownPreview {
     }
     interface PInputText {
         "block"?: boolean;
@@ -393,6 +402,7 @@ declare namespace LocalJSX {
         "dark"?: boolean;
     }
     interface PModal {
+        "onClose"?: (event: PModalCustomEvent<void>) => void;
     }
     interface PProgressBar {
         "dark"?: boolean;
@@ -424,24 +434,12 @@ declare namespace LocalJSX {
     interface PSwitchTile {
         "checked"?: boolean;
         "checkedBackground"?: TileBackground;
-        "checkedText"?: string;
+        /**
+          * Enable dark mode
+         */
         "dark"?: boolean;
         "onChange"?: (event: PSwitchTileCustomEvent<boolean>) => void;
         "uncheckedBackground"?: TileBackground;
-        "uncheckedText"?: string;
-    }
-    interface SwitchTile {
-        "checked"?: boolean;
-        "dark"?: boolean;
-        "onChange"?: (event: SwitchTileCustomEvent<boolean>) => void;
-        /**
-          * define switch style
-         */
-        "round"?: boolean;
-        /**
-          * define switch parent style
-         */
-        "square"?: boolean;
     }
     interface IntrinsicElements {
         "p-alert": PAlert;
@@ -451,6 +449,7 @@ declare namespace LocalJSX {
         "p-button": PButton;
         "p-dropdown": PDropdown;
         "p-dropdown-item": PDropdownItem;
+        "p-dropdown-preview": PDropdownPreview;
         "p-input-text": PInputText;
         "p-leaf": PLeaf;
         "p-modal": PModal;
@@ -458,7 +457,6 @@ declare namespace LocalJSX {
         "p-slider": PSlider;
         "p-switch": PSwitch;
         "p-switch-tile": PSwitchTile;
-        "switch-tile": SwitchTile;
     }
 }
 export { LocalJSX as JSX };
@@ -472,6 +470,7 @@ declare module "@stencil/core" {
             "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
             "p-dropdown": LocalJSX.PDropdown & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
             "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
+            "p-dropdown-preview": LocalJSX.PDropdownPreview & JSXBase.HTMLAttributes<HTMLPDropdownPreviewElement>;
             "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
             "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
             "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;
@@ -479,7 +478,6 @@ declare module "@stencil/core" {
             "p-slider": LocalJSX.PSlider & JSXBase.HTMLAttributes<HTMLPSliderElement>;
             "p-switch": LocalJSX.PSwitch & JSXBase.HTMLAttributes<HTMLPSwitchElement>;
             "p-switch-tile": LocalJSX.PSwitchTile & JSXBase.HTMLAttributes<HTMLPSwitchTileElement>;
-            "switch-tile": LocalJSX.SwitchTile & JSXBase.HTMLAttributes<HTMLSwitchTileElement>;
         }
     }
 }

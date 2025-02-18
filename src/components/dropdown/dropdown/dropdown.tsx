@@ -64,7 +64,7 @@ export class Alert {
         }
     }
 
-    public componentDidLoad() {
+    public componentWillLoad() {
         const items = Array.from(
             this.el.getElementsByTagName('p-dropdown-item'),
         )
@@ -72,6 +72,9 @@ export class Alert {
         for (const item of items) {
             if (this.dark) {
                 item.setAttribute('dark', 'true')
+            }
+            if (item.selected === true) {
+                this.value = item.value
             }
             item.addEventListener('change', (e) => {
                 this.selectEvent.emit(e.detail)

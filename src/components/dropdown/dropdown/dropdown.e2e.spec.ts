@@ -24,8 +24,8 @@ describe('p-dropdown', () => {
         const page = await newE2EPage()
         await page.setContent(`
             <p-dropdown placeholder="awesome">
-                <p-dropdown-item>Item 1</p-dropdown-item>
-                <p-dropdown-item selected>Item 2</p-dropdown-item>
+                <p-dropdown-item value="item_1">Item 1</p-dropdown-item>
+                <p-dropdown-item value="item_2" selected>Item 2</p-dropdown-item>
             </p-dropdown-i>
         `)
 
