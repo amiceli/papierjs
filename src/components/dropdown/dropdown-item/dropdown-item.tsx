@@ -5,9 +5,9 @@ import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
     styleUrl: '../dropdown/dropdown.scss',
     shadow: true,
 })
-export class Alert {
+export class DropdownItem {
     @Prop()
-    value: string
+    value!: string
     @Prop()
     selected?: boolean = false
     @Prop()
@@ -17,13 +17,10 @@ export class Alert {
     public changeEvent: EventEmitter<string>
 
     public getParentClass() {
-        let cssClass = 'papier dropdown-item'
-
-        if (this.dark) {
-            cssClass = `${cssClass} is--dark`
+        return {
+            'papier dropdown-item': true,
+            'is--dark': this.dark,
         }
-
-        return cssClass
     }
 
     public sendClick() {
@@ -33,7 +30,12 @@ export class Alert {
     render() {
         return (
             <div class={this.getParentClass()} onClick={() => this.sendClick()}>
-                <div class="border border-primary">
+                <div
+                    class={{
+                        'background-success': this.selected,
+                        'border border-primary': true,
+                    }}
+                >
                     <slot />
                 </div>
             </div>
