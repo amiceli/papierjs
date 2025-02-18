@@ -1,3 +1,5 @@
+import imageFile from '/public/dropdown-preview.png'
+
 export default {
     title: 'Components/Dropdown/Overview',
 }
@@ -46,12 +48,21 @@ const Template = () => {
         <div>
             <p-leaf>
                 <p>
-                    You can prevent update selected value and update yourself selected value
+                    Dropdown with prevent-selected
                 </p>
             </p-leaf>
         </div>
+        
         <p-dropdown-preview></p-dropdown-preview>
+        <br />
 
+        <p-leaf>
+            <details>
+                <summary>Example code with prevent-selected</summary>
+                <img src="${imageFile}" style="width: 80%" />
+            </details>
+        </p-leaf>
+        
         <div>
             <p-leaf>
                 <h3>Dark mode</h3>
