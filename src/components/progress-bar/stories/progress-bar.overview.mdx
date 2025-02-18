@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Components/Progress bar/Overview" />
+
+# Progress bar
+
+<p-progress-bar value="20" type="secondary">10%</p-progress-bar>
+<br />
+<p-progress-bar value="30" type="success">30%</p-progress-bar>
+<br />
+<p-progress-bar value="40" type="warning">40%</p-progress-bar>
+<br />
+<p-progress-bar value="50" type="muted">50%</p-progress-bar>
+<br />
+<p-progress-bar value="60" type="primary">60%</p-progress-bar>
+<br />
+<p-progress-bar value="69" type="danger">69%</p-progress-bar>
+
+**Without label :**
+
+<p-progress-bar value="50" type="muted"></p-progress-bar>
+
+<br />
+
+## Striped
+
+<p-progress-bar striped value="50" type="muted">50%</p-progress-bar>
+<br />
+<p-progress-bar striped value="60" type="primary">60%</p-progress-bar>
+<br />
+<p-progress-bar striped value="69" type="danger">69%</p-progress-bar>
+
+## Dark mode
+
+<div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
+    <p-progress-bar dark value="40" type="warning">40%</p-progress-bar>
+    <br />
+    <p-progress-bar dark striped value="90" type="success">90%</p-progress-bar>
+</div>

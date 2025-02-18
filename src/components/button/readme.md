@@ -18,6 +18,13 @@
 | `type`     | `type`     |             | `"danger" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
 
 
+## Slots
+
+| Slot | Description    |
+| ---- | -------------- |
+|      | button content |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

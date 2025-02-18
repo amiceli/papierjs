@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Events
+
+| Event   | Description | Type                |
+| ------- | ----------- | ------------------- |
+| `close` |             | `CustomEvent<void>` |
+
+
 ## Methods
 
 ### `close() => Promise<void>`
