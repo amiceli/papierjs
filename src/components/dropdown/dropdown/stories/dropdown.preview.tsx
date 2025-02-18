@@ -2,8 +2,6 @@ import { Component, Element, State, h } from '@stencil/core'
 
 @Component({
     tag: 'p-dropdown-preview',
-    // styleUrl: 'dropdown.scss',
-    // shadow: true,
 })
 export class Alert {
     @State()

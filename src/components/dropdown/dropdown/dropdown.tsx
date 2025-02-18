@@ -10,6 +10,9 @@ import {
 } from '@stencil/core'
 import feather from 'feather-icons'
 
+/**
+ * @slot - slot for p-dropdown-item
+ */
 @Component({
     tag: 'p-dropdown',
     styleUrl: 'dropdown.scss',
@@ -18,6 +21,12 @@ import feather from 'feather-icons'
 export class Alert {
     @Prop()
     dark?: boolean = false
+    /** Prevent dropdown self update selected value */
+    @Prop()
+    preventSelected?: boolean = false
+    /** Selected item value */
+    @Prop({ mutable: true })
+    value?: string = ''
     @State()
     open?: boolean = false
     @Prop()
@@ -31,24 +40,28 @@ export class Alert {
     public selectEvent: EventEmitter<string>
 
     public getParentClass() {
-        let cssClass = 'papier dropdown' // is--block
-
-        if (this.dark) {
-            cssClass = `${cssClass} is--dark`
+        return {
+            'papier dropdown': true,
+            'is--dark': this.dark,
+            'is--open': this.open,
         }
-        if (this.open) {
-            cssClass = `${cssClass} is--open`
-        }
-
-        return cssClass
     }
 
     @Listen('click', { target: 'window' })
     public detectOutsideClick(ev) {
-        if (this.el.contains(ev.target)) {
-            return
+        if (!this.el.contains(ev.target)) {
+            this.open = false
         }
-        this.open = false
+    }
+
+    public resetItem() {
+        const items = Array.from(
+            this.el.getElementsByTagName('p-dropdown-item'),
+        )
+
+        for (const item of items) {
+            item.removeAttribute('selected')
+        }
     }
 
     public componentDidLoad() {
@@ -63,6 +76,12 @@ export class Alert {
             item.addEventListener('change', (e) => {
                 this.selectEvent.emit(e.detail)
                 this.open = !this.open
+
+                if (!this.preventSelected) {
+                    this.resetItem()
+                    item.setAttribute('selected', '')
+                    this.value = e.detail
+                }
             })
         }
     }
@@ -72,12 +91,9 @@ export class Alert {
     }
 
     public getSelectedValue(): string {
-        const items = this.el.getElementsByTagName('p-dropdown-item')
-        const list = Array.from(items)
+        const list = Array.from(this.el.querySelectorAll('p-dropdown-item'))
         const selected = list.find((item) => {
-            const attr = item.getAttribute('selected')
-
-            return attr === 'true' || attr === ''
+            return item.value === this.value
         })
 
         return selected?.innerText || this.placeholder || ''
@@ -86,6 +102,7 @@ export class Alert {
     render() {
         const selected = this.getSelectedValue()
         const arrowIcon = feather.icons['chevron-down'].toSvg()
+
         return (
             <div class={this.getParentClass()}>
                 <div
