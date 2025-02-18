@@ -25,6 +25,7 @@ export const config: Config = {
         },
         {
             type: 'docs-readme',
+            dependencies: false,
         },
         {
             type: 'www',
