@@ -1,4 +1,12 @@
-import { Component, Host, Method, State, h } from '@stencil/core'
+import {
+    Component,
+    Event,
+    type EventEmitter,
+    Host,
+    Method,
+    State,
+    h,
+} from '@stencil/core'
 
 @Component({
     tag: 'p-modal',
@@ -9,6 +17,9 @@ export class PModal {
     @State()
     isOpen: boolean = false
 
+    @Event({ eventName: 'close' })
+    public closeEvent: EventEmitter<void>
+
     @Method()
     public async open() {
         this.isOpen = true
@@ -17,6 +28,7 @@ export class PModal {
     @Method()
     public async close() {
         this.isOpen = false
+        this.closeEvent.emit(null)
     }
 
     render() {
