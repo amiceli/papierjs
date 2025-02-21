@@ -1,22 +1,8 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Source } from '@storybook/blocks';
 
-<Meta title="Components/Breadcrumb/Demo" />
+<Meta title="Components/Breadcrumb/Overview" />
 
 # Breadcrumb
-
-```html
-<p-breadcrumb>
-    <p-breadcrumb-item link="#">
-        Home
-    </p-breadcrumb-item>
-    <p-breadcrumb-item link="#">
-        Maison
-    </p-breadcrumb-item>
-    <p-breadcrumb-item>
-        Casa
-    </p-breadcrumb-item>
-</p-breadcrumb>
-```
 
 <p-breadcrumb>
     <p-breadcrumb-item link="#">
@@ -30,8 +16,19 @@ import { Meta } from '@storybook/blocks';
     </p-breadcrumb-item>
 </p-breadcrumb>
 
-<br />
-<br />
+<Source language='html' dark format={true} code={`
+<p-breadcrumb>
+    <p-breadcrumb-item link="#">
+        <span>Home</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item link="#">
+        <span>Maison</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item>
+        <span>Casa</span>
+    </p-breadcrumb-item>
+</p-breadcrumb>
+`} />
 
 ## One link
 
@@ -41,18 +38,15 @@ import { Meta } from '@storybook/blocks';
     </p-breadcrumb-item>
 </p-breadcrumb>
 
-<br />
-<br />
-
-## Dark mode
-
-```html
-<p-breadcrumb dark>
+<Source language='html' dark format={true} code={`
+<p-breadcrumb>
     <p-breadcrumb-item link="#">
-        Home
+        <span>Home</span>
     </p-breadcrumb-item>
 </p-breadcrumb>
-```
+`} />
+
+## Dark mode
 
 `p-breadcrumb-item` inherit `p-breadcrumb` dark mode.
 
@@ -69,3 +63,17 @@ import { Meta } from '@storybook/blocks';
         </p-breadcrumb-item>
     </p-breadcrumb>
 </div>
+
+<Source language='html' dark format={true} code={`
+<p-breadcrumb dark>
+    <p-breadcrumb-item link="#">
+        <span>Home</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item link="#">
+        <span>Maison</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item>
+        <span>Casa</span>
+    </p-breadcrumb-item>
+</p-breadcrumb>
+`} />

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Source } from '@storybook/blocks';
 
 <Meta title="Form/Switch/Overview" />
 
@@ -8,14 +8,29 @@ import { Meta } from '@storybook/blocks';
 
 Default switch <p-switch></p-switch>
 
+<Source language='html' dark format={true} code={`
+    <p-switch></p-switch>
+`} />
+
 Round switch <p-switch round></p-switch>
+
+<Source language='html' dark format={true} code={`
+    <p-switch round></p-switch>
+`} />
 
 Square switch <p-switch square></p-switch>
 
+<Source language='html' dark format={true} code={`
+    <p-switch square></p-switch>
+`} />
+
 Square & Round switch <p-switch square round></p-switch>
 
-## Dark mode
+<Source language='html' dark format={true} code={`
+    <p-switch square round></p-switch>
+`} />
 
+## Dark mode
 
 <div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
     <p-switch style={{marginRight: "20px"}} dark></p-switch>
@@ -26,3 +41,8 @@ Square & Round switch <p-switch square round></p-switch>
     <br />
     <p-switch style={{marginRight: "20px"}} checked square dark round></p-switch>
 </div>
+
+<Source language='html' dark format={true} code={`
+    <p-switch dark></p-switch>
+    <p-switch round dark></p-switch>
+`} />
