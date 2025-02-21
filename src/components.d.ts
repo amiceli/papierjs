@@ -14,6 +14,9 @@ export namespace Components {
         "dark"?: boolean;
         "type"?: AlertColor;
     }
+    interface PAlertPreview {
+        "title"?: boolean;
+    }
     interface PBadge {
         "dark"?: boolean;
         "type"?: BadgeColor;
@@ -155,6 +158,12 @@ declare global {
     var HTMLPAlertElement: {
         prototype: HTMLPAlertElement;
         new (): HTMLPAlertElement;
+    };
+    interface HTMLPAlertPreviewElement extends Components.PAlertPreview, HTMLStencilElement {
+    }
+    var HTMLPAlertPreviewElement: {
+        prototype: HTMLPAlertPreviewElement;
+        new (): HTMLPAlertPreviewElement;
     };
     interface HTMLPBadgeElement extends Components.PBadge, HTMLStencilElement {
     }
@@ -319,6 +328,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "p-alert": HTMLPAlertElement;
+        "p-alert-preview": HTMLPAlertPreviewElement;
         "p-badge": HTMLPBadgeElement;
         "p-breadcrumb": HTMLPBreadcrumbElement;
         "p-breadcrumb-item": HTMLPBreadcrumbItemElement;
@@ -344,6 +354,9 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "onClose"?: (event: PAlertCustomEvent<any>) => void;
         "type"?: AlertColor;
+    }
+    interface PAlertPreview {
+        "title"?: boolean;
     }
     interface PBadge {
         "dark"?: boolean;
@@ -443,6 +456,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "p-alert": PAlert;
+        "p-alert-preview": PAlertPreview;
         "p-badge": PBadge;
         "p-breadcrumb": PBreadcrumb;
         "p-breadcrumb-item": PBreadcrumbItem;
@@ -464,6 +478,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
+            "p-alert-preview": LocalJSX.PAlertPreview & JSXBase.HTMLAttributes<HTMLPAlertPreviewElement>;
             "p-badge": LocalJSX.PBadge & JSXBase.HTMLAttributes<HTMLPBadgeElement>;
             "p-breadcrumb": LocalJSX.PBreadcrumb & JSXBase.HTMLAttributes<HTMLPBreadcrumbElement>;
             "p-breadcrumb-item": LocalJSX.PBreadcrumbItem & JSXBase.HTMLAttributes<HTMLPBreadcrumbItemElement>;
