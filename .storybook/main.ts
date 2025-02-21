@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/html-vite'
-import remarkGfm from 'remark-gfm'
 
 const config: StorybookConfig = {
     stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -8,17 +7,7 @@ const config: StorybookConfig = {
         '@storybook/addon-controls',
         '@chromatic-com/storybook',
         '@storybook/addon-interactions',
-        {
-            name: '@storybook/addon-docs',
-            options: {
-                transcludeMarkdown: true,
-                mdxPluginOptions: {
-                    mdxCompileOptions: {
-                        remarkPlugins: [remarkGfm],
-                    },
-                },
-            },
-        },
+        '@storybook/addon-docs',
     ],
     framework: {
         name: '@storybook/html-vite',
