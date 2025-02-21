@@ -21,6 +21,7 @@ Available components:
 - [ ] Card
 - [X] Breadcrumb
 - [X] Modals
+- [X] Switch / Switch Tile
 - [ ] NavBar
 - [ ] Tabs
 
@@ -30,6 +31,7 @@ Component features :
 - [ ] notification
 - [ ] spinner
 - [ ] password
+- [X] accordion since `v0.4.0`
 
 ## Using papercss
 
