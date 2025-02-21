@@ -11,7 +11,7 @@ export default {
 }
 
 const Template = (args) => {
-    const content = `
+    return `
         <div style="width : 90%">
             <p-leaf>
                 <h3>p-dropdown</h3>
@@ -62,14 +62,6 @@ const Template = (args) => {
             </div>
         </div>
     `
-
-    return args.darkMode
-        ? `
-        <div style="padding: 10px; box-sizing: border-box; width: 100%; background: #41403e">
-            ${content}
-        </div>
-    `
-        : content
 }
 
 export const Playground = Template.bind({})
@@ -78,60 +70,4 @@ Playground.args = {
     darkMode: false,
     preventSelected: false,
     placeholder: 'Choose a framework',
-}
-
-Playground.parameters = {
-    docs: {
-        source: {
-            code: `
-            <div style="width : 90%">
-                <p-leaf>
-                    <h3>p-dropdown</h3>
-                </p-leaf>
-                <br />
-                <p>
-                    By default dropdown update and display selected value :
-                </p>
-                <div>
-                    <p-dropdown
-                        value="Vue js"
-                    >
-                        <p-dropdown-item value="Vue js" selected>
-                            Vue Js
-                        </p-dropdown-item>
-                        <p-dropdown-item value="Nest">
-                            Nest
-                        </p-dropdown-item>
-                        <p-dropdown-item value="Storybook">
-                            Storybook
-                        </p-dropdown-item>
-                    </p-dropdown>
-                </div>
-                <p-leaf>
-                    <h3>p-dropdown with placeholder</h3>
-                    <p>
-                        But you can prevent this with 'prevent-selected' :
-                    </p>
-                </p-leaf>
-                <div>
-                    <p-dropdown
-                        placeholder="Choose a framework"
-                    >
-                        <p-dropdown-item value="Vue js">
-                            Vue Js
-                        </p-dropdown-item>
-                        <p-dropdown-item value="Nest">
-                            Nest
-                        </p-dropdown-item>
-                        <p-dropdown-item value="Storybook">
-                            Storybook
-                        </p-dropdown-item>
-                    </p-dropdown>
-                </div>
-            </div>
-            `,
-            language: 'html',
-            type: 'code',
-        },
-    },
 }
