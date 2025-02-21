@@ -1,9 +1,9 @@
 import { Component, Element, Prop, h } from '@stencil/core'
 
 @Component({
-    tag: 'p-alert-preview',
+    tag: 'p-modal-preview',
 })
-export class Alert {
+export class PModalPreview {
     @Prop()
     title?: boolean = false
     @Element()

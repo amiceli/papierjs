@@ -6,6 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface PAccordion {
+        "open": boolean;
+        "title": string;
+    }
     interface PAlert {
         /**
           * Show close icon
@@ -13,9 +17,6 @@ export namespace Components {
         "closable"?: boolean;
         "dark"?: boolean;
         "type"?: AlertColor;
-    }
-    interface PAlertPreview {
-        "title"?: boolean;
     }
     interface PBadge {
         "dark"?: boolean;
@@ -73,6 +74,9 @@ export namespace Components {
     interface PModal {
         "close": () => Promise<void>;
         "open": () => Promise<void>;
+    }
+    interface PModalPreview {
+        "title"?: boolean;
     }
     interface PProgressBar {
         "dark"?: boolean;
@@ -142,6 +146,12 @@ export interface PSwitchTileCustomEvent<T> extends CustomEvent<T> {
     target: HTMLPSwitchTileElement;
 }
 declare global {
+    interface HTMLPAccordionElement extends Components.PAccordion, HTMLStencilElement {
+    }
+    var HTMLPAccordionElement: {
+        prototype: HTMLPAccordionElement;
+        new (): HTMLPAccordionElement;
+    };
     interface HTMLPAlertElementEventMap {
         "close": any;
     }
@@ -158,12 +168,6 @@ declare global {
     var HTMLPAlertElement: {
         prototype: HTMLPAlertElement;
         new (): HTMLPAlertElement;
-    };
-    interface HTMLPAlertPreviewElement extends Components.PAlertPreview, HTMLStencilElement {
-    }
-    var HTMLPAlertPreviewElement: {
-        prototype: HTMLPAlertPreviewElement;
-        new (): HTMLPAlertPreviewElement;
     };
     interface HTMLPBadgeElement extends Components.PBadge, HTMLStencilElement {
     }
@@ -269,6 +273,12 @@ declare global {
         prototype: HTMLPModalElement;
         new (): HTMLPModalElement;
     };
+    interface HTMLPModalPreviewElement extends Components.PModalPreview, HTMLStencilElement {
+    }
+    var HTMLPModalPreviewElement: {
+        prototype: HTMLPModalPreviewElement;
+        new (): HTMLPModalPreviewElement;
+    };
     interface HTMLPProgressBarElement extends Components.PProgressBar, HTMLStencilElement {
     }
     var HTMLPProgressBarElement: {
@@ -327,8 +337,8 @@ declare global {
         new (): HTMLPSwitchTileElement;
     };
     interface HTMLElementTagNameMap {
+        "p-accordion": HTMLPAccordionElement;
         "p-alert": HTMLPAlertElement;
-        "p-alert-preview": HTMLPAlertPreviewElement;
         "p-badge": HTMLPBadgeElement;
         "p-breadcrumb": HTMLPBreadcrumbElement;
         "p-breadcrumb-item": HTMLPBreadcrumbItemElement;
@@ -339,6 +349,7 @@ declare global {
         "p-input-text": HTMLPInputTextElement;
         "p-leaf": HTMLPLeafElement;
         "p-modal": HTMLPModalElement;
+        "p-modal-preview": HTMLPModalPreviewElement;
         "p-progress-bar": HTMLPProgressBarElement;
         "p-slider": HTMLPSliderElement;
         "p-switch": HTMLPSwitchElement;
@@ -346,6 +357,10 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface PAccordion {
+        "open"?: boolean;
+        "title"?: string;
+    }
     interface PAlert {
         /**
           * Show close icon
@@ -354,9 +369,6 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "onClose"?: (event: PAlertCustomEvent<any>) => void;
         "type"?: AlertColor;
-    }
-    interface PAlertPreview {
-        "title"?: boolean;
     }
     interface PBadge {
         "dark"?: boolean;
@@ -417,6 +429,9 @@ declare namespace LocalJSX {
     interface PModal {
         "onClose"?: (event: PModalCustomEvent<void>) => void;
     }
+    interface PModalPreview {
+        "title"?: boolean;
+    }
     interface PProgressBar {
         "dark"?: boolean;
         "striped"?: boolean;
@@ -455,8 +470,8 @@ declare namespace LocalJSX {
         "uncheckedBackground"?: TileBackground;
     }
     interface IntrinsicElements {
+        "p-accordion": PAccordion;
         "p-alert": PAlert;
-        "p-alert-preview": PAlertPreview;
         "p-badge": PBadge;
         "p-breadcrumb": PBreadcrumb;
         "p-breadcrumb-item": PBreadcrumbItem;
@@ -467,6 +482,7 @@ declare namespace LocalJSX {
         "p-input-text": PInputText;
         "p-leaf": PLeaf;
         "p-modal": PModal;
+        "p-modal-preview": PModalPreview;
         "p-progress-bar": PProgressBar;
         "p-slider": PSlider;
         "p-switch": PSwitch;
@@ -477,8 +493,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "p-accordion": LocalJSX.PAccordion & JSXBase.HTMLAttributes<HTMLPAccordionElement>;
             "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
-            "p-alert-preview": LocalJSX.PAlertPreview & JSXBase.HTMLAttributes<HTMLPAlertPreviewElement>;
             "p-badge": LocalJSX.PBadge & JSXBase.HTMLAttributes<HTMLPBadgeElement>;
             "p-breadcrumb": LocalJSX.PBreadcrumb & JSXBase.HTMLAttributes<HTMLPBreadcrumbElement>;
             "p-breadcrumb-item": LocalJSX.PBreadcrumbItem & JSXBase.HTMLAttributes<HTMLPBreadcrumbItemElement>;
@@ -489,6 +505,7 @@ declare module "@stencil/core" {
             "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
             "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
             "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;
+            "p-modal-preview": LocalJSX.PModalPreview & JSXBase.HTMLAttributes<HTMLPModalPreviewElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
             "p-slider": LocalJSX.PSlider & JSXBase.HTMLAttributes<HTMLPSliderElement>;
             "p-switch": LocalJSX.PSwitch & JSXBase.HTMLAttributes<HTMLPSwitchElement>;
