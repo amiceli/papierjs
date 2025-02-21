@@ -1,0 +1,33 @@
+:host {
+    @import "../common";
+
+    .p-accordion {
+        display: block;
+
+        &__summary {
+            height: 57px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &__content {
+            transition: all 0.4s linear;
+            box-sizing: border-box;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            &:not(.is--open) {
+                height: 0;
+                overflow: hidden;
+            }
+        }
+    }
+}

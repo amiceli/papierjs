@@ -1,0 +1,45 @@
+import { Meta, Source } from '@storybook/blocks';
+
+<Meta title="Components/Accordion/Overview" />
+
+# Accordion
+
+<p-accordion title="Show code">
+    <p-leaf>
+        <p>
+            Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa
+        </p>
+    </p-leaf>
+</p-accordion>
+
+<Source language='html' dark format={true} code={`
+<p-accordion title="Show code">
+    <p-leaf>
+        <p>
+            Lorem Ipsum è un testo ...
+        </p>
+    </p-leaf>
+</p-accordion>
+`} />
+
+## Open accordion
+
+You can set accordion open by default
+
+<p-accordion open title="Show code">
+    <p-leaf>
+        <p>
+            Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa
+        </p>
+    </p-leaf>
+</p-accordion>
+
+<Source language='html' dark format={true} code={`
+<p-accordion open title="Show code">
+    <p-leaf>
+        <p>
+            Lorem Ipsum è un testo ...
+        </p>
+    </p-leaf>
+</p-accordion>
+`} />
