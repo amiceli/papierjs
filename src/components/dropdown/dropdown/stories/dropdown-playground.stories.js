@@ -1,3 +1,5 @@
+import { Source } from '@storybook/blocks'
+
 export default {
     title: 'Components/Dropdown/Playground',
     argTypes: {
@@ -9,7 +11,7 @@ export default {
 }
 
 const Template = (args) => {
-    const content = `
+    return `
         <div style="width : 90%">
             <p-leaf>
                 <h3>p-dropdown</h3>
@@ -60,14 +62,6 @@ const Template = (args) => {
             </div>
         </div>
     `
-
-    return args.darkMode
-        ? `
-        <div style="padding: 10px; box-sizing: border-box; width: 100%; background: #41403e">
-            ${content}
-        </div>
-    `
-        : content
 }
 
 export const Playground = Template.bind({})

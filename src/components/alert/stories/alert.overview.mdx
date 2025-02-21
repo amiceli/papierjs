@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Source } from '@storybook/blocks';
 
 <Meta title="Components/Alert/Overview" />
 
@@ -10,10 +10,20 @@ import { Meta } from '@storybook/blocks';
 <p-alert type="warning">Alert - warning</p-alert>
 <p-alert type="danger">Alert - danger</p-alert>
 
+<Source language='html' dark format={true} code={`
+    <p-alert type="primary">Alert - primary</p-alert>
+    <p-alert type="secondary">Alert - secondary</p-alert>
+`} />
+
 ## Closable
 
 <p-alert closable type="primary">PaperCss</p-alert>
-<p-alert id="onClose" closable type="danger">Close me !</p-alert>
+<p-alert closable type="danger">Close me !</p-alert>
+
+<Source language='html' dark format={true} code={`
+    <p-alert closable type="primary">PaperCss</p-alert>
+    <p-alert closable type="danger">Close me !</p-alert>
+`} />
 
 ## Dark mode
 
@@ -24,3 +34,7 @@ import { Meta } from '@storybook/blocks';
     <p-alert dark closable type="warning">PaperCss</p-alert>
     <p-alert dark closable type="danger">PaperCss</p-alert>
 </div>
+
+<Source language='html' dark format={true} code={`
+    <p-alert dark closable type="danger">PaperCss</p-alert>
+`} />

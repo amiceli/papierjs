@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Source } from '@storybook/blocks';
 
 <Meta title="Form/Switch Tile/Overview" />
 
@@ -10,6 +10,13 @@ Switch tile with default style :
     <span slot="checked-text">Yes</span>
     <span slot="unchecked-text">No</span>
 </p-switch-tile>
+
+<Source language='html' dark format={true} code={`
+    <p-switch-tile>
+        <span slot="checked-text">Yes</span>
+        <span slot="unchecked-text">No</span>
+    </p-switch-tile>
+`} />
 
 ## Customize
 
@@ -31,6 +38,23 @@ You can customize
     <span slot="checked-text">Nest</span>
     <span slot="unchecked-text">Node</span>
 </p-switch-tile>
+
+<Source language='html' dark format={true} code={`
+    <p-switch-tile
+        checked-background="success"
+        unchecked-background="danger"
+    >
+        <span slot="checked-text">Stencil</span>
+        <span slot="unchecked-text">VueJS</span>
+    </p-switch-tile>
+    <p-switch-tile
+        checked-background="warning"
+        unchecked-background="secondary"
+    >
+        <span slot="checked-text">Nest</span>
+        <span slot="unchecked-text">Node</span>
+    </p-switch-tile>
+`} />
 
 All available colors :
 
@@ -73,6 +97,33 @@ All available colors :
     <span slot="checked-text">noted</span>
     <span slot="unchecked-text">default</span>
 </p-switch-tile>
+
+<Source language='html' dark format={true} code={`
+<p-switch-tile checked-background="warning" checked>
+    <span slot="checked-text">warning</span>
+    <span slot="unchecked-text">default</span>
+</p-switch-tile>
+
+<p-switch-tile checked-background="primary" checked>
+    <span slot="checked-text">primary</span>
+    <span slot="unchecked-text">default</span>
+</p-switch-tile>
+
+<p-switch-tile checked-background="secondary" checked>
+    <span slot="checked-text">secondary</span>
+    <span slot="unchecked-text">default</span>
+</p-switch-tile>
+
+<p-switch-tile checked-background="danger" checked>
+    <span slot="checked-text">danger</span>
+    <span slot="unchecked-text">default</span>
+</p-switch-tile>
+
+<p-switch-tile checked-background="noted" checked>
+    <span slot="checked-text">noted</span>
+    <span slot="unchecked-text">default</span>
+</p-switch-tile>
+`} />
 
 ## Dark mode
 
@@ -122,3 +173,14 @@ All available colors :
         <span slot="unchecked-text">default</span>
     </p-switch-tile>
 </div>
+
+<Source language='html' dark format={true} code={`
+    <p-switch-tile
+        checked-background="noted"
+        checked
+        dark
+    >
+        <span slot="checked-text">noted</span>
+        <span slot="unchecked-text">default</span>
+    </p-switch-tile>
+`} />

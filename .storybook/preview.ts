@@ -1,7 +1,5 @@
 import type { Preview } from '@storybook/html'
 import { defineCustomElements } from '../loader'
-import { previewCloseAlert } from '../src/components/alert/stories/alert.preview'
-import { handleInputCahnge } from '../src/components/form/input-text/stories/input-text.preview'
 import { previewSlider } from '../src/components/form/slider/sliders.preview'
 import { previewModal } from '../src/components/modal/modal.preview'
 import { previewProgressbar } from '../src/components/progress-bar/stories/progress-bar.preview'
@@ -19,8 +17,6 @@ const preview: Preview = {
     },
 }
 
-previewCloseAlert()
-handleInputCahnge()
 previewSlider()
 previewModal()
 previewProgressbar()

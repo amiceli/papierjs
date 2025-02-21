@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Source } from '@storybook/blocks';
 
 <Meta title="Components/Badge/Overview" />
 
@@ -22,6 +22,15 @@ Badge inherit parent `font-size` and `font-family`.
     <p-badge type="danger">papierjs</p-badge>
 </h5>
 
+<Source language='html' dark format={true} code={`
+    <h1 style={{fontSize : "40px"}}>
+        <p-badge>papierjs</p-badge>
+    </h1>
+    <h5>
+        <p-badge type="danger">papierjs</p-badge>
+    </h5>
+`} />
+
 ## Dark mode
 
 <div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
@@ -35,3 +44,8 @@ Badge inherit parent `font-size` and `font-family`.
     &nbsp;
     <p-badge dark type="danger">papierjs</p-badge>
 </div>
+
+<Source language='html' dark format={true} code={`
+    <p-badge dark>papierjs</p-badge>
+    <p-badge dark type="warning">papierjs</p-badge>
+`} />

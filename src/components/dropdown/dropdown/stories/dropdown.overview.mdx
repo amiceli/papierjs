@@ -1,0 +1,154 @@
+import {Meta, Markdown, Source} from '@storybook/blocks';
+import Docs from '../readme.md?raw'
+import ItemDocs from '../../dropdown-item/readme.md?raw' 
+
+<Meta title="Components/Dropdown/Overview" />
+
+# Dropdown
+
+By default dropdown update and display selected value :
+
+<p-dropdown value="Vue js">
+    <p-dropdown-item value="Vue js" selected>Vue Js</p-dropdown-item>
+    <p-dropdown-item value="Nest">Nest</p-dropdown-item>
+    <p-dropdown-item value="Storybook">Storybook</p-dropdown-item>
+</p-dropdown>
+
+<Source language='html' dark format={true} code={`
+    <p-dropdown value="vue_js">
+        <p-dropdown-item value="vue_js" selected>
+            Vue Js
+        </p-dropdown-item>
+        <p-dropdown-item value="nest">
+            Nest
+        </p-dropdown-item>
+        <p-dropdown-item value="storybook">
+            Storybook
+        </p-dropdown-item>
+    </p-dropdown>
+`} />
+
+You can use placeholder if no value is selected
+
+<p-dropdown placeholder="Choose a framework">
+    <p-dropdown-item value="Vue js">Vue Js</p-dropdown-item>
+    <p-dropdown-item value="Nest">Nest</p-dropdown-item>
+    <p-dropdown-item value="Storybook">Storybook</p-dropdown-item>
+</p-dropdown>
+
+<Source language='html' dark format={true} code={`
+    <p-dropdown placeholder="Choose a framework">
+        <p-dropdown-item value="vue_js">
+            Vue Js
+        </p-dropdown-item>
+        <p-dropdown-item value="nest">
+            Nest
+        </p-dropdown-item>
+        <p-dropdown-item value="storybook">
+            Storybook
+        </p-dropdown-item>
+    </p-dropdown>
+`} />
+
+## Prevent updated dropdown value
+
+You can prevent value update and update it later : 
+
+<p-dropdown-preview></p-dropdown-preview>
+
+<Source language='tsx' dark format={true} code={`
+import { Component, Element, State, h } from '@stencil/core'
+
+@Component({
+    tag: 'p-dropdown-preview',
+})
+export class Alert {
+    @State()
+    value: string = ''
+    @State()
+    selectedValue: string = ''
+    @Element()
+    public el: HTMLElement
+
+    public showModal(value: string) {
+        this.el.querySelector('p-modal')?.open()
+        this.value = value
+    }
+
+    public onValidate() {
+        this.selectedValue = this.value
+        this.onClose()
+    }
+
+    public onClose() {
+        this.el.querySelector('p-modal')?.close()
+    }
+
+    render() {
+        return (
+            <div>
+                <p-modal>
+                    <p>
+                        You select <b>{this.value}</b>
+                    </p>
+                    <br />
+                    <p-button type="success" onClick={() => this.onValidate()}>
+                        I validate
+                    </p-button>
+                    &nbsp;
+                    <p-button type="danger" onClick={() => this.onClose()}>
+                        No !
+                    </p-button>
+                </p-modal>
+                <p-dropdown
+                    placeholder="Choose best framework"
+                    prevent-selected
+                    onSelect={(e: CustomEvent) => this.showModal(e.detail)}
+                    value={this.selectedValue}
+                >
+                    <p-dropdown-item
+                        value="awesome"
+                        selected={this.selectedValue === 'awesome'}
+                    >
+                        Vue
+                    </p-dropdown-item>
+                    <p-dropdown-item
+                        value="Stencil"
+                        selected={this.selectedValue === 'Stencil'}
+                    >
+                        Stencil
+                    </p-dropdown-item>
+                    <p-dropdown-item
+                        value="Storybook"
+                        selected={this.selectedValue === 'Storybook'}
+                    >
+                        Storybook
+                    </p-dropdown-item>
+                </p-dropdown>
+            </div>
+        )
+    }
+}
+`} />
+
+## Dark mode
+
+<p-dropdown dark placeholder="Choose a framework">
+    <p-dropdown-item value="Vue js">Vue Js</p-dropdown-item>
+    <p-dropdown-item value="Nest">Nest</p-dropdown-item>
+    <p-dropdown-item value="Storybook">Storybook</p-dropdown-item>
+</p-dropdown>
+
+<Source language='html' dark format={true} code={`
+    <p-dropdown dark placeholder="Choose a framework">
+        <p-dropdown-item value="vue_js">
+            Vue Js
+        </p-dropdown-item>
+        <p-dropdown-item value="nest">
+            Nest
+        </p-dropdown-item>
+        <p-dropdown-item value="storybook">
+            Storybook
+        </p-dropdown-item>
+    </p-dropdown>
+`} />
