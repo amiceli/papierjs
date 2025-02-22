@@ -1,0 +1,19 @@
+:host {
+    @import "../../common";
+    display: block;
+    
+    label.is--selected {
+        color: var(--primary) !important;
+        border-bottom-color: var(--secondary);
+        border-bottom-style: solid;
+        border-bottom-width: 3px;
+    }
+
+    .content {
+        display: block !important;
+    }
+
+    &.is--dark, .is--dark {
+        background: #41403e;
+    }
+}
