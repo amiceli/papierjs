@@ -112,6 +112,14 @@ export namespace Components {
         "dark"?: boolean;
         "uncheckedBackground"?: TileBackground;
     }
+    interface PTooltip {
+        "bottom"?: boolean;
+        "disabled"?: boolean;
+        "left"?: boolean;
+        "right"?: boolean;
+        "title"?: string;
+        "top"?: boolean;
+    }
 }
 export interface PAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -336,6 +344,12 @@ declare global {
         prototype: HTMLPSwitchTileElement;
         new (): HTMLPSwitchTileElement;
     };
+    interface HTMLPTooltipElement extends Components.PTooltip, HTMLStencilElement {
+    }
+    var HTMLPTooltipElement: {
+        prototype: HTMLPTooltipElement;
+        new (): HTMLPTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "p-accordion": HTMLPAccordionElement;
         "p-alert": HTMLPAlertElement;
@@ -354,6 +368,7 @@ declare global {
         "p-slider": HTMLPSliderElement;
         "p-switch": HTMLPSwitchElement;
         "p-switch-tile": HTMLPSwitchTileElement;
+        "p-tooltip": HTMLPTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -469,6 +484,14 @@ declare namespace LocalJSX {
         "onChange"?: (event: PSwitchTileCustomEvent<boolean>) => void;
         "uncheckedBackground"?: TileBackground;
     }
+    interface PTooltip {
+        "bottom"?: boolean;
+        "disabled"?: boolean;
+        "left"?: boolean;
+        "right"?: boolean;
+        "title"?: string;
+        "top"?: boolean;
+    }
     interface IntrinsicElements {
         "p-accordion": PAccordion;
         "p-alert": PAlert;
@@ -487,6 +510,7 @@ declare namespace LocalJSX {
         "p-slider": PSlider;
         "p-switch": PSwitch;
         "p-switch-tile": PSwitchTile;
+        "p-tooltip": PTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -510,6 +534,7 @@ declare module "@stencil/core" {
             "p-slider": LocalJSX.PSlider & JSXBase.HTMLAttributes<HTMLPSliderElement>;
             "p-switch": LocalJSX.PSwitch & JSXBase.HTMLAttributes<HTMLPSwitchElement>;
             "p-switch-tile": LocalJSX.PSwitchTile & JSXBase.HTMLAttributes<HTMLPSwitchTileElement>;
+            "p-tooltip": LocalJSX.PTooltip & JSXBase.HTMLAttributes<HTMLPTooltipElement>;
         }
     }
 }
