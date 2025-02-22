@@ -1,0 +1,58 @@
+:host {
+    @import "../../common";
+
+    .alert {
+        position: relative;
+        display: grid;
+        // height: 56px;
+        width: 80vw;
+        max-width: 680px;
+        grid-template-columns: 24px 1fr;
+        align-items: center;
+        grid-gap: 8px;
+        animation: .25s toastEnter forwards;
+        margin: auto;
+        pointer-events: all;
+        user-select: none;
+        transition: opacity 1s ease;
+
+        svg:first-of-type {
+            position: relative;
+            top: 3px;
+        }
+
+        &.can--close {
+            grid-template-columns: 24px 1fr auto;
+
+            span:hover {
+                cursor: pointer;
+            }
+        }
+
+        &.hidden {
+            opacity: 0;
+        }
+    }
+}
+
+@keyframes toastEnter {
+    from {
+        opacity: 0;
+        transform: translateY(10vh);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastExit {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,13 @@
+:host {
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 8px;
+    position: fixed;
+    top: 40px;
+    margin: auto 80px;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}

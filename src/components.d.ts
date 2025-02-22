@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { PushOptions } from "./components/notification/p-notification-handler/p-notification-handler";
+export { PushOptions } from "./components/notification/p-notification-handler/p-notification-handler";
 export namespace Components {
     interface PAccordion {
         "open": boolean;
@@ -78,6 +80,17 @@ export namespace Components {
     interface PModalPreview {
         "title"?: boolean;
     }
+    interface PNotification {
+        "canclose": boolean;
+        "text": string;
+        "timestamp": string;
+        "type"?: string;
+    }
+    interface PNotificationHandler {
+        "pushNotification": (options: PushOptions) => Promise<void>;
+    }
+    interface PNotificationPreview {
+    }
     interface PProgressBar {
         "dark"?: boolean;
         "striped"?: boolean;
@@ -148,6 +161,10 @@ export interface PInputTextCustomEvent<T> extends CustomEvent<T> {
 export interface PModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPModalElement;
+}
+export interface PNotificationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPNotificationElement;
 }
 export interface PSliderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -295,6 +312,35 @@ declare global {
         prototype: HTMLPModalPreviewElement;
         new (): HTMLPModalPreviewElement;
     };
+    interface HTMLPNotificationElementEventMap {
+        "close": string;
+    }
+    interface HTMLPNotificationElement extends Components.PNotification, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPNotificationElementEventMap>(type: K, listener: (this: HTMLPNotificationElement, ev: PNotificationCustomEvent<HTMLPNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPNotificationElementEventMap>(type: K, listener: (this: HTMLPNotificationElement, ev: PNotificationCustomEvent<HTMLPNotificationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPNotificationElement: {
+        prototype: HTMLPNotificationElement;
+        new (): HTMLPNotificationElement;
+    };
+    interface HTMLPNotificationHandlerElement extends Components.PNotificationHandler, HTMLStencilElement {
+    }
+    var HTMLPNotificationHandlerElement: {
+        prototype: HTMLPNotificationHandlerElement;
+        new (): HTMLPNotificationHandlerElement;
+    };
+    interface HTMLPNotificationPreviewElement extends Components.PNotificationPreview, HTMLStencilElement {
+    }
+    var HTMLPNotificationPreviewElement: {
+        prototype: HTMLPNotificationPreviewElement;
+        new (): HTMLPNotificationPreviewElement;
+    };
     interface HTMLPProgressBarElement extends Components.PProgressBar, HTMLStencilElement {
     }
     var HTMLPProgressBarElement: {
@@ -384,6 +430,9 @@ declare global {
         "p-leaf": HTMLPLeafElement;
         "p-modal": HTMLPModalElement;
         "p-modal-preview": HTMLPModalPreviewElement;
+        "p-notification": HTMLPNotificationElement;
+        "p-notification-handler": HTMLPNotificationHandlerElement;
+        "p-notification-preview": HTMLPNotificationPreviewElement;
         "p-progress-bar": HTMLPProgressBarElement;
         "p-slider": HTMLPSliderElement;
         "p-switch": HTMLPSwitchElement;
@@ -469,6 +518,17 @@ declare namespace LocalJSX {
     interface PModalPreview {
         "title"?: boolean;
     }
+    interface PNotification {
+        "canclose"?: boolean;
+        "onClose"?: (event: PNotificationCustomEvent<string>) => void;
+        "text"?: string;
+        "timestamp"?: string;
+        "type"?: string;
+    }
+    interface PNotificationHandler {
+    }
+    interface PNotificationPreview {
+    }
     interface PProgressBar {
         "dark"?: boolean;
         "striped"?: boolean;
@@ -536,6 +596,9 @@ declare namespace LocalJSX {
         "p-leaf": PLeaf;
         "p-modal": PModal;
         "p-modal-preview": PModalPreview;
+        "p-notification": PNotification;
+        "p-notification-handler": PNotificationHandler;
+        "p-notification-preview": PNotificationPreview;
         "p-progress-bar": PProgressBar;
         "p-slider": PSlider;
         "p-switch": PSwitch;
@@ -562,6 +625,9 @@ declare module "@stencil/core" {
             "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
             "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;
             "p-modal-preview": LocalJSX.PModalPreview & JSXBase.HTMLAttributes<HTMLPModalPreviewElement>;
+            "p-notification": LocalJSX.PNotification & JSXBase.HTMLAttributes<HTMLPNotificationElement>;
+            "p-notification-handler": LocalJSX.PNotificationHandler & JSXBase.HTMLAttributes<HTMLPNotificationHandlerElement>;
+            "p-notification-preview": LocalJSX.PNotificationPreview & JSXBase.HTMLAttributes<HTMLPNotificationPreviewElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
             "p-slider": LocalJSX.PSlider & JSXBase.HTMLAttributes<HTMLPSliderElement>;
             "p-switch": LocalJSX.PSwitch & JSXBase.HTMLAttributes<HTMLPSwitchElement>;
