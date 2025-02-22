@@ -24,6 +24,7 @@ Available components:
 - [X] Switch / Switch Tile
 - [ ] NavBar
 - [ ] Tabs
+- [X] Popover as tooltip
 
 Component features :
 - [X] dropdown since `v0.1.0`
