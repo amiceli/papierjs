@@ -1,0 +1,70 @@
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Docs from '../readme.md?raw' 
+
+<Meta title="Components/Tabs/Overview" />
+
+# Tabs - [PaperCSS](https://www.getpapercss.com/docs/components/tabs/)
+
+<p-tabs>
+    <p-tab title="Assassin's Creed Unity">
+        - Release Date: November 2014
+        - Player Rating: Mixed or average reviews, with a user score of 5.7 out of 10 on Metacritic.
+    </p-tab>
+    <p-tab title="Assassin's Creed Mirage" selected>
+        - Release Date: October 17, 2024 
+        - Player Rating: Mostly Positive reviews on Steam, with approximately 75% positive feedback. 
+    </p-tab>
+    <p-tab title="Assassin's Creed II">
+        - Release Date: November 17, 2009 
+        - Player Rating: Generally favorable reviews, with a Metacritic score of 90 out of 100. 
+    </p-tab>
+</p-tabs>
+
+<Source language='html' dark format={true} code={`
+    <p-tabs>
+        <p-tab title="Assassin's Creed Unity">
+            <!-- content -->
+        </p-tab>
+        <p-tab title="Assassin's Creed Mirage" selected>
+            <!-- content -->
+        </p-tab>
+        <p-tab title="Assassin's Creed II">
+            <!-- content -->
+        </p-tab>
+    </p-tabs>
+`} />
+
+## Default tab
+
+By default `p-tabs` choose first `p-tab` as selected : 
+
+<p-tabs>
+    <p-tab title="Assassin's Creed Unity">
+        - Release Date: November 2014
+        - Player Rating: Mixed or average reviews, with a user score of 5.7 out of 10 on Metacritic.
+    </p-tab>
+    <p-tab title="Assassin's Creed Mirage">
+        - Release Date: October 17, 2024 
+        - Player Rating: Mostly Positive reviews on Steam, with approximately 75% positive feedback. 
+    </p-tab>
+    <p-tab title="Assassin's Creed II">
+        - Release Date: November 17, 2009 
+        - Player Rating: Generally favorable reviews, with a Metacritic score of 90 out of 100. 
+    </p-tab>
+</p-tabs>
+
+## Dark mode
+
+<p-tabs dark>
+    <p-tab title="Assassin's Creed Unity">Release Date: November 2014</p-tab>
+    <p-tab title="Assassin's Creed Mirage" selected>Release Date: October 17, 2024 </p-tab>
+    <p-tab title="Assassin's Creed II">Release Date: November 17, 2009 </p-tab>
+</p-tabs>
+
+<Source language='html' dark format={true} code={`
+<p-tabs dark>
+    <p-tab title="Assassin's Creed Unity">Release Date: November 2014</p-tab>
+    <p-tab title="Assassin's Creed Mirage" selected>Release Date: October 17, 2024 </p-tab>
+    <p-tab title="Assassin's Creed II">Release Date: November 17, 2009 </p-tab>
+</p-tabs>
+`} />
