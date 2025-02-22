@@ -23,16 +23,16 @@ Available components:
 - [X] Modals
 - [X] Switch / Switch Tile
 - [ ] NavBar
-- [ ] Tabs
+- [X] Tabs
 - [X] Popover as tooltip
 
 Component features :
-- [X] dropdown since `v0.1.0`
+- [X] dropdown since
 - [X] `p-leaf` allow to use papercss style anywhere
-- [ ] notification
+- [X] notification
 - [ ] spinner
 - [ ] password
-- [X] accordion since `v0.4.0`
+- [X] accordion
 
 ## Using papercss
 
