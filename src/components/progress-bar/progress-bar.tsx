@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, Prop, State, h } from '@stencil/core'
 
 type ProgressBarColor =
     | 'secondary'
@@ -22,6 +22,23 @@ export class ProgressBar {
     striped?: boolean = false
     @Prop()
     dark?: boolean = false
+    @Prop()
+    auto?: number
+
+    @State()
+    interval?: number
+
+    public componentDidLoad() {
+        if (this.auto) {
+            this.interval = window.setInterval(() => {
+                this.value = this.value >= 100 ? 0 : this.value + 10
+            }, this.auto)
+        }
+    }
+
+    public disconnectedCallback() {
+        window.clearInterval(this.interval)
+    }
 
     public getClass(): string {
         const types = [

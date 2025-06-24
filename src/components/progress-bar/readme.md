@@ -9,6 +9,7 @@
 
 | Property  | Attribute | Description | Type                                                                        | Default     |
 | --------- | --------- | ----------- | --------------------------------------------------------------------------- | ----------- |
+| `auto`    | `auto`    |             | `number`                                                                    | `undefined` |
 | `dark`    | `dark`    |             | `boolean`                                                                   | `false`     |
 | `striped` | `striped` |             | `boolean`                                                                   | `false`     |
 | `type`    | `type`    |             | `"danger" \| "muted" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
