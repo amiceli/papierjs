@@ -8,23 +8,33 @@ import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
 export class InputText {
     @Prop()
     placeholder?: string
-    @Prop()
+
+    @Prop({ mutable: true })
     value?: string = ''
+
     @Prop()
     required?: boolean = false
+
     @Prop()
     dark?: boolean = false
+
     @Prop()
     label?: string
+
     @Prop()
     disabled?: boolean = false
+
     @Prop()
     block?: boolean = false
+
     @Prop()
-    hasError?: boolean = false
+    error?: string
 
     @Event({ eventName: 'change' })
     public changeEvent: EventEmitter<string>
+
+    @Event({ eventName: 'input' })
+    public inputEvent: EventEmitter<string>
 
     public getParentClass() {
         let cssClass = 'papier form-group'
@@ -35,15 +45,21 @@ export class InputText {
         if (this.block) {
             cssClass = `${cssClass} is--block`
         }
-        if (this.hasError) {
+        if (this.error) {
             cssClass = `${cssClass} has--error`
         }
 
         return cssClass
     }
 
-    public onChange(e: Event) {
-        this.changeEvent.emit((e.target as HTMLInputElement).value)
+    public onInput(ev: Event) {
+        this.value = ev.target && (ev.target as HTMLInputElement).value
+
+        this.inputEvent.emit(this.value)
+    }
+
+    public onChange() {
+        this.changeEvent.emit(this.value)
     }
 
     render() {
@@ -60,9 +76,13 @@ export class InputText {
                     placeholder={this.placeholder}
                     id="paperInputs1"
                     disabled={this.disabled}
+                    onInput={(e) => {
+                        this.onInput(e)
+                    }}
                     value={this.value}
-                    onChange={(e) => this.onChange(e)}
+                    onChange={() => this.onChange()}
                 />
+                {this.error && <p class="text-danger">{this.error}</p>}
             </div>
         )
     }

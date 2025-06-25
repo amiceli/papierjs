@@ -7,6 +7,10 @@
         color : var(--primary);
     }
 
+    input + p {
+        margin-top: 0;
+    }
+
     .is--block {
         display: block;
         width: 100%;

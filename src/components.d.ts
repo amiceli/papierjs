@@ -64,7 +64,7 @@ export namespace Components {
         "block"?: boolean;
         "dark"?: boolean;
         "disabled"?: boolean;
-        "hasError"?: boolean;
+        "error"?: string;
         "label"?: string;
         "placeholder"?: string;
         "required"?: boolean;
@@ -92,6 +92,7 @@ export namespace Components {
     interface PNotificationPreview {
     }
     interface PProgressBar {
+        "auto"?: number;
         "dark"?: boolean;
         "striped"?: boolean;
         "type"?: ProgressBarColor;
@@ -268,6 +269,7 @@ declare global {
     };
     interface HTMLPInputTextElementEventMap {
         "change": string;
+        "input": string;
     }
     interface HTMLPInputTextElement extends Components.PInputText, HTMLStencilElement {
         addEventListener<K extends keyof HTMLPInputTextElementEventMap>(type: K, listener: (this: HTMLPInputTextElement, ev: PInputTextCustomEvent<HTMLPInputTextElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -502,9 +504,10 @@ declare namespace LocalJSX {
         "block"?: boolean;
         "dark"?: boolean;
         "disabled"?: boolean;
-        "hasError"?: boolean;
+        "error"?: string;
         "label"?: string;
         "onChange"?: (event: PInputTextCustomEvent<string>) => void;
+        "onInput"?: (event: PInputTextCustomEvent<string>) => void;
         "placeholder"?: string;
         "required"?: boolean;
         "value"?: string;
@@ -530,6 +533,7 @@ declare namespace LocalJSX {
     interface PNotificationPreview {
     }
     interface PProgressBar {
+        "auto"?: number;
         "dark"?: boolean;
         "striped"?: boolean;
         "type"?: ProgressBarColor;

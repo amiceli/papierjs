@@ -1,6 +1,10 @@
 :host {
     @import "../common";
 
+    .papier {
+        position: absolute;
+    }
+
     .modal {
         opacity: 1 !important;
         visibility: visible !important;

@@ -12,7 +12,7 @@
 | `block`       | `block`       |             | `boolean` | `false`     |
 | `dark`        | `dark`        |             | `boolean` | `false`     |
 | `disabled`    | `disabled`    |             | `boolean` | `false`     |
-| `hasError`    | `has-error`   |             | `boolean` | `false`     |
+| `error`       | `error`       |             | `string`  | `undefined` |
 | `label`       | `label`       |             | `string`  | `undefined` |
 | `placeholder` | `placeholder` |             | `string`  | `undefined` |
 | `required`    | `required`    |             | `boolean` | `false`     |
@@ -24,6 +24,7 @@
 | Event    | Description | Type                  |
 | -------- | ----------- | --------------------- |
 | `change` |             | `CustomEvent<string>` |
+| `input`  |             | `CustomEvent<string>` |
 
 
 ----------------------------------------------
