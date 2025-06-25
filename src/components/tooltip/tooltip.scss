@@ -4,5 +4,9 @@
     display: inline-block;
     .papier {
         display: inline-block;
+
+        &>div {
+            display: inline;
+        }
     }
 }
