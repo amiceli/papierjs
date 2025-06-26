@@ -40,8 +40,9 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build",
-    "build:watch": "stencil build --watch",
+    "build:icon": "node scripts/copy-svg.js",
+    "build": "npm run build:icon && stencil build",
+    "build:watch": "npm run build:icon && stencil build --watch",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
@@ -79,6 +80,7 @@
   "license": "MIT",
   "dependencies": {
     "feather-icons": "^4.29.2",
-    "papercss": "^1.9.2"
+    "papercss": "^1.9.2",
+    "pixelarticons": "^1.8.1"
   }
 }

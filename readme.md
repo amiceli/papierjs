@@ -25,6 +25,7 @@ Available components:
 - [ ] NavBar
 - [X] Tabs
 - [X] Popover as tooltip
+- [X] Icon (with [pixelarticons](https://github.com/halfmage/pixelarticons))
 
 Component features :
 - [X] dropdown since
