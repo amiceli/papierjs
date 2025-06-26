@@ -20,3 +20,5 @@ fs.writeFileSync(
     output,
     `export const icons: Record<string, string> = {\n${entries.join(',\n')}\n}\n`,
 )
+
+console.info('action=copy_svg, status=success')
