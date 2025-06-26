@@ -60,6 +60,11 @@ export namespace Components {
     }
     interface PDropdownPreview {
     }
+    interface PIcon {
+        "color": string;
+        "icon": string;
+        "size": number;
+    }
     interface PInputText {
         "block"?: boolean;
         "dark"?: boolean;
@@ -267,6 +272,12 @@ declare global {
         prototype: HTMLPDropdownPreviewElement;
         new (): HTMLPDropdownPreviewElement;
     };
+    interface HTMLPIconElement extends Components.PIcon, HTMLStencilElement {
+    }
+    var HTMLPIconElement: {
+        prototype: HTMLPIconElement;
+        new (): HTMLPIconElement;
+    };
     interface HTMLPInputTextElementEventMap {
         "change": string;
         "input": string;
@@ -428,6 +439,7 @@ declare global {
         "p-dropdown": HTMLPDropdownElement;
         "p-dropdown-item": HTMLPDropdownItemElement;
         "p-dropdown-preview": HTMLPDropdownPreviewElement;
+        "p-icon": HTMLPIconElement;
         "p-input-text": HTMLPInputTextElement;
         "p-leaf": HTMLPLeafElement;
         "p-modal": HTMLPModalElement;
@@ -499,6 +511,11 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface PDropdownPreview {
+    }
+    interface PIcon {
+        "color"?: string;
+        "icon"?: string;
+        "size"?: number;
     }
     interface PInputText {
         "block"?: boolean;
@@ -596,6 +613,7 @@ declare namespace LocalJSX {
         "p-dropdown": PDropdown;
         "p-dropdown-item": PDropdownItem;
         "p-dropdown-preview": PDropdownPreview;
+        "p-icon": PIcon;
         "p-input-text": PInputText;
         "p-leaf": PLeaf;
         "p-modal": PModal;
@@ -625,6 +643,7 @@ declare module "@stencil/core" {
             "p-dropdown": LocalJSX.PDropdown & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
             "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
             "p-dropdown-preview": LocalJSX.PDropdownPreview & JSXBase.HTMLAttributes<HTMLPDropdownPreviewElement>;
+            "p-icon": LocalJSX.PIcon & JSXBase.HTMLAttributes<HTMLPIconElement>;
             "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
             "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
             "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;

@@ -1,0 +1,28 @@
+import { Meta, Source } from '@storybook/blocks';
+
+<Meta title="Components/Icon/Overview" />
+
+# p-icon
+
+`p-icon` use [pixelarticons](https://github.com/halfmage/pixelarticons) for icons.
+
+<p-icon color="blue" icon="4g" size="30"></p-icon>
+
+<p-icon color="blue" icon="aspect-ratio" size="30"></p-icon>
+
+<p-icon color="orange" icon="trash" size="50"></p-icon>
+
+<p style={{color:"purpple"}}>
+    Keep text color 
+    <p-icon color="web" icon="trash" size="50"></p-icon>
+</p>
+
+<Source language='html' dark format={true} code={`
+    <p-icon color="blue" icon="4g" size="30"></p-icon>
+    <p-icon color="orange" icon="trash" size="50"></p-icon>
+
+    <p style={{color:"purpple"}}>
+        Keep text color 
+        <p-icon color="web" icon="trash" size="50"></p-icon>
+    </p>
+`} />
