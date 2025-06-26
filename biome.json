@@ -11,7 +11,8 @@
             "package-lock.json",
             "dist/",
             "www",
-            "src/components.d.ts"
+            "src/components.d.ts",
+            "src/components/p-icon/icons.ts"
         ]
     },
     "linter": {
