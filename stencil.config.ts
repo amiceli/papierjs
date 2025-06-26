@@ -1,5 +1,6 @@
 import type { Config } from '@stencil/core'
 import { sass } from '@stencil/sass'
+import { inlineSvg } from 'stencil-inline-svg'
 
 require('dotenv').config()
 
@@ -8,6 +9,7 @@ export const config: Config = {
         sass({
             includePaths: ['node_modules'],
         }),
+        inlineSvg(),
     ],
     namespace: 'papierjs',
     extras: {
