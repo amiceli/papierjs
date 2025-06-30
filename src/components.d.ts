@@ -110,6 +110,11 @@ export namespace Components {
         "min"?: number;
         "value"?: number;
     }
+    interface PSpinner {
+        "color"?: string;
+        "dark"?: boolean;
+        "large": boolean;
+    }
     interface PSwitch {
         "checked"?: boolean;
         "dark"?: boolean;
@@ -377,6 +382,12 @@ declare global {
         prototype: HTMLPSliderElement;
         new (): HTMLPSliderElement;
     };
+    interface HTMLPSpinnerElement extends Components.PSpinner, HTMLStencilElement {
+    }
+    var HTMLPSpinnerElement: {
+        prototype: HTMLPSpinnerElement;
+        new (): HTMLPSpinnerElement;
+    };
     interface HTMLPSwitchElementEventMap {
         "change": boolean;
     }
@@ -449,6 +460,7 @@ declare global {
         "p-notification-preview": HTMLPNotificationPreviewElement;
         "p-progress-bar": HTMLPProgressBarElement;
         "p-slider": HTMLPSliderElement;
+        "p-spinner": HTMLPSpinnerElement;
         "p-switch": HTMLPSwitchElement;
         "p-switch-tile": HTMLPSwitchTileElement;
         "p-tab": HTMLPTabElement;
@@ -564,6 +576,11 @@ declare namespace LocalJSX {
         "onChange"?: (event: PSliderCustomEvent<number>) => void;
         "value"?: number;
     }
+    interface PSpinner {
+        "color"?: string;
+        "dark"?: boolean;
+        "large"?: boolean;
+    }
     interface PSwitch {
         "checked"?: boolean;
         "dark"?: boolean;
@@ -623,6 +640,7 @@ declare namespace LocalJSX {
         "p-notification-preview": PNotificationPreview;
         "p-progress-bar": PProgressBar;
         "p-slider": PSlider;
+        "p-spinner": PSpinner;
         "p-switch": PSwitch;
         "p-switch-tile": PSwitchTile;
         "p-tab": PTab;
@@ -653,6 +671,7 @@ declare module "@stencil/core" {
             "p-notification-preview": LocalJSX.PNotificationPreview & JSXBase.HTMLAttributes<HTMLPNotificationPreviewElement>;
             "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
             "p-slider": LocalJSX.PSlider & JSXBase.HTMLAttributes<HTMLPSliderElement>;
+            "p-spinner": LocalJSX.PSpinner & JSXBase.HTMLAttributes<HTMLPSpinnerElement>;
             "p-switch": LocalJSX.PSwitch & JSXBase.HTMLAttributes<HTMLPSwitchElement>;
             "p-switch-tile": LocalJSX.PSwitchTile & JSXBase.HTMLAttributes<HTMLPSwitchTileElement>;
             "p-tab": LocalJSX.PTab & JSXBase.HTMLAttributes<HTMLPTabElement>;
