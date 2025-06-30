@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, Element, Prop, h } from '@stencil/core'
 
 type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
 
@@ -11,6 +11,8 @@ type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
     shadow: true,
 })
 export class Button {
+    @Element()
+    el: Element
     @Prop()
     type?: ButtonColor = 'primary'
     @Prop()
@@ -25,6 +27,8 @@ export class Button {
     disabled?: boolean = false
     @Prop()
     dark?: boolean = false
+    @Prop()
+    loading?: boolean = false
 
     public getClass(): string {
         const types = ['success', 'secondary', 'primary', 'danger', 'warning']
@@ -62,6 +66,8 @@ export class Button {
         return cssClass
     }
     render() {
+        const color = `var(--${this.type}${this.dark ? '-light' : ''})`
+
         return (
             <div class={this.getParentClass()}>
                 <button
@@ -69,7 +75,11 @@ export class Button {
                     type="button"
                     class={this.getClass()}
                 >
-                    <slot />
+                    {!this.loading ? (
+                        <slot />
+                    ) : (
+                        <p-spinner color={color} dark={this.dark} />
+                    )}
                 </button>
             </div>
         )
