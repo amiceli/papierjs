@@ -37,6 +37,7 @@ export namespace Components {
         "dark"?: boolean;
         "disabled"?: boolean;
         "large"?: boolean;
+        "loading"?: boolean;
         "outline"?: boolean;
         "small"?: boolean;
         "type"?: ButtonColor;
@@ -499,6 +500,7 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "disabled"?: boolean;
         "large"?: boolean;
+        "loading"?: boolean;
         "outline"?: boolean;
         "small"?: boolean;
         "type"?: ButtonColor;
