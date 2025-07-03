@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/html'
+import type { Preview } from '@storybook/html-vite'
 import { defineCustomElements } from '../loader'
 import { previewSlider } from '../src/components/form/slider/sliders.preview'
 import { previewModal } from '../src/components/modal/modal.preview'
