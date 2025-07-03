@@ -1,4 +1,3 @@
-import { Source } from '@storybook/blocks'
 import { icons } from '../icons'
 
 export default {

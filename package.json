@@ -53,18 +53,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@chromatic-com/storybook": "^3.2.4",
+    "@chromatic-com/storybook": "^4.0.1",
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@stencil/core": "^4.26.0",
     "@stencil/sass": "^3.0.12",
-    "@storybook/addon-controls": "^8.5.8",
-    "@storybook/addon-essentials": "^8.5.8",
-    "@storybook/addon-interactions": "^8.5.8",
-    "@storybook/blocks": "^8.5.8",
-    "@storybook/html": "^8.5.8",
-    "@storybook/html-vite": "^8.5.8",
-    "@storybook/test": "^8.5.8",
+    "@storybook/html-vite": "^9.0.15",
     "@types/jest": "^29.5.14",
     "@types/node": "^16.18.11",
     "@types/react": "^19.0.8",
@@ -73,7 +67,8 @@
     "jest-cli": "^29.7.0",
     "lefthook": "^1.10.10",
     "stencil-inline-svg": "^1.1.0",
-    "storybook": "^8.5.8"
+    "storybook": "^9.0.15",
+    "@storybook/addon-docs": "^9.0.15"
   },
   "optionalDependencies": {
     "puppeteer": "^24.2.1"
