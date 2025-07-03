@@ -1,5 +1,3 @@
-import { Source } from '@storybook/blocks'
-
 export default {
     title: 'Components/Dropdown/Playground',
     argTypes: {
