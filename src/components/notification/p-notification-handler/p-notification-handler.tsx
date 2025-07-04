@@ -59,13 +59,7 @@ export class PNotificationHandler {
 
     public mapNotifications() {
         return this.notifications.map((toast) => (
-            <p-notification
-                key={toast.type}
-                type={toast.type}
-                text={toast.text}
-                canclose={toast.canclose}
-                timestamp={toast.timestamp}
-            />
+            <p-notification key={toast.type} type={toast.type} text={toast.text} canclose={toast.canclose} timestamp={toast.timestamp} />
         ))
     }
 

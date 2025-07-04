@@ -1,8 +1,4 @@
-import {
-    type E2EElement,
-    type E2EPage,
-    newE2EPage,
-} from '@stencil/core/testing'
+import { type E2EElement, type E2EPage, newE2EPage } from '@stencil/core/testing'
 import { icons } from '../icons'
 
 describe('p-icon', () => {
@@ -11,9 +7,7 @@ describe('p-icon', () => {
 
     beforeEach(async () => {
         page = await newE2EPage()
-        await page.setContent(
-            '<p-icon icon="user" color="red" size="100"></p-icon>',
-        )
+        await page.setContent('<p-icon icon="user" color="red" size="100"></p-icon>')
 
         element = await page.find('p-icon')
     })

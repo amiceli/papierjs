@@ -46,9 +46,7 @@ describe('p-tooltip', () => {
     })
     it('can be disabled tooltip', async () => {
         const page = await newE2EPage()
-        await page.setContent(
-            '<p-tooltip right disabled title="awesome"></p-tooltip>',
-        )
+        await page.setContent('<p-tooltip right disabled title="awesome"></p-tooltip>')
 
         const element = await page.find('p-tooltip >>> .papier div')
 

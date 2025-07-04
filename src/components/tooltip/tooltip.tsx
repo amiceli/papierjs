@@ -24,18 +24,10 @@ export class PTooltip {
             <Host>
                 <div class="papier">
                     <div
-                        popover-left={
-                            this.left && !this.disabled ? this.title : null
-                        }
-                        popover-right={
-                            this.right && !this.disabled ? this.title : null
-                        }
-                        popover-bottom={
-                            this.bottom && !this.disabled ? this.title : null
-                        }
-                        popover-top={
-                            this.top && !this.disabled ? this.title : null
-                        }
+                        popover-left={this.left && !this.disabled ? this.title : null}
+                        popover-right={this.right && !this.disabled ? this.title : null}
+                        popover-bottom={this.bottom && !this.disabled ? this.title : null}
+                        popover-top={this.top && !this.disabled ? this.title : null}
                     >
                         <slot />
                     </div>

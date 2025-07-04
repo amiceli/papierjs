@@ -1,0 +1,61 @@
+import { Component, Element, Host, Prop, State, h } from '@stencil/core'
+
+@Component({
+    tag: 'p-card',
+    styleUrl: 'p-card.scss',
+    shadow: true,
+})
+export class PCard {
+    @Prop()
+    dark?: boolean = false
+    @Prop()
+    image?: string
+    @Element()
+    el: HTMLElement
+    @State()
+    hasHeader: boolean
+    @State()
+    hasFooter: boolean
+
+    componentDidLoad() {
+        this.hasHeader = !!this.el.querySelector('[slot="header"]')
+        this.hasFooter = !!this.el.querySelector('[slot="footer"]')
+    }
+
+    render() {
+        return (
+            <Host>
+                <div
+                    class={{
+                        papier: true,
+                        'is--dark': this.dark,
+                        'has--header': this.hasHeader === true,
+                        'has--footer': this.hasFooter,
+                    }}
+                >
+                    <div class="card">
+                        <div class="card-header">
+                            <slot name="header" />
+                        </div>
+                        {this.image && <img class="image-top" src={this.image} alt="card-img" />}
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <slot name="title" />
+                            </h4>
+                            <h5 class="card-subtitle">
+                                <slot name="subtitle" />
+                            </h5>
+                            <p class="card-text">
+                                <slot name="text" />
+                            </p>
+                            <slot />
+                        </div>
+                        <div class="card-footer">
+                            <slot name="footer" />
+                        </div>
+                    </div>
+                </div>
+            </Host>
+        )
+    }
+}

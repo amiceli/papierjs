@@ -1,0 +1,97 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import { PCard } from '../p-card'
+import { Button } from '../../button/button'
+
+<Meta components={[Button]} component={PCard} title="Components/Card/Overview" />
+
+# Card - [PaperCSS](https://www.getpapercss.com/docs/components/cards/)
+
+<div style={{ width: '20rem' }}>
+    <p-card>
+        <div slot="title">My awesome Paper card!</div>
+        <div slot="subtitle">Nice looking subtitle.</div>
+        <div slot="text">
+            Notice that the card width in this example have been set to 20rem, otherwise it will try to fill the current
+            container/row where the card is.
+        </div>
+        <p-button type="secondary">Next</p-button>
+    </p-card>
+</div>
+
+<Source language='html' dark format={true} code={`
+<div style={{ width: '20rem' }}>
+    <p-card>
+        <div slot="title">My awesome Paper card!</div>
+        <div slot="subtitle">Nice looking subtitle.</div>
+        <div slot="text">
+            Notice that the card width in this example have been set to 20rem, otherwise it will try to fill the current
+            container/row where the card is.
+        </div>
+        <p-button type="secondary">Next</p-button>
+    </p-card>
+</div>
+`} />
+
+## With header and/or footer
+
+<div style={{ width: '20rem' }}>
+    <p-card>
+        <div slot="header">Ciao !</div>
+        <div slot="title">My awesome Paper card!</div>
+        <div slot="subtitle">Nice looking subtitle.</div>
+        <div slot="text">
+            Notice that the card width in this example have been set to 20rem, otherwise it will try to fill the current
+            container/row where the card is.
+        </div>
+        <p-button type="secondary">Next</p-button>
+    </p-card>
+</div>
+
+<Source language='html' dark format={true} code={`
+<div style={{ width: '20rem' }}>
+    <p-card>
+        <div slot="header">Ciao !</div>
+        <div slot="title">My awesome Paper card!</div>
+        <div slot="subtitle">Nice looking subtitle.</div>
+        <div slot="text">
+            Notice that the card width in this example have been set to 20rem, otherwise it will try to fill the current
+            container/row where the card is.
+        </div>
+        <p-button type="secondary">Next</p-button>
+    </p-card>
+</div>
+`} />
+
+## Card with image 
+
+<div style={{ width: '20rem' }}>
+    <p-card image="https://picsum.photos/200/100">
+        <div slot="header">Thanks picsum !</div>
+        <div slot="footer">Footer</div>
+        <div slot="title">My awesome Paper card!</div>
+        <div slot="subtitle">Nice looking subtitle.</div>
+        <div slot="text">
+            Notice that the card width in this example have been set to 20rem, otherwise it will try to fill the current
+            container/row where the card is.
+        </div>
+        <p-button type="secondary">Next</p-button>
+    </p-card>
+</div>
+
+<Source language='html' dark format={true} code={`
+<div style={{ width: '20rem' }}>
+    <div style={{ width: '20rem' }}>
+        <p-card image="https://picsum.photos/200/100">
+            <div slot="header">Thanks picsum !</div>
+            <div slot="footer">Footer</div>
+            <div slot="title">My awesome Paper card!</div>
+            <div slot="subtitle">Nice looking subtitle.</div>
+            <div slot="text">
+                Notice that the card width in this example have been set to 20rem, otherwise it will try to fill the current
+                container/row where the card is.
+            </div>
+            <p-button type="secondary">Next</p-button>
+        </p-card>
+    </div>
+</div>
+`} />

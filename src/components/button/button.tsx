@@ -70,16 +70,8 @@ export class Button {
 
         return (
             <div class={this.getParentClass()}>
-                <button
-                    disabled={this.disabled}
-                    type="button"
-                    class={this.getClass()}
-                >
-                    {!this.loading ? (
-                        <slot />
-                    ) : (
-                        <p-spinner color={color} dark={this.dark} />
-                    )}
+                <button disabled={this.disabled} type="button" class={this.getClass()}>
+                    {!this.loading ? <slot /> : <p-spinner color={color} dark={this.dark} />}
                 </button>
             </div>
         )

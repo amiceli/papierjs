@@ -22,9 +22,7 @@ export class Alert {
     }
 
     public componentDidLoad() {
-        const items = Array.from(
-            this.el.getElementsByTagName('p-breadcrumb-item'),
-        )
+        const items = Array.from(this.el.getElementsByTagName('p-breadcrumb-item'))
 
         if (this.dark) {
             for (const item of items) {

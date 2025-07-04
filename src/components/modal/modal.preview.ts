@@ -5,9 +5,7 @@ export function previewModal() {
         const modal = document.querySelector('#modal-1') as unknown as PModal
         const buttonModal = document.querySelector('#open-modal-1')
 
-        const otherModal = document.querySelector(
-            '#modal-2',
-        ) as unknown as PModal
+        const otherModal = document.querySelector('#modal-2') as unknown as PModal
         const otherButton = document.querySelector('#open-modal-2')
         const closeIt = document.querySelector('#close-it')
 

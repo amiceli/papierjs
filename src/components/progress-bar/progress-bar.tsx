@@ -1,12 +1,6 @@
 import { Component, Prop, State, h } from '@stencil/core'
 
-type ProgressBarColor =
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'muted'
-    | 'primary'
+type ProgressBarColor = 'secondary' | 'success' | 'warning' | 'danger' | 'muted' | 'primary'
 
 @Component({
     tag: 'p-progress-bar',
@@ -41,14 +35,7 @@ export class ProgressBar {
     }
 
     public getClass(): string {
-        const types = [
-            'secondary',
-            'success',
-            'warning',
-            'danger',
-            'muted',
-            'primary',
-        ]
+        const types = ['secondary', 'success', 'warning', 'danger', 'muted', 'primary']
         const value = this.value < 0 ? 0 : this.value > 100 ? 100 : this.value
 
         let cssClass = `bar w-${value}`

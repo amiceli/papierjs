@@ -24,28 +24,17 @@ export class PModalPreview {
                     <p-modal>
                         <span slot="title">Modal title</span>
                         <span slot="sub-title">Modal sub title</span>
-                        <span slot="text">
-                            This is an example of modal which is implemented
-                            with pure CSS! :D
-                        </span>
-                        <p-button
-                            type="warning"
-                            onClick={() => this.closeModal()}
-                        >
+                        <span slot="text">This is an example of modal which is implemented with pure CSS! :D</span>
+                        <p-button type="warning" onClick={() => this.closeModal()}>
                             Close it !
                         </p-button>
                     </p-modal>
                 ) : (
                     <p-modal>
                         <h1>Ciao fratello</h1>
-                        <p>
-                            click on button, cross or outside modal to close it.
-                        </p>
+                        <p>click on button, cross or outside modal to close it.</p>
                         <br />
-                        <p-button
-                            type="success"
-                            onClick={() => this.closeModal()}
-                        >
+                        <p-button type="success" onClick={() => this.closeModal()}>
                             Close modal
                         </p-button>
                     </p-modal>

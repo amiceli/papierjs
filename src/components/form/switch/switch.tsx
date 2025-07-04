@@ -1,11 +1,4 @@
-import {
-    Component,
-    Event,
-    type EventEmitter,
-    Host,
-    Prop,
-    h,
-} from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, Prop, h } from '@stencil/core'
 
 @Component({
     tag: 'p-switch',
