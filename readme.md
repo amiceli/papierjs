@@ -18,7 +18,7 @@ Available components:
 - [X] Text input
 - [X] Badge
 - [X] Slider
-- [ ] Card
+- [X] Card
 - [X] Breadcrumb
 - [X] Modals
 - [X] Switch / Switch Tile
@@ -31,7 +31,7 @@ Component features :
 - [X] dropdown since
 - [X] `p-leaf` allow to use papercss style anywhere
 - [X] notification
-- [ ] spinner
+- [X] spinner
 - [ ] password
 - [X] accordion
 
