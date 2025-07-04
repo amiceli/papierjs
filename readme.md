@@ -49,7 +49,7 @@ Papercss style isn't applied on your website.
 Init components : 
 
 ```javascript
-import { defineCustomElements } from '@amiceli/papierjs'
+import { defineCustomElements } from '@amiceli/papierjs/loader'
 
 defineCustomElements()
 ```
@@ -67,6 +67,5 @@ npm run build-storybook
 To run storybook : 
 
 ```bash
-npm run build:watch
 npm run storybook
 ```
