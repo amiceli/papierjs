@@ -72,12 +72,7 @@ export class PTabs {
                     <div class="row flex-spaces tabs">
                         {this.tabs.map((t) => {
                             return (
-                                <label
-                                    class={this.getTabClass(t)}
-                                    htmlFor="tab1"
-                                    key={t.title}
-                                    onClick={() => this.onSelectTab(t)}
-                                >
+                                <label class={this.getTabClass(t)} htmlFor="tab1" key={t.title} onClick={() => this.onSelectTab(t)}>
                                     {t.title}
                                 </label>
                             )

@@ -4,7 +4,7 @@ import { Component, Prop, h } from '@stencil/core'
     tag: 'p-leaf',
     styleUrl: 'leaf.scss',
 })
-export class Alert {
+export class Pleaf {
     @Prop()
     dark?: boolean = false
 

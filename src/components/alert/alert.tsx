@@ -55,10 +55,7 @@ export class Alert {
                 <div class={this.getClass()}>
                     <slot />
                     {this.closable && (
-                        <span
-                            class="btn-close"
-                            onClick={() => this.closeAlert()}
-                        >
+                        <span class="btn-close" onClick={() => this.closeAlert()}>
                             X
                         </span>
                     )}

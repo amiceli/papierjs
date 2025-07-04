@@ -9,74 +9,165 @@ import { PushOptions } from "./components/notification/p-notification-handler/p-
 export { PushOptions } from "./components/notification/p-notification-handler/p-notification-handler";
 export namespace Components {
     interface PAccordion {
+        /**
+          * @default false
+         */
         "open": boolean;
         "title": string;
     }
     interface PAlert {
         /**
           * Show close icon
+          * @default false
          */
         "closable"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "type"?: AlertColor;
     }
     interface PBadge {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default undefined
+         */
         "type"?: BadgeColor;
     }
     interface PBreadcrumb {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
     }
     interface PBreadcrumbItem {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "first"?: boolean;
         "link"?: string;
     }
     interface PButton {
+        /**
+          * @default false
+         */
         "block"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "large"?: boolean;
+        /**
+          * @default false
+         */
         "loading"?: boolean;
+        /**
+          * @default false
+         */
         "outline"?: boolean;
+        /**
+          * @default false
+         */
         "small"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "type"?: ButtonColor;
     }
+    interface PCard {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        "image"?: string;
+    }
     interface PDropdown {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
         "placeholder"?: string;
         /**
           * Prevent dropdown self update selected value
+          * @default false
          */
         "preventSelected"?: boolean;
         /**
           * Selected item value
+          * @default ''
          */
         "value"?: string;
     }
     interface PDropdownItem {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "selected"?: boolean;
         "value": string;
     }
     interface PDropdownPreview {
     }
     interface PIcon {
+        /**
+          * @default 'inherit'
+         */
         "color": string;
         "icon": string;
+        /**
+          * @default 20
+         */
         "size": number;
     }
     interface PInputText {
+        /**
+          * @default false
+         */
         "block"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "error"?: string;
         "label"?: string;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "required"?: boolean;
+        /**
+          * @default ''
+         */
         "value"?: string;
     }
     interface PLeaf {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
     }
     interface PModal {
@@ -84,12 +175,27 @@ export namespace Components {
         "open": () => Promise<void>;
     }
     interface PModalPreview {
+        /**
+          * @default false
+         */
         "title"?: boolean;
     }
     interface PNotification {
+        /**
+          * @default false
+         */
         "canclose": boolean;
+        /**
+          * @default ''
+         */
         "text": string;
+        /**
+          * @default ''
+         */
         "timestamp": string;
+        /**
+          * @default 'info'
+         */
         "type"?: string;
     }
     interface PNotificationHandler {
@@ -99,58 +205,124 @@ export namespace Components {
     }
     interface PProgressBar {
         "auto"?: number;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "striped"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "type"?: ProgressBarColor;
+        /**
+          * @default 0
+         */
         "value"?: number;
     }
     interface PSlider {
+        /**
+          * @default false
+         */
         "block"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
         "max"?: number;
+        /**
+          * @default 0
+         */
         "min"?: number;
+        /**
+          * @default 0
+         */
         "value"?: number;
     }
     interface PSpinner {
         "color"?: string;
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "large": boolean;
     }
     interface PSwitch {
+        /**
+          * @default false
+         */
         "checked"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
         /**
           * define switch style
+          * @default false
          */
         "round"?: boolean;
         /**
           * define switch parent style
+          * @default false
          */
         "square"?: boolean;
     }
     interface PSwitchTile {
+        /**
+          * @default false
+         */
         "checked"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "checkedBackground"?: TileBackground;
         /**
           * Enable dark mode
+          * @default false
          */
         "dark"?: boolean;
         "uncheckedBackground"?: TileBackground;
     }
     interface PTab {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "selected"?: boolean;
         "title": string;
     }
     interface PTabs {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
     }
     interface PTooltip {
+        /**
+          * @default false
+         */
         "bottom"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "left"?: boolean;
+        /**
+          * @default false
+         */
         "right"?: boolean;
         "title"?: string;
+        /**
+          * @default false
+         */
         "top"?: boolean;
     }
 }
@@ -237,6 +409,12 @@ declare global {
     var HTMLPButtonElement: {
         prototype: HTMLPButtonElement;
         new (): HTMLPButtonElement;
+    };
+    interface HTMLPCardElement extends Components.PCard, HTMLStencilElement {
+    }
+    var HTMLPCardElement: {
+        prototype: HTMLPCardElement;
+        new (): HTMLPCardElement;
     };
     interface HTMLPDropdownElementEventMap {
         "select": string;
@@ -448,6 +626,7 @@ declare global {
         "p-breadcrumb": HTMLPBreadcrumbElement;
         "p-breadcrumb-item": HTMLPBreadcrumbItemElement;
         "p-button": HTMLPButtonElement;
+        "p-card": HTMLPCardElement;
         "p-dropdown": HTMLPDropdownElement;
         "p-dropdown-item": HTMLPDropdownItemElement;
         "p-dropdown-preview": HTMLPDropdownPreviewElement;
@@ -471,92 +650,198 @@ declare global {
 }
 declare namespace LocalJSX {
     interface PAccordion {
+        /**
+          * @default false
+         */
         "open"?: boolean;
         "title"?: string;
     }
     interface PAlert {
         /**
           * Show close icon
+          * @default false
          */
         "closable"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
         "onClose"?: (event: PAlertCustomEvent<any>) => void;
+        /**
+          * @default 'primary'
+         */
         "type"?: AlertColor;
     }
     interface PBadge {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default undefined
+         */
         "type"?: BadgeColor;
     }
     interface PBreadcrumb {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
     }
     interface PBreadcrumbItem {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "first"?: boolean;
         "link"?: string;
     }
     interface PButton {
+        /**
+          * @default false
+         */
         "block"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "large"?: boolean;
+        /**
+          * @default false
+         */
         "loading"?: boolean;
+        /**
+          * @default false
+         */
         "outline"?: boolean;
+        /**
+          * @default false
+         */
         "small"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "type"?: ButtonColor;
     }
+    interface PCard {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        "image"?: string;
+    }
     interface PDropdown {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
         "onSelect"?: (event: PDropdownCustomEvent<string>) => void;
         "placeholder"?: string;
         /**
           * Prevent dropdown self update selected value
+          * @default false
          */
         "preventSelected"?: boolean;
         /**
           * Selected item value
+          * @default ''
          */
         "value"?: string;
     }
     interface PDropdownItem {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
         "onChange"?: (event: PDropdownItemCustomEvent<string>) => void;
+        /**
+          * @default false
+         */
         "selected"?: boolean;
         "value": string;
     }
     interface PDropdownPreview {
     }
     interface PIcon {
+        /**
+          * @default 'inherit'
+         */
         "color"?: string;
         "icon"?: string;
+        /**
+          * @default 20
+         */
         "size"?: number;
     }
     interface PInputText {
+        /**
+          * @default false
+         */
         "block"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "error"?: string;
         "label"?: string;
         "onChange"?: (event: PInputTextCustomEvent<string>) => void;
         "onInput"?: (event: PInputTextCustomEvent<string>) => void;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "required"?: boolean;
+        /**
+          * @default ''
+         */
         "value"?: string;
     }
     interface PLeaf {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
     }
     interface PModal {
         "onClose"?: (event: PModalCustomEvent<void>) => void;
     }
     interface PModalPreview {
+        /**
+          * @default false
+         */
         "title"?: boolean;
     }
     interface PNotification {
+        /**
+          * @default false
+         */
         "canclose"?: boolean;
         "onClose"?: (event: PNotificationCustomEvent<string>) => void;
+        /**
+          * @default ''
+         */
         "text"?: string;
+        /**
+          * @default ''
+         */
         "timestamp"?: string;
+        /**
+          * @default 'info'
+         */
         "type"?: string;
     }
     interface PNotificationHandler {
@@ -565,61 +850,127 @@ declare namespace LocalJSX {
     }
     interface PProgressBar {
         "auto"?: number;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "striped"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "type"?: ProgressBarColor;
+        /**
+          * @default 0
+         */
         "value"?: number;
     }
     interface PSlider {
+        /**
+          * @default false
+         */
         "block"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
         "max"?: number;
+        /**
+          * @default 0
+         */
         "min"?: number;
         "onChange"?: (event: PSliderCustomEvent<number>) => void;
+        /**
+          * @default 0
+         */
         "value"?: number;
     }
     interface PSpinner {
         "color"?: string;
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "large"?: boolean;
     }
     interface PSwitch {
+        /**
+          * @default false
+         */
         "checked"?: boolean;
+        /**
+          * @default false
+         */
         "dark"?: boolean;
         "onChange"?: (event: PSwitchCustomEvent<boolean>) => void;
         /**
           * define switch style
+          * @default false
          */
         "round"?: boolean;
         /**
           * define switch parent style
+          * @default false
          */
         "square"?: boolean;
     }
     interface PSwitchTile {
+        /**
+          * @default false
+         */
         "checked"?: boolean;
+        /**
+          * @default 'primary'
+         */
         "checkedBackground"?: TileBackground;
         /**
           * Enable dark mode
+          * @default false
          */
         "dark"?: boolean;
         "onChange"?: (event: PSwitchTileCustomEvent<boolean>) => void;
         "uncheckedBackground"?: TileBackground;
     }
     interface PTab {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
+        /**
+          * @default false
+         */
         "selected"?: boolean;
         "title"?: string;
     }
     interface PTabs {
+        /**
+          * @default false
+         */
         "dark"?: boolean;
     }
     interface PTooltip {
+        /**
+          * @default false
+         */
         "bottom"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "left"?: boolean;
+        /**
+          * @default false
+         */
         "right"?: boolean;
         "title"?: string;
+        /**
+          * @default false
+         */
         "top"?: boolean;
     }
     interface IntrinsicElements {
@@ -629,6 +980,7 @@ declare namespace LocalJSX {
         "p-breadcrumb": PBreadcrumb;
         "p-breadcrumb-item": PBreadcrumbItem;
         "p-button": PButton;
+        "p-card": PCard;
         "p-dropdown": PDropdown;
         "p-dropdown-item": PDropdownItem;
         "p-dropdown-preview": PDropdownPreview;
@@ -660,6 +1012,7 @@ declare module "@stencil/core" {
             "p-breadcrumb": LocalJSX.PBreadcrumb & JSXBase.HTMLAttributes<HTMLPBreadcrumbElement>;
             "p-breadcrumb-item": LocalJSX.PBreadcrumbItem & JSXBase.HTMLAttributes<HTMLPBreadcrumbItemElement>;
             "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
+            "p-card": LocalJSX.PCard & JSXBase.HTMLAttributes<HTMLPCardElement>;
             "p-dropdown": LocalJSX.PDropdown & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
             "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
             "p-dropdown-preview": LocalJSX.PDropdownPreview & JSXBase.HTMLAttributes<HTMLPDropdownPreviewElement>;

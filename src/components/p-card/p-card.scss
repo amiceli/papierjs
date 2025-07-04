@@ -1,0 +1,15 @@
+:host {
+    @import "../common";
+
+    .papier:not(.has--footer) {
+        .card-footer {
+            display: none;
+        }
+    }
+
+    .papier:not(.has--header) {
+        .card-header {
+            display: none;
+        }
+    }
+}

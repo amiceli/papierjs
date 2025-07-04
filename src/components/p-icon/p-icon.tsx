@@ -22,10 +22,7 @@ export class PIcon {
     render() {
         return (
             <Host>
-                <div
-                    innerHTML={icons[this.icon]}
-                    style={{ color: this.color, width: `${this.size}px` }}
-                />
+                <div innerHTML={icons[this.icon]} style={{ color: this.color, width: `${this.size}px` }} />
             </Host>
         )
     }

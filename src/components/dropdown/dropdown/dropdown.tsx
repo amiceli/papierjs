@@ -1,13 +1,4 @@
-import {
-    Component,
-    Element,
-    Event,
-    type EventEmitter,
-    Listen,
-    Prop,
-    State,
-    h,
-} from '@stencil/core'
+import { Component, Element, Event, type EventEmitter, Listen, Prop, State, h } from '@stencil/core'
 import feather from 'feather-icons'
 
 /**
@@ -55,9 +46,7 @@ export class Alert {
     }
 
     public resetItem() {
-        const items = Array.from(
-            this.el.getElementsByTagName('p-dropdown-item'),
-        )
+        const items = Array.from(this.el.getElementsByTagName('p-dropdown-item'))
 
         for (const item of items) {
             item.removeAttribute('selected')
@@ -65,9 +54,7 @@ export class Alert {
     }
 
     public componentWillLoad() {
-        const items = Array.from(
-            this.el.getElementsByTagName('p-dropdown-item'),
-        )
+        const items = Array.from(this.el.getElementsByTagName('p-dropdown-item'))
 
         for (const item of items) {
             if (this.dark) {

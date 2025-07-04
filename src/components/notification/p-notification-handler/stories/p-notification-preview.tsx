@@ -34,13 +34,7 @@ export class PNotification {
                         this.notificationType = e.detail
                     }}
                 >
-                    {[
-                        'primary',
-                        'secondary',
-                        'success',
-                        'warning',
-                        'danger',
-                    ].map((value) => {
+                    {['primary', 'secondary', 'success', 'warning', 'danger'].map((value) => {
                         return (
                             <p-dropdown-item key={value} value={value}>
                                 {value}

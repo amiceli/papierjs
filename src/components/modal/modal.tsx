@@ -1,12 +1,4 @@
-import {
-    Component,
-    Event,
-    type EventEmitter,
-    Host,
-    Method,
-    State,
-    h,
-} from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, Method, State, h } from '@stencil/core'
 
 @Component({
     tag: 'p-modal',
@@ -37,15 +29,9 @@ export class PModal {
                 {this.isOpen && (
                     <div class="papier">
                         <div class="modal">
-                            <div
-                                class="modal-bg"
-                                onClick={() => this.close()}
-                            />
+                            <div class="modal-bg" onClick={() => this.close()} />
                             <div class="modal-body">
-                                <span
-                                    class="btn-close"
-                                    onClick={() => this.close()}
-                                >
+                                <span class="btn-close" onClick={() => this.close()}>
                                     X
                                 </span>
                                 <h4 class="modal-title">

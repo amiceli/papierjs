@@ -1,11 +1,4 @@
-import {
-    Component,
-    Event,
-    type EventEmitter,
-    Host,
-    Prop,
-    h,
-} from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, Prop, h } from '@stencil/core'
 
 type TileBackground = 'primary' | 'danger' | 'secondary' | 'success' | 'muted'
 
@@ -68,12 +61,7 @@ export class SwitchTile {
                 >
                     <div class="form-group">
                         <label htmlFor="paperSwitch1" class="paper-switch-tile">
-                            <input
-                                id="paperSwitch1"
-                                name="paperSwitch1"
-                                type="checkbox"
-                                checked={this.checked}
-                            />
+                            <input id="paperSwitch1" name="paperSwitch1" type="checkbox" checked={this.checked} />
                             <div class="paper-switch-tile-card border">
                                 <div class={this.getFrontCardClass()}>
                                     <slot name="unchecked-text" />

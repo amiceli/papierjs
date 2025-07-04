@@ -1,11 +1,4 @@
-import {
-    Component,
-    Event,
-    type EventEmitter,
-    Host,
-    Prop,
-    h,
-} from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, Prop, h } from '@stencil/core'
 
 @Component({
     tag: 'p-slider',
@@ -28,9 +21,7 @@ export class PSliders {
     public changeEvent: EventEmitter<number>
 
     public onInput(e: Event) {
-        this.changeEvent.emit(
-            Number.parseInt((e.target as HTMLInputElement).value),
-        )
+        this.changeEvent.emit(Number.parseInt((e.target as HTMLInputElement).value))
     }
 
     render() {

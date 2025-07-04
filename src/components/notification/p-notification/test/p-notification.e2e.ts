@@ -20,9 +20,7 @@ describe('p-notification', () => {
     })
     it('can allow types', async () => {
         const page = await newE2EPage()
-        await page.setContent(
-            '<p-notification type="success"></p-notification>',
-        )
+        await page.setContent('<p-notification type="success"></p-notification>')
 
         const element = await page.find('p-notification')
         const notf = element.shadowRoot.querySelector('.alert')

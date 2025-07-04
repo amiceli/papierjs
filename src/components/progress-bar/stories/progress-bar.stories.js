@@ -3,14 +3,7 @@ export default {
     argTypes: {
         type: {
             control: { type: 'select' },
-            options: [
-                'success',
-                'secondary',
-                'warning',
-                'danger',
-                'muted',
-                'primary',
-            ],
+            options: ['success', 'secondary', 'warning', 'danger', 'muted', 'primary'],
             name: 'checked-background',
         },
         value: {

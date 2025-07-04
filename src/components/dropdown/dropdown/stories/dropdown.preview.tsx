@@ -47,22 +47,13 @@ export class Alert {
                     onSelect={(e: CustomEvent) => this.showModal(e.detail)}
                     value={this.selectedValue}
                 >
-                    <p-dropdown-item
-                        value="awesome"
-                        selected={this.selectedValue === 'awesome'}
-                    >
+                    <p-dropdown-item value="awesome" selected={this.selectedValue === 'awesome'}>
                         Vue
                     </p-dropdown-item>
-                    <p-dropdown-item
-                        value="Stencil"
-                        selected={this.selectedValue === 'Stencil'}
-                    >
+                    <p-dropdown-item value="Stencil" selected={this.selectedValue === 'Stencil'}>
                         Stencil
                     </p-dropdown-item>
-                    <p-dropdown-item
-                        value="Storybook"
-                        selected={this.selectedValue === 'Storybook'}
-                    >
+                    <p-dropdown-item value="Storybook" selected={this.selectedValue === 'Storybook'}>
                         Storybook
                     </p-dropdown-item>
                 </p-dropdown>

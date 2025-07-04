@@ -31,10 +31,7 @@ export class PAccordion {
                         >
                             <span>{this.title}</span>
                             <span>
-                                <span
-                                    class="for--icon"
-                                    innerHTML={this.open ? openIcon : icon}
-                                />
+                                <span class="for--icon" innerHTML={this.open ? openIcon : icon} />
                             </span>
                         </div>
                         <div
