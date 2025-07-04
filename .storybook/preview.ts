@@ -1,10 +1,10 @@
 import type { Preview } from '@storybook/html-vite'
-import { defineCustomElements } from '../loader'
+// import { defineCustomElements } from '../loader'
 import { previewSlider } from '../src/components/form/slider/sliders.preview'
 import { previewModal } from '../src/components/modal/modal.preview'
 import { previewProgressbar } from '../src/components/progress-bar/stories/progress-bar.preview'
 
-defineCustomElements()
+// defineCustomElements()
 
 const preview: Preview = {
     parameters: {
