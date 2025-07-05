@@ -7,7 +7,7 @@ type ProgressBarColor = 'secondary' | 'success' | 'warning' | 'danger' | 'muted'
     styleUrl: 'progress-bar.scss',
     shadow: true,
 })
-export class ProgressBar {
+export class PProgressBar {
     @Prop()
     type?: ProgressBarColor = 'primary'
     @Prop()
