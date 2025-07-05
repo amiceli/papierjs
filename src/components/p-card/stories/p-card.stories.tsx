@@ -1,13 +1,13 @@
 import { h } from '@stencil/core'
 import type { Meta, StoryObj } from '@stencil/storybook-plugin'
-import { Button } from '../../button/button'
+import { PButton } from '../../button/button'
 import { Pleaf } from '../../leaf/leaf'
 import { PCard } from '../p-card'
 
 const meta: Meta<PCard> = {
     title: 'Components/Card/Playground',
     component: PCard,
-    subcomponents: [Button, Pleaf],
+    subcomponents: [PButton, Pleaf],
     parameters: {
         layout: 'centered',
     },
