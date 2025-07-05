@@ -10,7 +10,7 @@ type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
     styleUrl: 'button.scss',
     shadow: true,
 })
-export class Button {
+export class PButton {
     @Element()
     el: Element
     @Prop()

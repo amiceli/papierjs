@@ -5,7 +5,7 @@ import { Component, Element, Prop, h } from '@stencil/core'
     styleUrl: 'breadcrumb.scss',
     shadow: true,
 })
-export class Alert {
+export class PBreadcrumb {
     @Prop()
     dark?: boolean = false
     @Element()
