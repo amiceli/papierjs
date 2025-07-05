@@ -31,9 +31,6 @@ const meta = {
 export default meta
 
 export const Playground = {
-    // args : {
-    //     content : 'alert content'
-    // },
     render: (props) => {
         const content = <p-alert {...props}>{props.content}</p-alert>
 

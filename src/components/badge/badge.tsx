@@ -7,7 +7,7 @@ type BadgeColor = 'secondary' | 'success' | 'warning' | 'danger'
     styleUrl: 'badge.scss',
     shadow: true,
 })
-export class Badge {
+export class PBadge {
     @Prop()
     type?: BadgeColor = undefined
     @Prop()
