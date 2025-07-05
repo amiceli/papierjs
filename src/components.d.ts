@@ -15,6 +15,9 @@ export namespace Components {
         "open": boolean;
         "title": string;
     }
+    /**
+     * @Slot - alert content
+     */
     interface PAlert {
         /**
           * Show close icon
@@ -372,6 +375,9 @@ declare global {
     interface HTMLPAlertElementEventMap {
         "close": any;
     }
+    /**
+     * @Slot - alert content
+     */
     interface HTMLPAlertElement extends Components.PAlert, HTMLStencilElement {
         addEventListener<K extends keyof HTMLPAlertElementEventMap>(type: K, listener: (this: HTMLPAlertElement, ev: PAlertCustomEvent<HTMLPAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -656,6 +662,9 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "title"?: string;
     }
+    /**
+     * @Slot - alert content
+     */
     interface PAlert {
         /**
           * Show close icon
@@ -1007,6 +1016,9 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "p-accordion": LocalJSX.PAccordion & JSXBase.HTMLAttributes<HTMLPAccordionElement>;
+            /**
+             * @Slot - alert content
+             */
             "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
             "p-badge": LocalJSX.PBadge & JSXBase.HTMLAttributes<HTMLPBadgeElement>;
             "p-breadcrumb": LocalJSX.PBreadcrumb & JSXBase.HTMLAttributes<HTMLPBreadcrumbElement>;
