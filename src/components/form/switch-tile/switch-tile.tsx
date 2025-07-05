@@ -11,9 +11,10 @@ type TileBackground = 'primary' | 'danger' | 'secondary' | 'success' | 'muted'
     styleUrl: 'switch-tile.scss',
     shadow: true,
 })
-export class SwitchTile {
+export class PSwitchTile {
     /** Enable dark mode */
-    @Prop() public dark?: boolean = false
+    @Prop()
+    public dark?: boolean = false
     @Prop()
     public checked?: boolean = false
     @Prop()

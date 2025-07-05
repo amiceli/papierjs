@@ -5,7 +5,7 @@ import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
     styleUrl: 'input-text.scss',
     shadow: true,
 })
-export class InputText {
+export class PInputText {
     @Prop()
     placeholder?: string
 

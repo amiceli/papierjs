@@ -1,5 +1,12 @@
 import { Component, Element, Host, Prop, State, h } from '@stencil/core'
 
+/**
+ * @slot header - card header
+ * @slot title - card title
+ * @slot subtitle - card subtitle
+ * @slot text - card text
+ * @slot footer - card footer
+ */
 @Component({
     tag: 'p-card',
     styleUrl: 'p-card.scss',

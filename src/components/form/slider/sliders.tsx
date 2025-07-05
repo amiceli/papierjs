@@ -5,7 +5,7 @@ import { Component, Event, type EventEmitter, Host, Prop, h } from '@stencil/cor
     styleUrl: 'slider.scss',
     shadow: true,
 })
-export class PSliders {
+export class PSlider {
     @Prop()
     value?: number = 0
     @Prop()

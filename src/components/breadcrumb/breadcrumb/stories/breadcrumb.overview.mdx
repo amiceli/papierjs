@@ -1,6 +1,12 @@
 import { Meta, Source } from '@storybook/addon-docs/blocks';
+import { PBreadcrumb } from '../breadcrumb'
+import { PBreadcrumbItem } from '../../breadcrumb-item/breadcrumb-item'
 
-<Meta title="Components/Breadcrumb/Overview" />
+<Meta 
+    component={PBreadcrumb} 
+    title="Components/Breadcrumb/Overview"
+    subcomponents={[PBreadcrumbItem]}
+/>
 
 # Breadcrumb
 

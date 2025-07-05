@@ -15,6 +15,9 @@ export namespace Components {
         "open": boolean;
         "title": string;
     }
+    /**
+     * @Slot - alert content
+     */
     interface PAlert {
         /**
           * Show close icon
@@ -125,8 +128,6 @@ export namespace Components {
          */
         "selected"?: boolean;
         "value": string;
-    }
-    interface PDropdownPreview {
     }
     interface PIcon {
         /**
@@ -372,6 +373,9 @@ declare global {
     interface HTMLPAlertElementEventMap {
         "close": any;
     }
+    /**
+     * @Slot - alert content
+     */
     interface HTMLPAlertElement extends Components.PAlert, HTMLStencilElement {
         addEventListener<K extends keyof HTMLPAlertElementEventMap>(type: K, listener: (this: HTMLPAlertElement, ev: PAlertCustomEvent<HTMLPAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -449,12 +453,6 @@ declare global {
     var HTMLPDropdownItemElement: {
         prototype: HTMLPDropdownItemElement;
         new (): HTMLPDropdownItemElement;
-    };
-    interface HTMLPDropdownPreviewElement extends Components.PDropdownPreview, HTMLStencilElement {
-    }
-    var HTMLPDropdownPreviewElement: {
-        prototype: HTMLPDropdownPreviewElement;
-        new (): HTMLPDropdownPreviewElement;
     };
     interface HTMLPIconElement extends Components.PIcon, HTMLStencilElement {
     }
@@ -629,7 +627,6 @@ declare global {
         "p-card": HTMLPCardElement;
         "p-dropdown": HTMLPDropdownElement;
         "p-dropdown-item": HTMLPDropdownItemElement;
-        "p-dropdown-preview": HTMLPDropdownPreviewElement;
         "p-icon": HTMLPIconElement;
         "p-input-text": HTMLPInputTextElement;
         "p-leaf": HTMLPLeafElement;
@@ -656,6 +653,9 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "title"?: string;
     }
+    /**
+     * @Slot - alert content
+     */
     interface PAlert {
         /**
           * Show close icon
@@ -769,8 +769,6 @@ declare namespace LocalJSX {
          */
         "selected"?: boolean;
         "value": string;
-    }
-    interface PDropdownPreview {
     }
     interface PIcon {
         /**
@@ -983,7 +981,6 @@ declare namespace LocalJSX {
         "p-card": PCard;
         "p-dropdown": PDropdown;
         "p-dropdown-item": PDropdownItem;
-        "p-dropdown-preview": PDropdownPreview;
         "p-icon": PIcon;
         "p-input-text": PInputText;
         "p-leaf": PLeaf;
@@ -1007,6 +1004,9 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "p-accordion": LocalJSX.PAccordion & JSXBase.HTMLAttributes<HTMLPAccordionElement>;
+            /**
+             * @Slot - alert content
+             */
             "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
             "p-badge": LocalJSX.PBadge & JSXBase.HTMLAttributes<HTMLPBadgeElement>;
             "p-breadcrumb": LocalJSX.PBreadcrumb & JSXBase.HTMLAttributes<HTMLPBreadcrumbElement>;
@@ -1015,7 +1015,6 @@ declare module "@stencil/core" {
             "p-card": LocalJSX.PCard & JSXBase.HTMLAttributes<HTMLPCardElement>;
             "p-dropdown": LocalJSX.PDropdown & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
             "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
-            "p-dropdown-preview": LocalJSX.PDropdownPreview & JSXBase.HTMLAttributes<HTMLPDropdownPreviewElement>;
             "p-icon": LocalJSX.PIcon & JSXBase.HTMLAttributes<HTMLPIconElement>;
             "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
             "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;

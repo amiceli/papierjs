@@ -2,16 +2,20 @@ import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
 
 type AlertColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 
+/**
+ * @Slot - alert content
+ */
 @Component({
     tag: 'p-alert',
     styleUrl: 'alert.scss',
     shadow: true,
 })
-export class Alert {
+export class PAlert {
     @Prop()
     type?: AlertColor = 'primary'
     /** Show close icon */
-    @Prop() closable?: boolean = false
+    @Prop()
+    closable?: boolean = false
     @Prop()
     dark?: boolean = false
 

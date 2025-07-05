@@ -4,7 +4,7 @@ import type { PushOptions } from '../p-notification-handler'
 @Component({
     tag: 'p-notification-preview',
 })
-export class PNotification {
+export class PNotificationPreview {
     @Element()
     public el: HTMLElement
 
