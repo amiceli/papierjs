@@ -5,7 +5,7 @@ import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
     styleUrl: '../dropdown/dropdown.scss',
     shadow: true,
 })
-export class DropdownItem {
+export class PDropdownItem {
     @Prop()
     value!: string
     @Prop()

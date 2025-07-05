@@ -9,7 +9,7 @@ import feather from 'feather-icons'
     styleUrl: 'dropdown.scss',
     shadow: true,
 })
-export class Alert {
+export class PDropdown {
     @Prop()
     dark?: boolean = false
     /** Prevent dropdown self update selected value */
