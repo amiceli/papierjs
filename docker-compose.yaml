@@ -1,6 +1,8 @@
 services:
   papierjs:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       - ALLOWED_HOST=${ALLOWED_HOST}
     ports:
