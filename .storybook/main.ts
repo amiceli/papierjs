@@ -1,5 +1,7 @@
 import type { StorybookConfig } from '@storybook/html-vite'
 
+console.debug('init : ', process.env.ALLOWED_HOST)
+
 const config: StorybookConfig = {
     stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
     addons: ['@chromatic-com/storybook', '@storybook/addon-docs'],
@@ -10,6 +12,8 @@ const config: StorybookConfig = {
     viteFinal(config) {
         config.server ??= {}
         config.server.allowedHosts = ['localhost', process.env.ALLOWED_HOST ?? '']
+
+        console.debug('vite config : ', config.server.allowedHosts)
 
         return config
     },
