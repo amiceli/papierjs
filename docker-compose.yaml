@@ -1,0 +1,9 @@
+services:
+  papierjs:
+    build: .
+    environment:
+      - ALLOWED_HOST=${ALLOWED_HOST}
+    ports:
+      - "6006:6006"
+    volumes:
+      - .:/app

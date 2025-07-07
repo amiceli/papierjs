@@ -7,5 +7,11 @@ const config: StorybookConfig = {
         name: '@stencil/storybook-plugin',
         options: {},
     },
+    viteFinal(config) {
+        config.server ??= {}
+        config.server.allowedHosts = ['localhost', process.env.ALLOWED_HOST ?? '']
+
+        return config
+    },
 }
 export default config
