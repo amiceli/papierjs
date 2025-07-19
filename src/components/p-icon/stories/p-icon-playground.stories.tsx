@@ -1,15 +1,9 @@
-import { h } from '@stencil/core'
-import type { Meta, StoryObj } from '@stencil/storybook-plugin'
-import { Pleaf } from '../../leaf/leaf'
+import type { Meta, StoryObj } from '@storybook/web-components'
 import { icons } from '../icons'
-import { PIcon } from '../p-icon'
+import type { PIcon } from '../p-icon'
 
 const meta: Meta<PIcon> = {
     title: 'Components/Icon/Playground',
-    component: PIcon,
-    subcomponents: [
-        Pleaf,
-    ],
     argTypes: {
         icon: {
             control: {
@@ -31,14 +25,18 @@ type Story = StoryObj<PIcon>
 
 export const Playground: Story = {
     render: (props) => {
-        return (
+        return `
             <div>
                 <p-leaf>
                     <h3>p-icon</h3>
                 </p-leaf>
                 <br />
-                <p-icon {...props} />
+                <p-Icon
+                    icon="${props.icon}"
+                    size="${props.size}"
+                    color="${props.color}"
+                />
             </div>
-        )
+        `
     },
 }
