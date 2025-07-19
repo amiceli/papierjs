@@ -7,7 +7,9 @@ require('dotenv').config()
 export const config: Config = {
     plugins: [
         sass({
-            includePaths: ['node_modules'],
+            includePaths: [
+                'node_modules',
+            ],
         }),
         inlineSvg(),
     ],

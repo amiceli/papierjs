@@ -4,10 +4,18 @@ import type { PDropdown } from '../p-dropdown'
 const meta = {
     title: 'Components/Dropdown/Playground',
     argTypes: {
-        dark: { control: 'boolean' },
-        value: { control: 'text' },
-        open: { control: 'boolean' },
-        placeholder: { control: 'text' },
+        dark: {
+            control: 'boolean',
+        },
+        value: {
+            control: 'text',
+        },
+        open: {
+            control: 'boolean',
+        },
+        placeholder: {
+            control: 'text',
+        },
     },
     args: {
         dark: false,

@@ -1,4 +1,4 @@
-import { Component, Host, Listen, Method, State, h } from '@stencil/core'
+import { Component, Host, h, Listen, Method, State } from '@stencil/core'
 
 export type PushOptions = {
     type: string

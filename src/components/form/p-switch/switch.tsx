@@ -1,4 +1,4 @@
-import { Component, Event, type EventEmitter, Host, Prop, h } from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, h, Prop } from '@stencil/core'
 
 @Component({
     tag: 'p-switch',
@@ -17,7 +17,9 @@ export class PSwitch {
     @Prop()
     public checked?: boolean = false
 
-    @Event({ eventName: 'change' })
+    @Event({
+        eventName: 'change',
+    })
     public changeEvent: EventEmitter<boolean>
 
     public onInput(e: Event) {

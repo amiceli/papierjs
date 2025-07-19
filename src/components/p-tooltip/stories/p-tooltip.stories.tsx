@@ -4,12 +4,24 @@ import type { PTooltip } from '../p-tooltip'
 const meta = {
     title: 'Components/Tooltip/Playground',
     argTypes: {
-        title: { control: 'text' },
-        disabled: { control: 'boolean' },
-        left: { control: 'boolean' },
-        right: { control: 'boolean' },
-        bottom: { control: 'boolean' },
-        top: { control: 'boolean' },
+        title: {
+            control: 'text',
+        },
+        disabled: {
+            control: 'boolean',
+        },
+        left: {
+            control: 'boolean',
+        },
+        right: {
+            control: 'boolean',
+        },
+        bottom: {
+            control: 'boolean',
+        },
+        top: {
+            control: 'boolean',
+        },
     },
     args: {
         title: 'nice tooltip',

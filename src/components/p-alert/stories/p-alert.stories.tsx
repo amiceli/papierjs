@@ -5,8 +5,16 @@ const meta = {
     title: 'Components/Alert/Playground',
     argTypes: {
         type: {
-            control: { type: 'select' },
-            options: ['primary', 'secondary', 'success', 'warning', 'danger'],
+            control: {
+                type: 'select',
+            },
+            options: [
+                'primary',
+                'secondary',
+                'success',
+                'warning',
+                'danger',
+            ],
         },
         closable: {
             control: {
@@ -23,11 +31,19 @@ const meta = {
         type: 'primary',
         content: 'alert content',
     },
-} satisfies Meta<PAlert & { content: string }>
+} satisfies Meta<
+    PAlert & {
+        content: string
+    }
+>
 
 export default meta
 
-type Story = StoryObj<PAlert & { content: string }>
+type Story = StoryObj<
+    PAlert & {
+        content: string
+    }
+>
 
 export const Playground: Story = {
     render: (props) => {

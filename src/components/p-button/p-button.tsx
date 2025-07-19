@@ -1,4 +1,4 @@
-import { Component, Element, Prop, h } from '@stencil/core'
+import { Component, Element, h, Prop } from '@stencil/core'
 
 type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
 
@@ -31,7 +31,13 @@ export class PButton {
     loading?: boolean = false
 
     public getClass(): string {
-        const types = ['success', 'secondary', 'primary', 'danger', 'warning']
+        const types = [
+            'success',
+            'secondary',
+            'primary',
+            'danger',
+            'warning',
+        ]
         let cssClass = ''
 
         if (!types.includes(this.type)) {

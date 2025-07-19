@@ -4,11 +4,21 @@ import type { PSlider } from '../sliders'
 const meta: Meta<PSlider> = {
     title: 'Form/Slider/Playground',
     argTypes: {
-        value: { controls: 'number' },
-        min: { controls: 'number' },
-        max: { controls: 'number' },
-        block: { controls: 'boolean' },
-        dark: { controls: 'number' },
+        value: {
+            controls: 'number',
+        },
+        min: {
+            controls: 'number',
+        },
+        max: {
+            controls: 'number',
+        },
+        block: {
+            controls: 'boolean',
+        },
+        dark: {
+            controls: 'number',
+        },
     },
     args: {
         value: 10,

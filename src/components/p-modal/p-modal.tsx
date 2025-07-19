@@ -1,4 +1,4 @@
-import { Component, Event, type EventEmitter, Host, Method, State, h } from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, h, Method, State } from '@stencil/core'
 
 @Component({
     tag: 'p-modal',
@@ -9,7 +9,9 @@ export class PModal {
     @State()
     isOpen: boolean = false
 
-    @Event({ eventName: 'close' })
+    @Event({
+        eventName: 'close',
+    })
     public closeEvent: EventEmitter<void>
 
     @Method()

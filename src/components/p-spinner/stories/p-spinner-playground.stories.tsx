@@ -6,11 +6,19 @@ import { PSpinner } from '../p-spinner'
 const meta: Meta<PSpinner> = {
     title: 'Components/Spinner/Playground',
     component: PSpinner,
-    subcomponents: [Pleaf],
+    subcomponents: [
+        Pleaf,
+    ],
     argTypes: {
-        large: { control: 'boolean' },
-        color: { control: 'color' },
-        dark: { control: 'boolean' },
+        large: {
+            control: 'boolean',
+        },
+        color: {
+            control: 'color',
+        },
+        dark: {
+            control: 'boolean',
+        },
     },
     args: {
         large: false,

@@ -5,14 +5,31 @@ const meta = {
     title: 'Components/Progress bar/Playground',
     argTypes: {
         type: {
-            control: { type: 'select' },
-            options: ['secondary', 'success', 'warning', 'danger', 'muted', 'primary'],
+            control: {
+                type: 'select',
+            },
+            options: [
+                'secondary',
+                'success',
+                'warning',
+                'danger',
+                'muted',
+                'primary',
+            ],
         },
 
-        value: { control: 'number' },
-        striped: { control: 'boolean' },
-        dark: { control: 'boolean' },
-        auto: { control: 'number' },
+        value: {
+            control: 'number',
+        },
+        striped: {
+            control: 'boolean',
+        },
+        dark: {
+            control: 'boolean',
+        },
+        auto: {
+            control: 'number',
+        },
     },
     args: {
         type: 'secondary',

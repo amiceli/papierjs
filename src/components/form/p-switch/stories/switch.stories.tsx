@@ -4,10 +4,18 @@ import type { PSwitch } from '../switch'
 const meta: Meta<PSwitch> = {
     title: 'Form/Switch/Playground',
     argTypes: {
-        round: { control: 'boolean' },
-        square: { control: 'boolean' },
-        dark: { control: 'boolean' },
-        checked: { control: 'boolean' },
+        round: {
+            control: 'boolean',
+        },
+        square: {
+            control: 'boolean',
+        },
+        dark: {
+            control: 'boolean',
+        },
+        checked: {
+            control: 'boolean',
+        },
     },
     args: {
         round: false,

@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, h, Prop } from '@stencil/core'
 
 type BadgeColor = 'secondary' | 'success' | 'warning' | 'danger'
 

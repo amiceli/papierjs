@@ -1,4 +1,4 @@
-import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
+import { Component, Event, type EventEmitter, h, Prop } from '@stencil/core'
 
 @Component({
     tag: 'p-input-text',
@@ -9,7 +9,9 @@ export class PInputText {
     @Prop()
     placeholder?: string
 
-    @Prop({ mutable: true })
+    @Prop({
+        mutable: true,
+    })
     value?: string = ''
 
     @Prop()
@@ -30,10 +32,14 @@ export class PInputText {
     @Prop()
     error?: string
 
-    @Event({ eventName: 'change' })
+    @Event({
+        eventName: 'change',
+    })
     public changeEvent: EventEmitter<string>
 
-    @Event({ eventName: 'input' })
+    @Event({
+        eventName: 'input',
+    })
     public inputEvent: EventEmitter<string>
 
     public getParentClass() {

@@ -6,15 +6,35 @@ const meta = {
     argTypes: {
         type: {
             control: 'select',
-            options: ['success', 'secondary', 'primary', 'danger', 'warning'],
+            options: [
+                'success',
+                'secondary',
+                'primary',
+                'danger',
+                'warning',
+            ],
         },
-        outline: { control: 'boolean' },
-        large: { control: 'boolean' },
-        small: { control: 'boolean' },
-        block: { control: 'boolean' },
-        disabled: { control: 'boolean' },
-        dark: { control: 'boolean' },
-        loading: { control: 'boolean' },
+        outline: {
+            control: 'boolean',
+        },
+        large: {
+            control: 'boolean',
+        },
+        small: {
+            control: 'boolean',
+        },
+        block: {
+            control: 'boolean',
+        },
+        disabled: {
+            control: 'boolean',
+        },
+        dark: {
+            control: 'boolean',
+        },
+        loading: {
+            control: 'boolean',
+        },
     },
     args: {
         type: 'primary',

@@ -1,4 +1,4 @@
-import { Component, Element, Event, type EventEmitter, Listen, Prop, State, h } from '@stencil/core'
+import { Component, Element, Event, type EventEmitter, h, Listen, Prop, State } from '@stencil/core'
 import feather from 'feather-icons'
 
 /**
@@ -16,7 +16,9 @@ export class PDropdown {
     @Prop()
     preventSelected?: boolean = false
     /** Selected item value */
-    @Prop({ mutable: true })
+    @Prop({
+        mutable: true,
+    })
     value?: string = ''
     @State()
     open?: boolean = false
@@ -27,7 +29,9 @@ export class PDropdown {
     @Element()
     public el: HTMLElement
 
-    @Event({ eventName: 'select' })
+    @Event({
+        eventName: 'select',
+    })
     public selectEvent: EventEmitter<string>
 
     public getParentClass() {
@@ -38,7 +42,9 @@ export class PDropdown {
         }
     }
 
-    @Listen('click', { target: 'window' })
+    @Listen('click', {
+        target: 'window',
+    })
     public detectOutsideClick(ev) {
         if (!this.el.contains(ev.target)) {
             this.open = false

@@ -10,8 +10,15 @@ const meta = {
     title: 'Components/Badge/Playground',
     argTypes: {
         type: {
-            control: { type: 'select' },
-            options: ['secondary', 'success', 'warning', 'danger'],
+            control: {
+                type: 'select',
+            },
+            options: [
+                'secondary',
+                'success',
+                'warning',
+                'danger',
+            ],
         },
         dark: {
             control: 'boolean',

@@ -1,4 +1,4 @@
-import { Component, Element, Event, type EventEmitter, Host, Prop, h } from '@stencil/core'
+import { Component, Element, Event, type EventEmitter, Host, h, Prop } from '@stencil/core'
 import feather from 'feather-icons'
 
 @Component({
@@ -22,7 +22,9 @@ export class PNotification {
     @Prop()
     public timestamp = ''
 
-    @Event({ eventName: 'close' })
+    @Event({
+        eventName: 'close',
+    })
     public close: EventEmitter<string>
 
     public getIconName() {
@@ -45,7 +47,13 @@ export class PNotification {
             alert: true,
             'can--close': this.canclose,
         }
-        const type = ['primary', 'secondary', 'success', 'warning', 'danger'].find((v) => v === this.type)
+        const type = [
+            'primary',
+            'secondary',
+            'success',
+            'warning',
+            'danger',
+        ].find((v) => v === this.type)
         cssClass[`alert-${type || 'primary'}`] = true
 
         return cssClass

@@ -1,4 +1,4 @@
-import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
+import { Component, Event, type EventEmitter, h, Prop } from '@stencil/core'
 
 type AlertColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 
@@ -19,11 +19,19 @@ export class PAlert {
     @Prop()
     dark?: boolean = false
 
-    @Event({ eventName: 'close' })
+    @Event({
+        eventName: 'close',
+    })
     public close: EventEmitter
 
     public getClass(): string {
-        const types = ['primary', 'secondary', 'success', 'warning', 'danger']
+        const types = [
+            'primary',
+            'secondary',
+            'success',
+            'warning',
+            'danger',
+        ]
         let cssClass = 'alert'
 
         if (!types.includes(this.type)) {

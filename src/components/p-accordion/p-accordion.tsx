@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from '@stencil/core'
+import { Component, Host, h, Prop } from '@stencil/core'
 import feather from 'feather-icons'
 
 /**
@@ -12,7 +12,9 @@ import feather from 'feather-icons'
 export class PAccordion {
     @Prop()
     title: string
-    @Prop({ mutable: true })
+    @Prop({
+        mutable: true,
+    })
     open: boolean = false
 
     render() {

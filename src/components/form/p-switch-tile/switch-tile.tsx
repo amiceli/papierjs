@@ -1,4 +1,4 @@
-import { Component, Event, type EventEmitter, Host, Prop, h } from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, h, Prop } from '@stencil/core'
 
 type TileBackground = 'primary' | 'danger' | 'secondary' | 'success' | 'muted'
 
@@ -22,7 +22,9 @@ export class PSwitchTile {
     @Prop()
     public uncheckedBackground?: TileBackground
 
-    @Event({ eventName: 'change' })
+    @Event({
+        eventName: 'change',
+    })
     public changeEvent: EventEmitter<boolean>
 
     public onInput(e: Event) {

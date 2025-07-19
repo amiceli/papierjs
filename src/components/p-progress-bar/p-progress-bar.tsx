@@ -1,4 +1,4 @@
-import { Component, Prop, State, h } from '@stencil/core'
+import { Component, h, Prop, State } from '@stencil/core'
 
 type ProgressBarColor = 'secondary' | 'success' | 'warning' | 'danger' | 'muted' | 'primary'
 
@@ -35,7 +35,14 @@ export class PProgressBar {
     }
 
     public getClass(): string {
-        const types = ['secondary', 'success', 'warning', 'danger', 'muted', 'primary']
+        const types = [
+            'secondary',
+            'success',
+            'warning',
+            'danger',
+            'muted',
+            'primary',
+        ]
         const value = this.value < 0 ? 0 : this.value > 100 ? 100 : this.value
 
         let cssClass = `bar w-${value}`

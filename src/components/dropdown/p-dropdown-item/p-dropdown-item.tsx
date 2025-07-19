@@ -1,4 +1,4 @@
-import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
+import { Component, Event, type EventEmitter, h, Prop } from '@stencil/core'
 
 @Component({
     tag: 'p-dropdown-item',
@@ -13,7 +13,9 @@ export class PDropdownItem {
     @Prop()
     dark?: boolean = false
 
-    @Event({ eventName: 'change' })
+    @Event({
+        eventName: 'change',
+    })
     public changeEvent: EventEmitter<string>
 
     public getParentClass() {

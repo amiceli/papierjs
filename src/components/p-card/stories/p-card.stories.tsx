@@ -7,7 +7,9 @@ const meta: Meta<PCard> = {
         layout: 'centered',
     },
     argTypes: {
-        dark: { control: 'boolean' },
+        dark: {
+            control: 'boolean',
+        },
         image: {
             description: 'image',
         },

@@ -1,4 +1,4 @@
-import { Component, Host, Prop, State, h } from '@stencil/core'
+import { Component, Host, h, Prop, State } from '@stencil/core'
 import { icons } from './icons'
 
 @Component({
@@ -22,7 +22,13 @@ export class PIcon {
     render() {
         return (
             <Host>
-                <div innerHTML={icons[this.icon]} style={{ color: this.color, width: `${this.size}px` }} />
+                <div
+                    innerHTML={icons[this.icon]}
+                    style={{
+                        color: this.color,
+                        width: `${this.size}px`,
+                    }}
+                />
             </Host>
         )
     }

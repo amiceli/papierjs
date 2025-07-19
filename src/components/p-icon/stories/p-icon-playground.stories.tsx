@@ -7,10 +7,14 @@ import { PIcon } from '../p-icon'
 const meta: Meta<PIcon> = {
     title: 'Components/Icon/Playground',
     component: PIcon,
-    subcomponents: [Pleaf],
+    subcomponents: [
+        Pleaf,
+    ],
     argTypes: {
         icon: {
-            control: { type: 'select' },
+            control: {
+                type: 'select',
+            },
             options: Object.keys(icons),
         },
     },

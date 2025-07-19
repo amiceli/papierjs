@@ -1,4 +1,4 @@
-import { Component, Event, type EventEmitter, Host, Prop, h } from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, h, Prop } from '@stencil/core'
 
 @Component({
     tag: 'p-slider',
@@ -17,7 +17,9 @@ export class PSlider {
     @Prop()
     dark?: boolean = false
 
-    @Event({ eventName: 'change' })
+    @Event({
+        eventName: 'change',
+    })
     public changeEvent: EventEmitter<number>
 
     public onInput(e: Event) {

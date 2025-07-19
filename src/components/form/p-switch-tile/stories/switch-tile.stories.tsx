@@ -1,19 +1,33 @@
 import type { Meta, StoryObj } from '@storybook/web-components'
 import type { PSwitchTile } from '../switch-tile'
 
-const tileOptions = ['primary', 'danger', 'secondary', 'success', 'muted']
+const tileOptions = [
+    'primary',
+    'danger',
+    'secondary',
+    'success',
+    'muted',
+]
 
 const meta: Meta<PSwitchTile> = {
     title: 'Form/Switch Tile/Playground',
     argTypes: {
-        dark: { control: 'boolean' },
-        checked: { control: 'boolean' },
+        dark: {
+            control: 'boolean',
+        },
+        checked: {
+            control: 'boolean',
+        },
         checkedBackground: {
-            control: { type: 'select' },
+            control: {
+                type: 'select',
+            },
             options: tileOptions,
         },
         uncheckedBackground: {
-            control: { type: 'select' },
+            control: {
+                type: 'select',
+            },
             options: tileOptions,
         },
     },
