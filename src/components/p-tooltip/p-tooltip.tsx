@@ -2,7 +2,7 @@ import { Component, Host, Prop, h } from '@stencil/core'
 
 @Component({
     tag: 'p-tooltip',
-    styleUrl: 'tooltip.scss',
+    styleUrl: 'p-tooltip.scss',
     shadow: true,
 })
 export class PTooltip {
