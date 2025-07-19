@@ -1,13 +1,9 @@
-import { h } from '@stencil/core'
-import type { Meta, StoryObj } from '@stencil/storybook-plugin'
-import { PButton } from '../../button/button'
-import { Pleaf } from '../../leaf/leaf'
-import { PCard } from '../p-card'
+import type { Meta, StoryObj } from '@storybook/web-components'
+import { html } from 'lit'
+import type { PCard } from '../p-card'
 
 const meta: Meta<PCard> = {
     title: 'Components/Card/Playground',
-    component: PCard,
-    subcomponents: [PButton, Pleaf],
     parameters: {
         layout: 'centered',
     },
@@ -21,7 +17,7 @@ const meta: Meta<PCard> = {
         dark: false,
         image: 'https://picsum.photos/200/100',
     },
-}
+} satisfies Meta<PCard>
 
 export default meta
 
@@ -31,7 +27,8 @@ export const Playground: Story = {
     args: {
         dark: true,
     },
-    render: (props) => (
+    render: (props) => {
+        return html`
         <div>
             <p-leaf>
                 <h3>p-card</h3>
@@ -64,5 +61,6 @@ export const Playground: Story = {
                 </p-card>
             </div>
         </div>
-    ),
+        `
+    },
 }
