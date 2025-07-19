@@ -11,8 +11,6 @@ papercss style.
 
 papierjs will implements new components not in papercss like dropdown.
 
-**NB**: due to an issue on [stenciljs/storybook](https://github.com/stenciljs/storybook/issues/19), currently website is off.
-
 Available components:
 - [X] Button
 - [X] Alert
