@@ -1,0 +1,43 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+
+<Meta title="Utils/Leaf/Overview" />
+
+# Leaf
+
+`p-leaf` allowes to use **papercss** style/class in specific DOM element.
+
+<p-leaf>
+    <span className="badge">123</span>
+</p-leaf>
+<p-leaf>
+    <img 
+        style={{width: "200px"}}
+        src="https://raw.githubusercontent.com/amiceli/papierjs/refs/heads/main/src/assets/papierjs.webp"
+    />
+</p-leaf>
+
+<Source language='html' dark format={true} code={`
+    <p-leaf>
+        <span className="badge">123</span>
+    </p-leaf>
+    <p-leaf>
+        <img 
+            style={{width: "200px"}}
+            src="https://raw.githubusercontent.com/amiceli/papierjs/refs/heads/main/src/assets/papierjs.webp"
+        />
+    </p-leaf>
+`} />
+
+## Dark mode
+
+<div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
+    <p-leaf dark>
+        <input type="button" className="btn-secondary" value="Secondary"/>
+    </p-leaf>
+</div>
+
+<Source language='html' dark format={true} code={`
+    <p-leaf dark>
+        <input type="button" className="btn-secondary" value="Secondary"/>
+    </p-leaf>
+`} />

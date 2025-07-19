@@ -1,0 +1,42 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Modals/Overview" />
+
+# Modal
+
+<p-modal id="open-modal">
+    <span slot="title">Modal title</span>
+    <span slot="sub-title">Modal sub title</span>
+    <span slot="text">This is an example of modal which is implemented with pure CSS! :D</span>
+    <p-button 
+        type="warning"
+        id="close-it"
+    >Close it !</p-button>
+</p-modal>
+
+<p-button id="open-modal-button" type="secondary">Open modal</p-button>
+
+<Source language='html' dark format={true} code={`
+    <p-modal id="open-modal">
+        <span slot="title">Modal title</span>
+        <span slot="sub-title">Modal sub title</span>
+        <span slot="text">This is an example of modal which is implemented with pure CSS! :D</span>
+        <p-button 
+            type="warning"
+            id="close-it"
+        >Close it !</p-button>
+    </p-modal>
+
+    <p-button id="open-modal-button" type="secondary">Open modal</p-button>
+`} />
+
+And call `p-modal` methods : 
+
+<Source language='js' dark format={true} code={`
+    const modal = document.querySelector('#open-modal')
+    const modalButton = document.querySelector('#open-modal-button')
+
+    modalButton.addEventListener('click', () => {
+        modal.open()
+    })
+`} />

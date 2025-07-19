@@ -1,4 +1,4 @@
-import { Component, Element, State, h } from '@stencil/core'
+import { Component, Element, h, State } from '@stencil/core'
 import type { PushOptions } from '../p-notification-handler'
 
 @Component({
@@ -34,7 +34,13 @@ export class PNotificationPreview {
                         this.notificationType = e.detail
                     }}
                 >
-                    {['primary', 'secondary', 'success', 'warning', 'danger'].map((value) => {
+                    {[
+                        'primary',
+                        'secondary',
+                        'success',
+                        'warning',
+                        'danger',
+                    ].map((value) => {
                         return (
                             <p-dropdown-item key={value} value={value}>
                                 {value}
@@ -43,9 +49,15 @@ export class PNotificationPreview {
                     })}
                 </p-dropdown>
 
-                <div style={{ marginTop: '20px' }}>
+                <div
+                    style={{
+                        marginTop: '20px',
+                    }}
+                >
                     <p-button
-                        style={{ marginRight: '20px' }}
+                        style={{
+                            marginRight: '20px',
+                        }}
                         type="primary"
                         onClick={() => {
                             this.addNotification({})
@@ -55,9 +67,13 @@ export class PNotificationPreview {
                     </p-button>
                     <p-button
                         type="secondary"
-                        style={{ marginRight: '20px' }}
+                        style={{
+                            marginRight: '20px',
+                        }}
                         onClick={() => {
-                            this.addNotification({ canclose: true })
+                            this.addNotification({
+                                canclose: true,
+                            })
                         }}
                     >
                         Add closable notification
@@ -65,7 +81,9 @@ export class PNotificationPreview {
                     <p-button
                         type="success"
                         onClick={() => {
-                            this.addNotification({ timeout: 2000 })
+                            this.addNotification({
+                                timeout: 2000,
+                            })
                         }}
                     >
                         Add timeout notification

@@ -7,10 +7,13 @@ require('dotenv').config()
 export const config: Config = {
     plugins: [
         sass({
-            includePaths: ['node_modules'],
+            includePaths: [
+                'node_modules',
+            ],
         }),
         inlineSvg(),
     ],
+    tsconfig: 'tsconfig.stencil.json',
     namespace: 'papierjs',
     extras: {
         enableImportInjection: true,

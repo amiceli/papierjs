@@ -1,0 +1,51 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Badge/Overview" />
+
+# Badge
+
+Badge inherit parent `font-size` and `font-family`.
+
+<h1 style={{fontSize : "40px"}}>
+    <p-badge>papierjs</p-badge>
+</h1>
+<h2>
+    <p-badge type="secondary">papierjs</p-badge>
+</h2>
+<h3>
+    <p-badge type="success">papierjs</p-badge>
+</h3>
+<h4>
+    <p-badge type="warning">papierjs</p-badge>
+</h4>
+<h5>
+    <p-badge type="danger">papierjs</p-badge>
+</h5>
+
+<Source language='html' dark format={true} code={`
+    <h1 style={{fontSize : "40px"}}>
+        <p-badge>papierjs</p-badge>
+    </h1>
+    <h5>
+        <p-badge type="danger">papierjs</p-badge>
+    </h5>
+`} />
+
+## Dark mode
+
+<div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
+    <p-badge dark>papierjs</p-badge>
+    &nbsp;
+    <p-badge dark type="secondary">papierjs</p-badge>
+    &nbsp;
+    <p-badge dark type="success">papierjs</p-badge>
+    &nbsp;
+    <p-badge dark type="warning">papierjs</p-badge>
+    &nbsp;
+    <p-badge dark type="danger">papierjs</p-badge>
+</div>
+
+<Source language='html' dark format={true} code={`
+    <p-badge dark>papierjs</p-badge>
+    <p-badge dark type="warning">papierjs</p-badge>
+`} />

@@ -51,25 +51,26 @@
     "build-storybook": "storybook build",
     "lint": "biome check ."
   },
+  "overrides": {
+    "@types/node": "*"
+  },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@chromatic-com/storybook": "^4.0.1",
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
+    "@biomejs/biome": "2.1.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@stencil/core": "^4.26.0",
     "@stencil/sass": "^3.0.12",
-    "@stencil/storybook-plugin": "^0.4.2",
-    "@storybook/addon-docs": "^9.0.15",
-    "@storybook/html-vite": "^9.0.15",
+    "@storybook/addon-docs": "^9.0.17",
+    "@storybook/web-components-vite": "^9.0.17",
     "@types/jest": "^29.5.14",
-    "@types/node": "^16.18.11",
-    "@types/react": "^19.0.8",
+    "@types/node": "^22.16.5",
     "dotenv": "^16.4.7",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
-    "lefthook": "^1.10.10",
+    "lefthook": "^1.12.2",
     "stencil-inline-svg": "^1.1.0",
-    "storybook": "^9.0.15"
+    "storybook": "^9.0.15",
+    "vite-plugin-live-reload": "^3.0.5"
   },
   "optionalDependencies": {
     "puppeteer": "^24.2.1"

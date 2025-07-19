@@ -1,18 +1,23 @@
 {
-    "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-    "organizeImports": {
-        "enabled": true
+    "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
+        }
     },
     "files": {
-        "ignore": [
-            "storybook-static/",
-            "loader/",
-            "package.json",
-            "package-lock.json",
-            "dist/",
-            "www",
-            "src/components.d.ts",
-            "src/components/p-icon/icons.ts"
+        "includes": [
+            "**",
+            "!**/storybook-static/**",
+            "!**/loader/**",
+            "!**/package.json",
+            "!**/package-lock.json",
+            "!**/dist/**",
+            "!**/www/**",
+            "!**/src/components.d.ts",
+            "!**/src/components/p-icon/icons.ts"
         ]
     },
     "linter": {
@@ -20,21 +25,20 @@
         "rules": {
             "recommended": true,
             "a11y": {
+                "noStaticElementInteractions": "off",
                 "useKeyWithClickEvents": "off"
             },
             "style": {
                 "noUnusedTemplateLiteral": "off",
                 "noInferrableTypes": "off"
-            },
-            "correctness": {
-                "noUnusedImports": "off"
             }
         }
     },
     "formatter": {
         "indentStyle": "space",
         "indentWidth": 4,
-        "lineWidth": 140
+        "lineWidth": 140,
+        "expand": "always"
     },
     "javascript": {
         "formatter": {

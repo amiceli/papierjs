@@ -1,0 +1,79 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Breadcrumb/Overview" />
+
+# Breadcrumb
+
+<p-breadcrumb>
+    <p-breadcrumb-item link="#">
+        <span>Home</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item link="#">
+        <span>Maison</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item>
+        <span>Casa</span>
+    </p-breadcrumb-item>
+</p-breadcrumb>
+
+<Source language='html' dark format={true} code={`
+<p-breadcrumb>
+    <p-breadcrumb-item link="#">
+        <span>Home</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item link="#">
+        <span>Maison</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item>
+        <span>Casa</span>
+    </p-breadcrumb-item>
+</p-breadcrumb>
+`} />
+
+## One link
+
+<p-breadcrumb>
+    <p-breadcrumb-item link="#">
+        <span>Home</span>
+    </p-breadcrumb-item>
+</p-breadcrumb>
+
+<Source language='html' dark format={true} code={`
+<p-breadcrumb>
+    <p-breadcrumb-item link="#">
+        <span>Home</span>
+    </p-breadcrumb-item>
+</p-breadcrumb>
+`} />
+
+## Dark mode
+
+`p-breadcrumb-item` inherit `p-breadcrumb` dark mode.
+
+<div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
+    <p-breadcrumb dark>
+        <p-breadcrumb-item link="#">
+            <span>Home</span>
+        </p-breadcrumb-item>
+        <p-breadcrumb-item link="#">
+            <span>Maison</span>
+        </p-breadcrumb-item>
+        <p-breadcrumb-item>
+            <span>Casa</span>
+        </p-breadcrumb-item>
+    </p-breadcrumb>
+</div>
+
+<Source language='html' dark format={true} code={`
+<p-breadcrumb dark>
+    <p-breadcrumb-item link="#">
+        <span>Home</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item link="#">
+        <span>Maison</span>
+    </p-breadcrumb-item>
+    <p-breadcrumb-item>
+        <span>Casa</span>
+    </p-breadcrumb-item>
+</p-breadcrumb>
+`} />
