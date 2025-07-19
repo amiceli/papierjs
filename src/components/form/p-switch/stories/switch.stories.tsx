@@ -1,12 +1,8 @@
-import { h } from '@stencil/core'
-import type { Meta, StoryObj } from '@stencil/storybook-plugin'
-import { Pleaf } from '../../../leaf/leaf'
-import { PSwitch } from '../switch'
+import type { Meta, StoryObj } from '@storybook/web-components'
+import type { PSwitch } from '../switch'
 
 const meta: Meta<PSwitch> = {
     title: 'Form/Switch/Playground',
-    component: PSwitch,
-    subcomponents: [Pleaf],
     argTypes: {
         round: { control: 'boolean' },
         square: { control: 'boolean' },
@@ -27,23 +23,23 @@ type Story = StoryObj<PSwitch>
 
 export const Playground: Story = {
     render: (props) => {
-        return (
+        return `
             <div>
                 <p-leaf>
                     <h3>p-switch</h3>
                 </p-leaf>
                 <br />
                 <div
-                    style={{
-                        padding: '10px',
-                        boxSizing: 'border-box',
-                        width: '100%',
-                        background: props.dark ? '#41403e' : 'transparent',
-                    }}
+                    style="padding:10px; box-sizing: border-box; with:100%; background: ${props.dark ? '#41403e' : 'transparent'}"
                 >
-                    <p-switch {...props} />
+                    <p-switch
+                        ${props.round ? 'round' : ''}
+                        ${props.square ? 'square' : ''}
+                        ${props.dark ? 'dark' : ''}
+                        ${props.checked ? 'checked' : ''}
+                    />
                 </div>
             </div>
-        )
+        `
     },
 }

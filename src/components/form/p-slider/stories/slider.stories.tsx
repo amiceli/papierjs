@@ -1,12 +1,8 @@
-import { h } from '@stencil/core'
-import type { Meta, StoryObj } from '@stencil/storybook-plugin'
-import { Pleaf } from '../../../leaf/leaf'
-import { PSlider } from '../sliders'
+import type { Meta, StoryObj } from '@storybook/web-components'
+import type { PSlider } from '../sliders'
 
 const meta: Meta<PSlider> = {
     title: 'Form/Slider/Playground',
-    component: PSlider,
-    subcomponents: [Pleaf],
     argTypes: {
         value: { controls: 'number' },
         min: { controls: 'number' },
@@ -29,14 +25,18 @@ type Story = StoryObj<PSlider>
 
 export const Playground: Story = {
     render: (props) => {
-        return (
-            <div>
-                <p-leaf>
-                    <h3>p-icon</h3>
-                </p-leaf>
-                <br />
-                <p-slider {...props} />
-            </div>
-        )
+        return `
+            <p-leaf>
+                <h3>p-icon</h3>
+            </p-leaf>
+            <br />
+            <p-Slider
+                value="${props.value}"
+                min="${props.min}"
+                max="${props.max}"
+                ${props.dark ? 'dark' : ''}
+                ${props.block ? 'block' : ''}
+            />
+        `
     },
 }
