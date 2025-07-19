@@ -1,6 +1,23 @@
 :host {
     @import "../common";
 
+    .papier.is--dark *, .papier.is--dark p {
+        color : white;
+    }
+
+    .papier.with--radius .card {
+        overflow: hidden;
+        border-color : white;
+        border-bottom-left-radius: 15px 255px;
+        border-bottom-right-radius: 225px 15px;
+        border-top-left-radius: 255px 15px;
+        border-top-right-radius: 15px 225px;
+
+        .card-footer, .card-header {
+            border-color : white;
+        }
+    }
+
     .papier:not(.has--footer) {
         .card-footer {
             display: none;

@@ -100,6 +100,11 @@ export namespace Components {
          */
         "dark"?: boolean;
         "image"?: string;
+        /**
+          * Use border radius style like button, badge etc
+          * @default false
+         */
+        "radius"?: boolean;
     }
     interface PDropdown {
         /**
@@ -732,6 +737,11 @@ declare namespace LocalJSX {
          */
         "dark"?: boolean;
         "image"?: string;
+        /**
+          * Use border radius style like button, badge etc
+          * @default false
+         */
+        "radius"?: boolean;
     }
     interface PDropdown {
         /**

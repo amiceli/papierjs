@@ -15,6 +15,11 @@ import { Component, Element, Host, h, Prop, State } from '@stencil/core'
 export class PCard {
     @Prop()
     dark?: boolean = false
+    /**
+     * Use border radius style like button, badge etc
+     */
+    @Prop()
+    radius?: boolean = false
     @Prop()
     image?: string
     @Element()
@@ -38,6 +43,7 @@ export class PCard {
                         'is--dark': this.dark,
                         'has--header': this.hasHeader === true,
                         'has--footer': this.hasFooter,
+                        'with--radius': this.radius,
                     }}
                 >
                     <div class="card">
