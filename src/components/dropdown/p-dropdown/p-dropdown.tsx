@@ -6,7 +6,7 @@ import feather from 'feather-icons'
  */
 @Component({
     tag: 'p-dropdown',
-    styleUrl: 'dropdown.scss',
+    styleUrl: 'p-dropdown.scss',
     shadow: true,
 })
 export class PDropdown {

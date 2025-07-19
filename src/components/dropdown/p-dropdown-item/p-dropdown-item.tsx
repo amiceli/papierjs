@@ -2,7 +2,7 @@ import { Component, Event, type EventEmitter, Prop, h } from '@stencil/core'
 
 @Component({
     tag: 'p-dropdown-item',
-    styleUrl: '../dropdown/dropdown.scss',
+    styleUrl: '../p-dropdown/p-dropdown.scss',
     shadow: true,
 })
 export class PDropdownItem {
