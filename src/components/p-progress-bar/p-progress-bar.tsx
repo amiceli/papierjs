@@ -4,7 +4,7 @@ type ProgressBarColor = 'secondary' | 'success' | 'warning' | 'danger' | 'muted'
 
 @Component({
     tag: 'p-progress-bar',
-    styleUrl: 'progress-bar.scss',
+    styleUrl: 'p-progress-bar.scss',
     shadow: true,
 })
 export class PProgressBar {
