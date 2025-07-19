@@ -2,7 +2,7 @@ import { Component, Event, type EventEmitter, Host, Method, State, h } from '@st
 
 @Component({
     tag: 'p-modal',
-    styleUrl: 'modal.scss',
+    styleUrl: 'p-modal.scss',
     shadow: true,
 })
 export class PModal {
