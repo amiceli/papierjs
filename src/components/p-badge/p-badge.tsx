@@ -4,7 +4,7 @@ type BadgeColor = 'secondary' | 'success' | 'warning' | 'danger'
 
 @Component({
     tag: 'p-badge',
-    styleUrl: 'badge.scss',
+    styleUrl: 'p-badge.scss',
     shadow: true,
 })
 export class PBadge {
