@@ -11,6 +11,7 @@ export const config: Config = {
         }),
         inlineSvg(),
     ],
+    tsconfig: 'tsconfig.stencil.json',
     namespace: 'papierjs',
     extras: {
         enableImportInjection: true,
