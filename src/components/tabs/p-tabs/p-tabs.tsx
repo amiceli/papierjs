@@ -1,10 +1,10 @@
 import { Component, Element, Host, Prop, State, h } from '@stencil/core'
-import type { PTab } from '../tab/tab'
+import type { PTab } from '../p-tab/p-tab'
 
 /** @slot - slot with <p-tab> components */
 @Component({
     tag: 'p-tabs',
-    styleUrl: 'tabs.scss',
+    styleUrl: 'p-tabs.scss',
     shadow: true,
 })
 export class PTabs {

@@ -2,7 +2,7 @@ import { Component, Host, Prop, h } from '@stencil/core'
 
 @Component({
     tag: 'p-tab',
-    styleUrl: 'tab.scss',
+    styleUrl: 'p-tab.scss',
     shadow: true,
 })
 export class PTab {
