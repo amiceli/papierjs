@@ -10,12 +10,16 @@ const meta: Meta<PCard> = {
         dark: {
             control: 'boolean',
         },
+        radius: {
+            control: 'boolean',
+        },
         image: {
             description: 'image',
         },
     },
     args: {
         dark: false,
+        radius: false,
         image: 'https://picsum.photos/200/100',
     },
 } satisfies Meta<PCard>
@@ -34,10 +38,11 @@ export const Playground: Story = {
                 <p-leaf>
                     <h3>p-card</h3>
                 </p-leaf>
-                <div style={{ width: '20rem' }}>
+                <div style="width:300px; padding: 10px; boxSizing: border-box; background: ${props.dark ? '#41403e' : 'transparent'}">
                     <p-card
                         image=${props.image}
                         ${props.dark ? 'dark' : ''}
+                        ${props.radius ? 'radius' : ''}
                     >
                         <div slot="title">My awesome Paper card!</div>
                         <div slot="subtitle">Nice looking subtitle.</div>
@@ -51,8 +56,12 @@ export const Playground: Story = {
                 <p-leaf>
                     <h3>p-card with footer and header</h3>
                 </p-leaf>
-                <div style={{ width: '20rem' }}>
-                    <p-card {...props}>
+                <div style="width:300px; padding: 10px; boxSizing: border-box; background: ${props.dark ? '#41403e' : 'transparent'}">
+                    <p-card
+                        image=${props.image}
+                        ${props.dark ? 'dark' : ''}
+                        ${props.radius ? 'radius' : ''}
+                    >
                         <div slot="header">Header</div>
                         <div slot="title">My awesome Paper card!</div>
                         <div slot="subtitle">Nice looking subtitle.</div>

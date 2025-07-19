@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `dark`   | `dark`    |             | `boolean` | `false`     |
-| `image`  | `image`   |             | `string`  | `undefined` |
+| Property | Attribute | Description                                    | Type      | Default     |
+| -------- | --------- | ---------------------------------------------- | --------- | ----------- |
+| `dark`   | `dark`    |                                                | `boolean` | `false`     |
+| `image`  | `image`   |                                                | `string`  | `undefined` |
+| `radius` | `radius`  | Use border radius style like button, badge etc | `boolean` | `false`     |
 
 
 ## Slots
