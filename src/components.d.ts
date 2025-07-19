@@ -165,6 +165,9 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * @slots default - p-leaf content
+     */
     interface PLeaf {
         /**
           * @default false
@@ -174,12 +177,6 @@ export namespace Components {
     interface PModal {
         "close": () => Promise<void>;
         "open": () => Promise<void>;
-    }
-    interface PModalPreview {
-        /**
-          * @default false
-         */
-        "title"?: boolean;
     }
     interface PNotification {
         /**
@@ -478,6 +475,9 @@ declare global {
         prototype: HTMLPInputTextElement;
         new (): HTMLPInputTextElement;
     };
+    /**
+     * @slots default - p-leaf content
+     */
     interface HTMLPLeafElement extends Components.PLeaf, HTMLStencilElement {
     }
     var HTMLPLeafElement: {
@@ -500,12 +500,6 @@ declare global {
     var HTMLPModalElement: {
         prototype: HTMLPModalElement;
         new (): HTMLPModalElement;
-    };
-    interface HTMLPModalPreviewElement extends Components.PModalPreview, HTMLStencilElement {
-    }
-    var HTMLPModalPreviewElement: {
-        prototype: HTMLPModalPreviewElement;
-        new (): HTMLPModalPreviewElement;
     };
     interface HTMLPNotificationElementEventMap {
         "close": string;
@@ -631,7 +625,6 @@ declare global {
         "p-input-text": HTMLPInputTextElement;
         "p-leaf": HTMLPLeafElement;
         "p-modal": HTMLPModalElement;
-        "p-modal-preview": HTMLPModalPreviewElement;
         "p-notification": HTMLPNotificationElement;
         "p-notification-handler": HTMLPNotificationHandlerElement;
         "p-notification-preview": HTMLPNotificationPreviewElement;
@@ -808,6 +801,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * @slots default - p-leaf content
+     */
     interface PLeaf {
         /**
           * @default false
@@ -816,12 +812,6 @@ declare namespace LocalJSX {
     }
     interface PModal {
         "onClose"?: (event: PModalCustomEvent<void>) => void;
-    }
-    interface PModalPreview {
-        /**
-          * @default false
-         */
-        "title"?: boolean;
     }
     interface PNotification {
         /**
@@ -985,7 +975,6 @@ declare namespace LocalJSX {
         "p-input-text": PInputText;
         "p-leaf": PLeaf;
         "p-modal": PModal;
-        "p-modal-preview": PModalPreview;
         "p-notification": PNotification;
         "p-notification-handler": PNotificationHandler;
         "p-notification-preview": PNotificationPreview;
@@ -1017,9 +1006,11 @@ declare module "@stencil/core" {
             "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
             "p-icon": LocalJSX.PIcon & JSXBase.HTMLAttributes<HTMLPIconElement>;
             "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
+            /**
+             * @slots default - p-leaf content
+             */
             "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
             "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;
-            "p-modal-preview": LocalJSX.PModalPreview & JSXBase.HTMLAttributes<HTMLPModalPreviewElement>;
             "p-notification": LocalJSX.PNotification & JSXBase.HTMLAttributes<HTMLPNotificationElement>;
             "p-notification-handler": LocalJSX.PNotificationHandler & JSXBase.HTMLAttributes<HTMLPNotificationHandlerElement>;
             "p-notification-preview": LocalJSX.PNotificationPreview & JSXBase.HTMLAttributes<HTMLPNotificationPreviewElement>;
