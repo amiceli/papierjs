@@ -34,7 +34,10 @@ export const Playground: Story = {
                 <h3>p-card</h3>
             </p-leaf>
             <div style={{ width: '20rem' }}>
-                <p-card {...props}>
+                <p-card
+                    image=${props.image}
+                    ${props.dark ? 'dark' : ''}
+                >
                     <div slot="title">My awesome Paper card!</div>
                     <div slot="subtitle">Nice looking subtitle.</div>
                     <div slot="text">
