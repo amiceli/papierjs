@@ -2,7 +2,7 @@ import { Component, Element, Prop, h } from '@stencil/core'
 
 @Component({
     tag: 'p-breadcrumb-item',
-    styleUrl: '../breadcrumb/breadcrumb.scss',
+    styleUrl: '../p-breadcrumb/p-breadcrumb.scss',
     shadow: true,
 })
 export class PBreadcrumbItem {
