@@ -7,7 +7,7 @@ type AlertColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
  */
 @Component({
     tag: 'p-alert',
-    styleUrl: 'alert.scss',
+    styleUrl: 'p-alert.scss',
     shadow: true,
 })
 export class PAlert {
