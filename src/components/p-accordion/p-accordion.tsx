@@ -6,7 +6,7 @@ import feather from 'feather-icons'
  */
 @Component({
     tag: 'p-accordion',
-    styleUrl: 'accordion.scss',
+    styleUrl: 'p-accordion.scss',
     shadow: true,
 })
 export class PAccordion {
