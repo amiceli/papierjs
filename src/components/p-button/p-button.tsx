@@ -7,7 +7,7 @@ type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
  */
 @Component({
     tag: 'p-button',
-    styleUrl: 'button.scss',
+    styleUrl: 'p-button.scss',
     shadow: true,
 })
 export class PButton {
