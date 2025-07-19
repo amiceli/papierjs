@@ -1,8 +1,11 @@
 import { Component, Prop, h } from '@stencil/core'
 
+/**
+ * @slots default - p-leaf content
+ */
 @Component({
     tag: 'p-leaf',
-    styleUrl: 'leaf.scss',
+    styleUrl: 'p-leaf.scss',
 })
 export class Pleaf {
     @Prop()
