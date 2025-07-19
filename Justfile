@@ -10,3 +10,6 @@ run:
     just stencil
     just storybook
     open 'http://localhost:6006/'
+
+build:
+    npm run build
