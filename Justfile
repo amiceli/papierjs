@@ -13,3 +13,6 @@ run:
 
 build:
     npm run build
+
+biome:
+  npx biome check --write
