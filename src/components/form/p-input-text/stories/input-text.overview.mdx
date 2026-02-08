@@ -23,9 +23,9 @@ import { Meta, Source } from '@storybook/addon-docs/blocks';
 <p-input-text placeholder="Full name is required" required label="Full name" />
 
 <Source language='html' dark format={true} code={`
-    <p-input-text 
-        placeholder="Full name is required" 
-        required 
+    <p-input-text
+        placeholder="Full name is required"
+        required
         label="Full name"
     />
 `} />
@@ -35,10 +35,10 @@ import { Meta, Source } from '@storybook/addon-docs/blocks';
 <p-input-text placeholder="Name is required" disabled label="Name" />
 
 <Source language='html' dark format={true} code={`
-    <p-input-text 
-        placeholder="Name is required" 
-        disabled 
-        label="Name" 
+    <p-input-text
+        placeholder="Name is required"
+        disabled
+        label="Name"
     />
 `} />
 
@@ -50,12 +50,20 @@ import { Meta, Source } from '@storybook/addon-docs/blocks';
     <p-input-text label="Video Game" error="Video game is reduired"/>
 `} />
 
+## Input with icon
+
+<p-input-text placeholder="Search video game" label="Video Game" icon="search" />
+
+<Source language='html' dark format={true} code={`
+<p-input-text placeholder="Search video game" label="Video Game" icon="search" />
+`} />
+
 ## Dark
 
 <div style={{padding: '10px', boxSizing: "border-box", width: "100%", background: "#41403e"}}>
-    <p-input-text 
-        placeholder="placeholder" 
-        label="Name" 
+    <p-input-text
+        placeholder="placeholder"
+        label="Name"
         dark
         block
         required
@@ -65,14 +73,14 @@ import { Meta, Source } from '@storybook/addon-docs/blocks';
 </div>
 
 <Source language='html' dark format={true} code={`
-    <p-input-text 
-        placeholder="placeholder" 
-        label="Name" 
+    <p-input-text
+        placeholder="placeholder"
+        label="Name"
         dark
         block
         required
     />
-    <p-input-text 
+    <p-input-text
         dark
         block
         value="GTA"

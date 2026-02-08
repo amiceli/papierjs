@@ -13,6 +13,7 @@
 | `dark`        | `dark`        |             | `boolean` | `false`     |
 | `disabled`    | `disabled`    |             | `boolean` | `false`     |
 | `error`       | `error`       |             | `string`  | `undefined` |
+| `icon`        | `icon`        |             | `string`  | `undefined` |
 | `label`       | `label`       |             | `string`  | `undefined` |
 | `placeholder` | `placeholder` |             | `string`  | `undefined` |
 | `required`    | `required`    |             | `boolean` | `false`     |

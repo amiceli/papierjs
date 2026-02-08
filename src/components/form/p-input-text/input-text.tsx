@@ -9,6 +9,9 @@ export class PInputText {
     @Prop()
     placeholder?: string
 
+    @Prop()
+    icon?: string
+
     @Prop({
         mutable: true,
     })
@@ -48,6 +51,9 @@ export class PInputText {
         if (this.dark) {
             cssClass = `${cssClass} is--dark`
         }
+        if (this.icon) {
+            cssClass = `${cssClass} with--icon`
+        }
         if (this.block) {
             cssClass = `${cssClass} is--block`
         }
@@ -77,17 +83,20 @@ export class PInputText {
                         {this.required ? '*' : ''}
                     </label>
                 )}
-                <input
-                    type="text"
-                    placeholder={this.placeholder}
-                    id="paperInputs1"
-                    disabled={this.disabled}
-                    onInput={(e) => {
-                        this.onInput(e)
-                    }}
-                    value={this.value}
-                    onChange={() => this.onChange()}
-                />
+                <div class="for--input">
+                    {this.icon && <p-icon icon={this.icon} size={30} color="inherit"></p-icon>}
+                    <input
+                        type="text"
+                        placeholder={this.placeholder}
+                        id="paperInputs1"
+                        disabled={this.disabled}
+                        onInput={(e) => {
+                            this.onInput(e)
+                        }}
+                        value={this.value}
+                        onChange={() => this.onChange()}
+                    />
+                </div>
                 {this.error && <p class="text-danger">{this.error}</p>}
             </div>
         )

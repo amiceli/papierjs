@@ -1,6 +1,6 @@
 {
   "name": "@amiceli/papierjs",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Papercss web components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -60,8 +60,8 @@
     "@commitlint/config-conventional": "^20.4.1",
     "@stencil/core": "^4.26.0",
     "@stencil/sass": "^3.0.12",
-    "@storybook/addon-docs": "^9.0.17",
-    "@storybook/web-components-vite": "^9.0.17",
+    "@storybook/addon-docs": "^10.2.7",
+    "@storybook/web-components-vite": "^10.2.7",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.16.5",
     "dotenv": "^16.4.7",
@@ -69,7 +69,7 @@
     "jest-cli": "^29.7.0",
     "lefthook": "^2.1.0",
     "stencil-inline-svg": "^1.1.0",
-    "storybook": "^9.0.15",
+    "storybook": "^10.2.7",
     "vite-plugin-live-reload": "^3.0.5"
   },
   "optionalDependencies": {
