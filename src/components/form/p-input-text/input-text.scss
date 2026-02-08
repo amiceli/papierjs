@@ -7,6 +7,21 @@
         color : var(--primary);
     }
 
+    .with--icon input {
+        padding-left : 50px;
+    }
+
+    .for--input {
+        position: relative;
+        width : max-content;
+
+        p-icon {
+            position : absolute;
+            left : 10px;
+            top : 5px;
+        }
+    }
+
     input + p {
         margin-top: 0;
     }

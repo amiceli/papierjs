@@ -159,6 +159,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         "error"?: string;
+        "icon"?: string;
         "label"?: string;
         "placeholder"?: string;
         /**
@@ -798,6 +799,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "error"?: string;
+        "icon"?: string;
         "label"?: string;
         "onChange"?: (event: PInputTextCustomEvent<string>) => void;
         "onInput"?: (event: PInputTextCustomEvent<string>) => void;
