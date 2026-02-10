@@ -191,6 +191,40 @@ export namespace Components {
         "close": () => Promise<void>;
         "open": () => Promise<void>;
     }
+    interface PNavbar {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        /**
+          * @default false
+         */
+        "fixed": boolean;
+        /**
+          * @default '/'
+         */
+        "rootLink": string;
+        /**
+          * @default ''
+         */
+        "rootTitle": string;
+        /**
+          * @default false
+         */
+        "split": boolean;
+    }
+    interface PNavbarItem {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        /**
+          * @default '/'
+         */
+        "href": string;
+        "icon"?: string;
+        "target"?: string;
+    }
     interface PNotification {
         /**
           * @default false
@@ -514,6 +548,18 @@ declare global {
         prototype: HTMLPModalElement;
         new (): HTMLPModalElement;
     };
+    interface HTMLPNavbarElement extends Components.PNavbar, HTMLStencilElement {
+    }
+    var HTMLPNavbarElement: {
+        prototype: HTMLPNavbarElement;
+        new (): HTMLPNavbarElement;
+    };
+    interface HTMLPNavbarItemElement extends Components.PNavbarItem, HTMLStencilElement {
+    }
+    var HTMLPNavbarItemElement: {
+        prototype: HTMLPNavbarItemElement;
+        new (): HTMLPNavbarItemElement;
+    };
     interface HTMLPNotificationElementEventMap {
         "close": string;
     }
@@ -638,6 +684,8 @@ declare global {
         "p-input-text": HTMLPInputTextElement;
         "p-leaf": HTMLPLeafElement;
         "p-modal": HTMLPModalElement;
+        "p-navbar": HTMLPNavbarElement;
+        "p-navbar-item": HTMLPNavbarItemElement;
         "p-notification": HTMLPNotificationElement;
         "p-notification-handler": HTMLPNotificationHandlerElement;
         "p-notification-preview": HTMLPNotificationPreviewElement;
@@ -652,6 +700,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
     interface PAccordion {
         /**
           * @default false
@@ -839,6 +889,40 @@ declare namespace LocalJSX {
     interface PModal {
         "onClose"?: (event: PModalCustomEvent<void>) => void;
     }
+    interface PNavbar {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        /**
+          * @default false
+         */
+        "fixed"?: boolean;
+        /**
+          * @default '/'
+         */
+        "rootLink"?: string;
+        /**
+          * @default ''
+         */
+        "rootTitle"?: string;
+        /**
+          * @default false
+         */
+        "split"?: boolean;
+    }
+    interface PNavbarItem {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        /**
+          * @default '/'
+         */
+        "href"?: string;
+        "icon"?: string;
+        "target"?: string;
+    }
     interface PNotification {
         /**
           * @default false
@@ -987,67 +1071,205 @@ declare namespace LocalJSX {
          */
         "top"?: boolean;
     }
+
+    interface PAccordionAttributes {
+        "title": string;
+        "open": boolean;
+    }
+    interface PAlertAttributes {
+        "type": AlertColor;
+        "closable": boolean;
+        "dark": boolean;
+    }
+    interface PBadgeAttributes {
+        "type": BadgeColor;
+        "dark": boolean;
+    }
+    interface PBreadcrumbAttributes {
+        "dark": boolean;
+    }
+    interface PBreadcrumbItemAttributes {
+        "dark": boolean;
+        "first": boolean;
+        "link": string;
+    }
+    interface PButtonAttributes {
+        "type": ButtonColor;
+        "outline": boolean;
+        "large": boolean;
+        "small": boolean;
+        "block": boolean;
+        "disabled": boolean;
+        "dark": boolean;
+        "loading": boolean;
+    }
+    interface PCardAttributes {
+        "dark": boolean;
+        "radius": boolean;
+        "image": string;
+    }
+    interface PDropdownAttributes {
+        "dark": boolean;
+        "preventSelected": boolean;
+        "value": string;
+        "placeholder": string;
+    }
+    interface PDropdownItemAttributes {
+        "value": string;
+        "selected": boolean;
+        "dark": boolean;
+    }
+    interface PIconAttributes {
+        "icon": string;
+        "size": number;
+        "color": string;
+    }
+    interface PInputTextAttributes {
+        "placeholder": string;
+        "icon": string;
+        "value": string;
+        "required": boolean;
+        "dark": boolean;
+        "label": string;
+        "disabled": boolean;
+        "block": boolean;
+        "error": string;
+    }
+    interface PLeafAttributes {
+        "dark": boolean;
+    }
+    interface PNavbarAttributes {
+        "split": boolean;
+        "fixed": boolean;
+        "dark": boolean;
+        "rootLink": string;
+        "rootTitle": string;
+    }
+    interface PNavbarItemAttributes {
+        "dark": boolean;
+        "href": string;
+        "target": string;
+        "icon": string;
+    }
+    interface PNotificationAttributes {
+        "type": string;
+        "text": string;
+        "canclose": boolean;
+        "timestamp": string;
+    }
+    interface PProgressBarAttributes {
+        "type": ProgressBarColor;
+        "value": number;
+        "striped": boolean;
+        "dark": boolean;
+        "auto": number;
+    }
+    interface PSliderAttributes {
+        "value": number;
+        "min": number;
+        "max": number;
+        "block": boolean;
+        "dark": boolean;
+    }
+    interface PSpinnerAttributes {
+        "large": boolean;
+        "color": string;
+        "dark": boolean;
+    }
+    interface PSwitchAttributes {
+        "round": boolean;
+        "square": boolean;
+        "dark": boolean;
+        "checked": boolean;
+    }
+    interface PSwitchTileAttributes {
+        "dark": boolean;
+        "checked": boolean;
+        "checkedBackground": TileBackground;
+        "uncheckedBackground": TileBackground;
+    }
+    interface PTabAttributes {
+        "title": string;
+        "selected": boolean;
+        "dark": boolean;
+    }
+    interface PTabsAttributes {
+        "dark": boolean;
+    }
+    interface PTooltipAttributes {
+        "title": string;
+        "disabled": boolean;
+        "left": boolean;
+        "right": boolean;
+        "bottom": boolean;
+        "top": boolean;
+    }
+
     interface IntrinsicElements {
-        "p-accordion": PAccordion;
-        "p-alert": PAlert;
-        "p-badge": PBadge;
-        "p-breadcrumb": PBreadcrumb;
-        "p-breadcrumb-item": PBreadcrumbItem;
-        "p-button": PButton;
-        "p-card": PCard;
-        "p-dropdown": PDropdown;
-        "p-dropdown-item": PDropdownItem;
-        "p-icon": PIcon;
-        "p-input-text": PInputText;
-        "p-leaf": PLeaf;
+        "p-accordion": Omit<PAccordion, keyof PAccordionAttributes> & { [K in keyof PAccordion & keyof PAccordionAttributes]?: PAccordion[K] } & { [K in keyof PAccordion & keyof PAccordionAttributes as `attr:${K}`]?: PAccordionAttributes[K] } & { [K in keyof PAccordion & keyof PAccordionAttributes as `prop:${K}`]?: PAccordion[K] };
+        "p-alert": Omit<PAlert, keyof PAlertAttributes> & { [K in keyof PAlert & keyof PAlertAttributes]?: PAlert[K] } & { [K in keyof PAlert & keyof PAlertAttributes as `attr:${K}`]?: PAlertAttributes[K] } & { [K in keyof PAlert & keyof PAlertAttributes as `prop:${K}`]?: PAlert[K] };
+        "p-badge": Omit<PBadge, keyof PBadgeAttributes> & { [K in keyof PBadge & keyof PBadgeAttributes]?: PBadge[K] } & { [K in keyof PBadge & keyof PBadgeAttributes as `attr:${K}`]?: PBadgeAttributes[K] } & { [K in keyof PBadge & keyof PBadgeAttributes as `prop:${K}`]?: PBadge[K] };
+        "p-breadcrumb": Omit<PBreadcrumb, keyof PBreadcrumbAttributes> & { [K in keyof PBreadcrumb & keyof PBreadcrumbAttributes]?: PBreadcrumb[K] } & { [K in keyof PBreadcrumb & keyof PBreadcrumbAttributes as `attr:${K}`]?: PBreadcrumbAttributes[K] } & { [K in keyof PBreadcrumb & keyof PBreadcrumbAttributes as `prop:${K}`]?: PBreadcrumb[K] };
+        "p-breadcrumb-item": Omit<PBreadcrumbItem, keyof PBreadcrumbItemAttributes> & { [K in keyof PBreadcrumbItem & keyof PBreadcrumbItemAttributes]?: PBreadcrumbItem[K] } & { [K in keyof PBreadcrumbItem & keyof PBreadcrumbItemAttributes as `attr:${K}`]?: PBreadcrumbItemAttributes[K] } & { [K in keyof PBreadcrumbItem & keyof PBreadcrumbItemAttributes as `prop:${K}`]?: PBreadcrumbItem[K] };
+        "p-button": Omit<PButton, keyof PButtonAttributes> & { [K in keyof PButton & keyof PButtonAttributes]?: PButton[K] } & { [K in keyof PButton & keyof PButtonAttributes as `attr:${K}`]?: PButtonAttributes[K] } & { [K in keyof PButton & keyof PButtonAttributes as `prop:${K}`]?: PButton[K] };
+        "p-card": Omit<PCard, keyof PCardAttributes> & { [K in keyof PCard & keyof PCardAttributes]?: PCard[K] } & { [K in keyof PCard & keyof PCardAttributes as `attr:${K}`]?: PCardAttributes[K] } & { [K in keyof PCard & keyof PCardAttributes as `prop:${K}`]?: PCard[K] };
+        "p-dropdown": Omit<PDropdown, keyof PDropdownAttributes> & { [K in keyof PDropdown & keyof PDropdownAttributes]?: PDropdown[K] } & { [K in keyof PDropdown & keyof PDropdownAttributes as `attr:${K}`]?: PDropdownAttributes[K] } & { [K in keyof PDropdown & keyof PDropdownAttributes as `prop:${K}`]?: PDropdown[K] };
+        "p-dropdown-item": Omit<PDropdownItem, keyof PDropdownItemAttributes> & { [K in keyof PDropdownItem & keyof PDropdownItemAttributes]?: PDropdownItem[K] } & { [K in keyof PDropdownItem & keyof PDropdownItemAttributes as `attr:${K}`]?: PDropdownItemAttributes[K] } & { [K in keyof PDropdownItem & keyof PDropdownItemAttributes as `prop:${K}`]?: PDropdownItem[K] } & OneOf<"value", PDropdownItem["value"], PDropdownItemAttributes["value"]>;
+        "p-icon": Omit<PIcon, keyof PIconAttributes> & { [K in keyof PIcon & keyof PIconAttributes]?: PIcon[K] } & { [K in keyof PIcon & keyof PIconAttributes as `attr:${K}`]?: PIconAttributes[K] } & { [K in keyof PIcon & keyof PIconAttributes as `prop:${K}`]?: PIcon[K] };
+        "p-input-text": Omit<PInputText, keyof PInputTextAttributes> & { [K in keyof PInputText & keyof PInputTextAttributes]?: PInputText[K] } & { [K in keyof PInputText & keyof PInputTextAttributes as `attr:${K}`]?: PInputTextAttributes[K] } & { [K in keyof PInputText & keyof PInputTextAttributes as `prop:${K}`]?: PInputText[K] };
+        "p-leaf": Omit<PLeaf, keyof PLeafAttributes> & { [K in keyof PLeaf & keyof PLeafAttributes]?: PLeaf[K] } & { [K in keyof PLeaf & keyof PLeafAttributes as `attr:${K}`]?: PLeafAttributes[K] } & { [K in keyof PLeaf & keyof PLeafAttributes as `prop:${K}`]?: PLeaf[K] };
         "p-modal": PModal;
-        "p-notification": PNotification;
+        "p-navbar": Omit<PNavbar, keyof PNavbarAttributes> & { [K in keyof PNavbar & keyof PNavbarAttributes]?: PNavbar[K] } & { [K in keyof PNavbar & keyof PNavbarAttributes as `attr:${K}`]?: PNavbarAttributes[K] } & { [K in keyof PNavbar & keyof PNavbarAttributes as `prop:${K}`]?: PNavbar[K] };
+        "p-navbar-item": Omit<PNavbarItem, keyof PNavbarItemAttributes> & { [K in keyof PNavbarItem & keyof PNavbarItemAttributes]?: PNavbarItem[K] } & { [K in keyof PNavbarItem & keyof PNavbarItemAttributes as `attr:${K}`]?: PNavbarItemAttributes[K] } & { [K in keyof PNavbarItem & keyof PNavbarItemAttributes as `prop:${K}`]?: PNavbarItem[K] };
+        "p-notification": Omit<PNotification, keyof PNotificationAttributes> & { [K in keyof PNotification & keyof PNotificationAttributes]?: PNotification[K] } & { [K in keyof PNotification & keyof PNotificationAttributes as `attr:${K}`]?: PNotificationAttributes[K] } & { [K in keyof PNotification & keyof PNotificationAttributes as `prop:${K}`]?: PNotification[K] };
         "p-notification-handler": PNotificationHandler;
         "p-notification-preview": PNotificationPreview;
-        "p-progress-bar": PProgressBar;
-        "p-slider": PSlider;
-        "p-spinner": PSpinner;
-        "p-switch": PSwitch;
-        "p-switch-tile": PSwitchTile;
-        "p-tab": PTab;
-        "p-tabs": PTabs;
-        "p-tooltip": PTooltip;
+        "p-progress-bar": Omit<PProgressBar, keyof PProgressBarAttributes> & { [K in keyof PProgressBar & keyof PProgressBarAttributes]?: PProgressBar[K] } & { [K in keyof PProgressBar & keyof PProgressBarAttributes as `attr:${K}`]?: PProgressBarAttributes[K] } & { [K in keyof PProgressBar & keyof PProgressBarAttributes as `prop:${K}`]?: PProgressBar[K] };
+        "p-slider": Omit<PSlider, keyof PSliderAttributes> & { [K in keyof PSlider & keyof PSliderAttributes]?: PSlider[K] } & { [K in keyof PSlider & keyof PSliderAttributes as `attr:${K}`]?: PSliderAttributes[K] } & { [K in keyof PSlider & keyof PSliderAttributes as `prop:${K}`]?: PSlider[K] };
+        "p-spinner": Omit<PSpinner, keyof PSpinnerAttributes> & { [K in keyof PSpinner & keyof PSpinnerAttributes]?: PSpinner[K] } & { [K in keyof PSpinner & keyof PSpinnerAttributes as `attr:${K}`]?: PSpinnerAttributes[K] } & { [K in keyof PSpinner & keyof PSpinnerAttributes as `prop:${K}`]?: PSpinner[K] };
+        "p-switch": Omit<PSwitch, keyof PSwitchAttributes> & { [K in keyof PSwitch & keyof PSwitchAttributes]?: PSwitch[K] } & { [K in keyof PSwitch & keyof PSwitchAttributes as `attr:${K}`]?: PSwitchAttributes[K] } & { [K in keyof PSwitch & keyof PSwitchAttributes as `prop:${K}`]?: PSwitch[K] };
+        "p-switch-tile": Omit<PSwitchTile, keyof PSwitchTileAttributes> & { [K in keyof PSwitchTile & keyof PSwitchTileAttributes]?: PSwitchTile[K] } & { [K in keyof PSwitchTile & keyof PSwitchTileAttributes as `attr:${K}`]?: PSwitchTileAttributes[K] } & { [K in keyof PSwitchTile & keyof PSwitchTileAttributes as `prop:${K}`]?: PSwitchTile[K] };
+        "p-tab": Omit<PTab, keyof PTabAttributes> & { [K in keyof PTab & keyof PTabAttributes]?: PTab[K] } & { [K in keyof PTab & keyof PTabAttributes as `attr:${K}`]?: PTabAttributes[K] } & { [K in keyof PTab & keyof PTabAttributes as `prop:${K}`]?: PTab[K] };
+        "p-tabs": Omit<PTabs, keyof PTabsAttributes> & { [K in keyof PTabs & keyof PTabsAttributes]?: PTabs[K] } & { [K in keyof PTabs & keyof PTabsAttributes as `attr:${K}`]?: PTabsAttributes[K] } & { [K in keyof PTabs & keyof PTabsAttributes as `prop:${K}`]?: PTabs[K] };
+        "p-tooltip": Omit<PTooltip, keyof PTooltipAttributes> & { [K in keyof PTooltip & keyof PTooltipAttributes]?: PTooltip[K] } & { [K in keyof PTooltip & keyof PTooltipAttributes as `attr:${K}`]?: PTooltipAttributes[K] } & { [K in keyof PTooltip & keyof PTooltipAttributes as `prop:${K}`]?: PTooltip[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "p-accordion": LocalJSX.PAccordion & JSXBase.HTMLAttributes<HTMLPAccordionElement>;
+            "p-accordion": LocalJSX.IntrinsicElements["p-accordion"] & JSXBase.HTMLAttributes<HTMLPAccordionElement>;
             /**
              * @Slot - alert content
              */
-            "p-alert": LocalJSX.PAlert & JSXBase.HTMLAttributes<HTMLPAlertElement>;
-            "p-badge": LocalJSX.PBadge & JSXBase.HTMLAttributes<HTMLPBadgeElement>;
-            "p-breadcrumb": LocalJSX.PBreadcrumb & JSXBase.HTMLAttributes<HTMLPBreadcrumbElement>;
-            "p-breadcrumb-item": LocalJSX.PBreadcrumbItem & JSXBase.HTMLAttributes<HTMLPBreadcrumbItemElement>;
-            "p-button": LocalJSX.PButton & JSXBase.HTMLAttributes<HTMLPButtonElement>;
-            "p-card": LocalJSX.PCard & JSXBase.HTMLAttributes<HTMLPCardElement>;
-            "p-dropdown": LocalJSX.PDropdown & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
-            "p-dropdown-item": LocalJSX.PDropdownItem & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
-            "p-icon": LocalJSX.PIcon & JSXBase.HTMLAttributes<HTMLPIconElement>;
-            "p-input-text": LocalJSX.PInputText & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
+            "p-alert": LocalJSX.IntrinsicElements["p-alert"] & JSXBase.HTMLAttributes<HTMLPAlertElement>;
+            "p-badge": LocalJSX.IntrinsicElements["p-badge"] & JSXBase.HTMLAttributes<HTMLPBadgeElement>;
+            "p-breadcrumb": LocalJSX.IntrinsicElements["p-breadcrumb"] & JSXBase.HTMLAttributes<HTMLPBreadcrumbElement>;
+            "p-breadcrumb-item": LocalJSX.IntrinsicElements["p-breadcrumb-item"] & JSXBase.HTMLAttributes<HTMLPBreadcrumbItemElement>;
+            "p-button": LocalJSX.IntrinsicElements["p-button"] & JSXBase.HTMLAttributes<HTMLPButtonElement>;
+            "p-card": LocalJSX.IntrinsicElements["p-card"] & JSXBase.HTMLAttributes<HTMLPCardElement>;
+            "p-dropdown": LocalJSX.IntrinsicElements["p-dropdown"] & JSXBase.HTMLAttributes<HTMLPDropdownElement>;
+            "p-dropdown-item": LocalJSX.IntrinsicElements["p-dropdown-item"] & JSXBase.HTMLAttributes<HTMLPDropdownItemElement>;
+            "p-icon": LocalJSX.IntrinsicElements["p-icon"] & JSXBase.HTMLAttributes<HTMLPIconElement>;
+            "p-input-text": LocalJSX.IntrinsicElements["p-input-text"] & JSXBase.HTMLAttributes<HTMLPInputTextElement>;
             /**
              * @slots default - p-leaf content
              */
-            "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
-            "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;
-            "p-notification": LocalJSX.PNotification & JSXBase.HTMLAttributes<HTMLPNotificationElement>;
-            "p-notification-handler": LocalJSX.PNotificationHandler & JSXBase.HTMLAttributes<HTMLPNotificationHandlerElement>;
-            "p-notification-preview": LocalJSX.PNotificationPreview & JSXBase.HTMLAttributes<HTMLPNotificationPreviewElement>;
-            "p-progress-bar": LocalJSX.PProgressBar & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
-            "p-slider": LocalJSX.PSlider & JSXBase.HTMLAttributes<HTMLPSliderElement>;
-            "p-spinner": LocalJSX.PSpinner & JSXBase.HTMLAttributes<HTMLPSpinnerElement>;
-            "p-switch": LocalJSX.PSwitch & JSXBase.HTMLAttributes<HTMLPSwitchElement>;
-            "p-switch-tile": LocalJSX.PSwitchTile & JSXBase.HTMLAttributes<HTMLPSwitchTileElement>;
-            "p-tab": LocalJSX.PTab & JSXBase.HTMLAttributes<HTMLPTabElement>;
-            "p-tabs": LocalJSX.PTabs & JSXBase.HTMLAttributes<HTMLPTabsElement>;
-            "p-tooltip": LocalJSX.PTooltip & JSXBase.HTMLAttributes<HTMLPTooltipElement>;
+            "p-leaf": LocalJSX.IntrinsicElements["p-leaf"] & JSXBase.HTMLAttributes<HTMLPLeafElement>;
+            "p-modal": LocalJSX.IntrinsicElements["p-modal"] & JSXBase.HTMLAttributes<HTMLPModalElement>;
+            "p-navbar": LocalJSX.IntrinsicElements["p-navbar"] & JSXBase.HTMLAttributes<HTMLPNavbarElement>;
+            "p-navbar-item": LocalJSX.IntrinsicElements["p-navbar-item"] & JSXBase.HTMLAttributes<HTMLPNavbarItemElement>;
+            "p-notification": LocalJSX.IntrinsicElements["p-notification"] & JSXBase.HTMLAttributes<HTMLPNotificationElement>;
+            "p-notification-handler": LocalJSX.IntrinsicElements["p-notification-handler"] & JSXBase.HTMLAttributes<HTMLPNotificationHandlerElement>;
+            "p-notification-preview": LocalJSX.IntrinsicElements["p-notification-preview"] & JSXBase.HTMLAttributes<HTMLPNotificationPreviewElement>;
+            "p-progress-bar": LocalJSX.IntrinsicElements["p-progress-bar"] & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
+            "p-slider": LocalJSX.IntrinsicElements["p-slider"] & JSXBase.HTMLAttributes<HTMLPSliderElement>;
+            "p-spinner": LocalJSX.IntrinsicElements["p-spinner"] & JSXBase.HTMLAttributes<HTMLPSpinnerElement>;
+            "p-switch": LocalJSX.IntrinsicElements["p-switch"] & JSXBase.HTMLAttributes<HTMLPSwitchElement>;
+            "p-switch-tile": LocalJSX.IntrinsicElements["p-switch-tile"] & JSXBase.HTMLAttributes<HTMLPSwitchTileElement>;
+            "p-tab": LocalJSX.IntrinsicElements["p-tab"] & JSXBase.HTMLAttributes<HTMLPTabElement>;
+            "p-tabs": LocalJSX.IntrinsicElements["p-tabs"] & JSXBase.HTMLAttributes<HTMLPTabsElement>;
+            "p-tooltip": LocalJSX.IntrinsicElements["p-tooltip"] & JSXBase.HTMLAttributes<HTMLPTooltipElement>;
         }
     }
 }
