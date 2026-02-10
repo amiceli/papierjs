@@ -44,7 +44,14 @@ export const Playground: Story = {
                     href="/"
                     target="_blank"
                 >
-                nique ta mère
+                    Home
+                </p-navbar-item>
+                <p-navbar-item
+                    href="/"
+                    target="_blank"
+                    icon="github"
+                >
+                    Github
                 </p-navbar-item>
             </p-button>
         `

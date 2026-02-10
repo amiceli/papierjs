@@ -36,6 +36,10 @@ export class PNavbar {
     public componentDidLoad() {
         const items = Array.from(this.el.getElementsByTagName('p-navbar-item'))
 
+        for (const item of items) {
+            item.style.marginLeft = '10px'
+        }
+
         if (this.dark) {
             for (const item of items) {
                 item.setAttribute('dark', 'true')
@@ -67,9 +71,6 @@ export class PNavbar {
                             <div class="collapsible-body">
                                 <ul class="inline">
                                     <slot></slot>
-                                    <li>
-                                        <a href="/">nique ta mère</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>

@@ -31,7 +31,7 @@ export class PNavbarItem {
             <Host>
                 <li class={this.getClass()}>
                     <a href={this.href} target={this.target}>
-                        {this.icon && <p-icon icon={this.icon} size={20} color="inherit"></p-icon>}
+                        {this.icon && <p-icon icon={this.icon} size={20} color={this.dark ? 'white' : '#41403e'}></p-icon>}
                         <slot />
                     </a>
                 </li>
