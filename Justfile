@@ -12,3 +12,6 @@ build:
 
 biome:
   npx biome check --write
+
+create component:
+    npx stencil g {{component}}
