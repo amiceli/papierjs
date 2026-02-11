@@ -19,6 +19,7 @@
         "jsxFragmentFactory": "h.Fragment"
     },
     "include": [
+        ".env.d.ts",
         "src"
     ],
     "exclude": [
