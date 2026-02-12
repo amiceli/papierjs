@@ -76,7 +76,7 @@ export class PButton {
 
         return (
             <div class={this.getParentClass()}>
-                <button disabled={this.disabled} type="button" class={this.getClass()}>
+                <button class={this.getClass()} disabled={this.disabled} type="button">
                     {!this.loading ? <slot /> : <p-spinner color={color} dark={this.dark} />}
                 </button>
             </div>

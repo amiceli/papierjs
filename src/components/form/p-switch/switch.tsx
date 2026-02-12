@@ -43,11 +43,11 @@ export class PSwitch {
                             }}
                         >
                             <input
+                                checked={this.checked}
                                 id="paperSwitch4"
                                 name="paperSwitch4"
-                                type="checkbox"
-                                checked={this.checked}
                                 onInput={(e) => this.onInput(e)}
+                                type="checkbox"
                             />
                             <span
                                 class={{

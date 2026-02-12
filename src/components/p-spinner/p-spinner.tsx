@@ -32,9 +32,9 @@ export class PSpinner {
                         'is--dark': this.dark,
                     }}
                 >
-                    <div class="border border-primary" style={this.getStyle()} />
-                    <div class="border border-primary" style={this.getStyle()} />
-                    <div class="border border-primary" style={this.getStyle()} />
+                    <div class="border border-primary" style={this.getStyle()}></div>
+                    <div class="border border-primary" style={this.getStyle()}></div>
+                    <div class="border border-primary" style={this.getStyle()}></div>
                 </div>
             </Host>
         )
