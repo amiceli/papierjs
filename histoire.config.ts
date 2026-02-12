@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'histoire'
 
 export default defineConfig({
-    setupFile: '/src/histoires/setup.ts',
+    setupFile: '.histoire/setup.ts',
     plugins: [
         HstVue(),
     ],
