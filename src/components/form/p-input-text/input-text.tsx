@@ -9,6 +9,9 @@ export class PInputText {
     @Prop()
     placeholder?: string
 
+    /**
+     * Any icon allowed with p-icon can be used
+     */
     @Prop()
     icon?: string
 
