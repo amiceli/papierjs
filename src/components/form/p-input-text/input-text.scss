@@ -31,6 +31,10 @@
         width: 100%;
         box-sizing: border-box;
 
+        .for--input {
+            width: 100% !important;
+        }
+
         input {
             display: block;
             width: 100%;
@@ -39,8 +43,13 @@
     }
 
     .papier {
-        &.is--dark {
+        &.has--error {
+            p {
+                margin-top: 0;
+            }
+        }
 
+        &.is--dark {
             &.has--error {
                 label {
                     color : var(--danger-light);
