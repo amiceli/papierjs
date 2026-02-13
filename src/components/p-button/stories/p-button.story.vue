@@ -3,9 +3,9 @@
         :layout="{ type: 'grid', width: '90%' }"
         title="p-button/Overview"
     >
-        <Variant title="Default">
+        <Variant title="Types">
             <p-button
-                :dark="state.darkMode"
+                :dark="darkMode"
                 v-for="b in buttons"
                 :key="`btn-${b}`"
                 :type="b"
@@ -16,7 +16,7 @@
         </Variant>
         <Variant title="Outline">
             <p-button
-                :dark="state.darkMode"
+                :dark="darkMode"
                 v-for="b in buttons"
                 :type="b"
                 outline
@@ -28,7 +28,7 @@
         </Variant>
         <Variant title="Size">
             <p-button
-                :dark="state.darkMode"
+                :dark="darkMode"
                 type="success"
                 :disabled="state.disabled"
                 large
@@ -36,7 +36,7 @@
                 Large
             </p-button>
             <p-button
-                :dark="state.darkMode"
+                :dark="darkMode"
                 type="success"
                 :disabled="state.disabled"
                 small
@@ -46,7 +46,7 @@
             <br>
             <div style="margin-top: 20px;; width : 400px">
                 <p-button
-                    :dark="state.darkMode"
+                    :dark="darkMode"
                     type="danger"
                     :disabled="state.disabled"
                     block
@@ -57,7 +57,7 @@
         </Variant>
         <Variant title="Loading">
             <p-button
-                :dark="state.darkMode"
+                :dark="darkMode"
                 v-for="b in buttons"
                 :type="b"
                 loading
@@ -69,7 +69,7 @@
 
         <template #controls>
             <HstCheckbox
-                v-model="state.darkMode"
+                v-model="darkMode"
                 title="Dark mode"
             />
             <HstCheckbox
@@ -80,15 +80,13 @@
     </Story>
 </template>
 
-<docs lang="md"># My documentation
-
-Checkout this [cool video](https://www.youtube.com/watch?v=dQw4w9WgXcQ)!</docs>
-
 <script lang="ts" setup>
+import { useDarkMode } from '@h/useDarkMode';
 import { reactive } from 'vue'
 
+const { darkMode } = useDarkMode()
+
 const state = reactive({
-    darkMode: false,
     disabled: false,
 })
 

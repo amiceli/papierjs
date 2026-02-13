@@ -1,7 +1,6 @@
 <template>
-    <Story title="p-button/Specs">
+    <Story title="Form/p-input-text/Specs">
         <div class="markstream-vue">
-
             <MarkdownRender
                 :content="readme"
                 :isDark="true"
