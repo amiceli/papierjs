@@ -159,6 +159,9 @@ export namespace Components {
          */
         "disabled"?: boolean;
         "error"?: string;
+        /**
+          * Any icon allowed with p-icon can be used
+         */
         "icon"?: string;
         "label"?: string;
         "placeholder"?: string;
@@ -799,6 +802,9 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "error"?: string;
+        /**
+          * Any icon allowed with p-icon can be used
+         */
         "icon"?: string;
         "label"?: string;
         "onChange"?: (event: PInputTextCustomEvent<string>) => void;

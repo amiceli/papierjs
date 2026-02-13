@@ -5,10 +5,6 @@ stencil:
 histoire:
     tmux new-session -d -s "papier-histoire"
     tmux send-keys -t "papier-histoire" "npx histoire dev" ENTER
-
-run:
-    just stencil
-    just histoire
     open 'http://localhost:6006/'
 
 build:
