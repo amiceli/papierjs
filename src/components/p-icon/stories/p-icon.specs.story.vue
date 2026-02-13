@@ -1,7 +1,6 @@
 <template>
-    <Story title="Components/Button/Specs">
+    <Story title="Components/Icon/Specs">
         <div class="markstream-vue">
-
             <MarkdownRender
                 :content="readme"
                 :isDark="true"

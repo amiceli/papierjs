@@ -1,7 +1,7 @@
 <template>
     <Story
         :layout="{ type: 'grid', width: '90%' }"
-        title="p-button/Overview"
+        title="Components/Button/Overview"
     >
         <Variant title="Types">
             <p-button
@@ -81,7 +81,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useDarkMode } from '@h/useDarkMode';
+import { useDarkMode } from '@h/useDarkMode'
 import { reactive } from 'vue'
 
 const { darkMode } = useDarkMode()

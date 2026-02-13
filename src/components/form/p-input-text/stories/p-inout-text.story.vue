@@ -1,7 +1,7 @@
 <template>
     <Story
         :layout="{ type: 'grid', width: '90%' }"
-        title="Form/p-input-text/Overview"
+        title="Form/Input Text/Overview"
     >
         <Variant title="Sample">
             <p-input-text

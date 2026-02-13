@@ -1,5 +1,5 @@
 <template>
-    <Story title="Form/p-input-text/Specs">
+    <Story title="Form/Input Text/Specs">
         <div class="markstream-vue">
             <MarkdownRender
                 :content="readme"
