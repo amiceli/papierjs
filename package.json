@@ -40,14 +40,16 @@
     "loader/"
   ],
   "scripts": {
+    "build:all": "npm run build && npm run build:histoire",
     "build:icon": "node scripts/copy-svg.js",
     "build": "npm run build:icon && stencil build --doc",
     "build:watch": "npm run build:icon && stencil build --watch",
+    "build:histoire": "npx histoire build",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "lint": "biome check ."
+    "lint": "biome check --write."
   },
   "overrides": {
     "@types/node": "*"
