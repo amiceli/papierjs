@@ -9,6 +9,9 @@ export class PInputText {
     @Prop()
     placeholder?: string
 
+    /**
+     * Any icon allowed with p-icon can be used
+     */
     @Prop()
     icon?: string
 
@@ -84,17 +87,17 @@ export class PInputText {
                     </label>
                 )}
                 <div class="for--input">
-                    {this.icon && <p-icon icon={this.icon} size={30} color="inherit"></p-icon>}
+                    {this.icon && <p-icon color="inherit" icon={this.icon} size={30}></p-icon>}
                     <input
-                        type="text"
-                        placeholder={this.placeholder}
-                        id="paperInputs1"
                         disabled={this.disabled}
+                        id="paperInputs1"
+                        onChange={() => this.onChange()}
                         onInput={(e) => {
                             this.onInput(e)
                         }}
+                        placeholder={this.placeholder}
+                        type="text"
                         value={this.value}
-                        onChange={() => this.onChange()}
                     />
                 </div>
                 {this.error && <p class="text-danger">{this.error}</p>}

@@ -1,14 +1,10 @@
 stencil:
     tmux new-session -d -s "papier-stencil"
-    tmux send-keys -t "papier-stencil" "npm run build:watch" ENTER
+    tmux send-keys -t "papier-stencil" "npm run start" ENTER
 
-storybook:
-    tmux new-session -d -s "papier-storybook"
-    tmux send-keys -t "papier-storybook" "npm run storybook" ENTER
-
-run:
-    just stencil
-    just storybook
+histoire:
+    tmux new-session -d -s "papier-histoire"
+    tmux send-keys -t "papier-histoire" "npx histoire dev" ENTER
     open 'http://localhost:6006/'
 
 build:

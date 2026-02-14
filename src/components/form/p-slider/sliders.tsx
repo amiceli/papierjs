@@ -39,13 +39,13 @@ export class PSlider {
                     <div class="form-group">
                         <input
                             class="input-block"
-                            type="range"
-                            min={this.min}
                             max={this.max}
-                            value={this.value}
+                            min={this.min}
                             onInput={(e) => {
                                 this.onInput(e)
                             }}
+                            type="range"
+                            value={this.value}
                         />
                     </div>
                 </div>

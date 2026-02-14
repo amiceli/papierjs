@@ -63,8 +63,8 @@ export class PSwitchTile {
                     }}
                 >
                     <div class="form-group">
-                        <label htmlFor="paperSwitch1" class="paper-switch-tile">
-                            <input id="paperSwitch1" name="paperSwitch1" type="checkbox" checked={this.checked} />
+                        <label class="paper-switch-tile" htmlFor="paperSwitch1">
+                            <input checked={this.checked} id="paperSwitch1" name="paperSwitch1" type="checkbox" />
                             <div class="paper-switch-tile-card border">
                                 <div class={this.getFrontCardClass()}>
                                     <slot name="unchecked-text" />

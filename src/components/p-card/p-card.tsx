@@ -50,7 +50,7 @@ export class PCard {
                         <div class="card-header">
                             <slot name="header" />
                         </div>
-                        {this.image && <img class="image-top" src={this.image} alt="card-img" />}
+                        {this.image && <img alt="card-img" class="image-top" src={this.image} />}
                         <div class="card-body">
                             <h4 class="card-title">
                                 <slot name="title" />

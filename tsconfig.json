@@ -16,12 +16,22 @@
         "noUnusedParameters": true,
         "jsx": "react",
         "jsxFactory": "h",
-        "jsxFragmentFactory": "h.Fragment"
+        "jsxFragmentFactory": "h.Fragment",
+        "paths": {
+            "@h/*": [
+                "./histoire/*"
+            ],
+            "@/*": [
+                "./src/*"
+            ]
+        }
     },
     "include": [
+        ".env.d.ts",
         "src"
     ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "/histoire/*"
     ]
 }

@@ -29,10 +29,10 @@ export class PNotificationPreview {
             <div>
                 <p-notification-handler />
                 <p-dropdown
-                    placeholder="Choose notification type"
                     onSelect={(e: CustomEvent) => {
                         this.notificationType = e.detail
                     }}
+                    placeholder="Choose notification type"
                 >
                     {[
                         'primary',
@@ -55,36 +55,36 @@ export class PNotificationPreview {
                     }}
                 >
                     <p-button
+                        onClick={() => {
+                            this.addNotification({})
+                        }}
                         style={{
                             marginRight: '20px',
                         }}
                         type="primary"
-                        onClick={() => {
-                            this.addNotification({})
-                        }}
                     >
                         Add notification
                     </p-button>
                     <p-button
-                        type="secondary"
-                        style={{
-                            marginRight: '20px',
-                        }}
                         onClick={() => {
                             this.addNotification({
                                 canclose: true,
                             })
                         }}
+                        style={{
+                            marginRight: '20px',
+                        }}
+                        type="secondary"
                     >
                         Add closable notification
                     </p-button>
                     <p-button
-                        type="success"
                         onClick={() => {
                             this.addNotification({
                                 timeout: 2000,
                             })
                         }}
+                        type="success"
                     >
                         Add timeout notification
                     </p-button>

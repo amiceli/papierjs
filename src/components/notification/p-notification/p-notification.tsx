@@ -73,10 +73,10 @@ export class PNotification {
                         <div innerHTML={this.text} />
                         {this.canclose && (
                             <span
+                                innerHTML={feather.icons.x.toSvg()}
                                 onClick={() => {
                                     this.onClose()
                                 }}
-                                innerHTML={feather.icons.x.toSvg()}
                             />
                         )}
                     </div>
