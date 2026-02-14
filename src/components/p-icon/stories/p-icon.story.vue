@@ -43,7 +43,7 @@
         </Variant>
 
         <template #controls>
-            <HstText
+            <HstColorSelect
                 v-model="state.color"
                 title="icon color"
             />
