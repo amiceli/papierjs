@@ -60,12 +60,11 @@ To build project :
 
 ```bash
 npm install
-npm run build
-npm run build-storybook
+npm run build:all
 ```
 
-To run storybook : 
+To run histoire : 
 
 ```bash
-npm run storybook
+npm run dev
 ```

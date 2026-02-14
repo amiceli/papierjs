@@ -25,7 +25,5 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 .env
 
-*storybook.log
-storybook-static/
 src/components/dropdown/dropdown/stories/readme.md
 src/assets/icons/*.svg

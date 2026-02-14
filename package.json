@@ -41,6 +41,7 @@
   ],
   "scripts": {
     "build:all": "npm run build && npm run build:histoire",
+    "dev": "npx histoire dev",
     "build:icon": "node scripts/copy-svg.js",
     "build": "npm run build:icon && stencil build --doc",
     "build:watch": "npm run build:icon && stencil build --watch",
