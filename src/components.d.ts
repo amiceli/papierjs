@@ -12,6 +12,10 @@ export namespace Components {
         /**
           * @default false
          */
+        "dark"?: boolean;
+        /**
+          * @default false
+         */
         "open": boolean;
         "title": string;
     }
@@ -649,6 +653,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface PAccordion {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
         /**
           * @default false
          */

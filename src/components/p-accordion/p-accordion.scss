@@ -1,6 +1,12 @@
 :host {
     @import "../common";
 
+    .is--dark {
+        .p-accordion {
+            border-color : white;
+        }    
+    }
+
     .p-accordion {
         display: block;
 

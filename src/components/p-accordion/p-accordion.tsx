@@ -16,6 +16,8 @@ export class PAccordion {
         mutable: true,
     })
     open: boolean = false
+    @Prop()
+    dark?: boolean = false
 
     render() {
         const icon = feather.icons['chevron-down'].toSvg()
@@ -23,7 +25,12 @@ export class PAccordion {
 
         return (
             <Host>
-                <div class="papier">
+                <div
+                    class={{
+                        papier: true,
+                        'is--dark': this.dark === true,
+                    }}
+                >
                     <div class="p-accordion is--block border">
                         <div
                             class="p-accordion__summary"
