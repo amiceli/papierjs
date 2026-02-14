@@ -1,0 +1,41 @@
+:host {
+    @import "../../common";
+
+    @include useBlock();
+
+    .papier {
+        display: inline-block;
+        font-family: Neucha, sans-serif;
+
+        a {
+            background-image: none;
+            border-bottom-left-radius: 15px 3px;
+            border-bottom-right-radius: 15px 5px;
+            border-bottom-style: solid;
+            border-bottom-width: 5px;
+            padding-bottom: 0.1rem;
+
+            &:hover {
+                border-bottom-style: solid;
+                border-bottom-width: 5px;
+            }
+        }
+
+        li.is--dark {
+            background: #41403e;
+            border-color: white;
+            color: white;
+
+            a {
+                color: white;
+                border-color: white;
+            }
+        }
+
+        li:not(.is--dark) {
+            a {
+                color : #41403e;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+:host {
+    @import "../../common";
+
+    @include useBlock();
+
+    .papier {
+        display: block;
+        width : 100%;
+
+        nav.is--dark {
+            background: #41403e;
+            border-color : white;
+            color : white;
+
+            a {
+                color : white;
+                border-color : white;
+            }
+        }
+    }
+}

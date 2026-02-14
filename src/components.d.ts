@@ -191,6 +191,40 @@ export namespace Components {
         "close": () => Promise<void>;
         "open": () => Promise<void>;
     }
+    interface PNavbar {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        /**
+          * @default false
+         */
+        "fixed": boolean;
+        /**
+          * @default '/'
+         */
+        "rootLink": string;
+        /**
+          * @default ''
+         */
+        "rootTitle": string;
+        /**
+          * @default false
+         */
+        "split": boolean;
+    }
+    interface PNavbarItem {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        /**
+          * @default '/'
+         */
+        "href": string;
+        "icon"?: string;
+        "target"?: string;
+    }
     interface PNotification {
         /**
           * @default false
@@ -514,6 +548,18 @@ declare global {
         prototype: HTMLPModalElement;
         new (): HTMLPModalElement;
     };
+    interface HTMLPNavbarElement extends Components.PNavbar, HTMLStencilElement {
+    }
+    var HTMLPNavbarElement: {
+        prototype: HTMLPNavbarElement;
+        new (): HTMLPNavbarElement;
+    };
+    interface HTMLPNavbarItemElement extends Components.PNavbarItem, HTMLStencilElement {
+    }
+    var HTMLPNavbarItemElement: {
+        prototype: HTMLPNavbarItemElement;
+        new (): HTMLPNavbarItemElement;
+    };
     interface HTMLPNotificationElementEventMap {
         "close": string;
     }
@@ -638,6 +684,8 @@ declare global {
         "p-input-text": HTMLPInputTextElement;
         "p-leaf": HTMLPLeafElement;
         "p-modal": HTMLPModalElement;
+        "p-navbar": HTMLPNavbarElement;
+        "p-navbar-item": HTMLPNavbarItemElement;
         "p-notification": HTMLPNotificationElement;
         "p-notification-handler": HTMLPNotificationHandlerElement;
         "p-notification-preview": HTMLPNotificationPreviewElement;
@@ -839,6 +887,40 @@ declare namespace LocalJSX {
     interface PModal {
         "onClose"?: (event: PModalCustomEvent<void>) => void;
     }
+    interface PNavbar {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        /**
+          * @default false
+         */
+        "fixed"?: boolean;
+        /**
+          * @default '/'
+         */
+        "rootLink"?: string;
+        /**
+          * @default ''
+         */
+        "rootTitle"?: string;
+        /**
+          * @default false
+         */
+        "split"?: boolean;
+    }
+    interface PNavbarItem {
+        /**
+          * @default false
+         */
+        "dark"?: boolean;
+        /**
+          * @default '/'
+         */
+        "href"?: string;
+        "icon"?: string;
+        "target"?: string;
+    }
     interface PNotification {
         /**
           * @default false
@@ -1001,6 +1083,8 @@ declare namespace LocalJSX {
         "p-input-text": PInputText;
         "p-leaf": PLeaf;
         "p-modal": PModal;
+        "p-navbar": PNavbar;
+        "p-navbar-item": PNavbarItem;
         "p-notification": PNotification;
         "p-notification-handler": PNotificationHandler;
         "p-notification-preview": PNotificationPreview;
@@ -1037,6 +1121,8 @@ declare module "@stencil/core" {
              */
             "p-leaf": LocalJSX.PLeaf & JSXBase.HTMLAttributes<HTMLPLeafElement>;
             "p-modal": LocalJSX.PModal & JSXBase.HTMLAttributes<HTMLPModalElement>;
+            "p-navbar": LocalJSX.PNavbar & JSXBase.HTMLAttributes<HTMLPNavbarElement>;
+            "p-navbar-item": LocalJSX.PNavbarItem & JSXBase.HTMLAttributes<HTMLPNavbarItemElement>;
             "p-notification": LocalJSX.PNotification & JSXBase.HTMLAttributes<HTMLPNotificationElement>;
             "p-notification-handler": LocalJSX.PNotificationHandler & JSXBase.HTMLAttributes<HTMLPNotificationHandlerElement>;
             "p-notification-preview": LocalJSX.PNotificationPreview & JSXBase.HTMLAttributes<HTMLPNotificationPreviewElement>;

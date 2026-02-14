@@ -8,6 +8,7 @@ import { Component, Element, h, Prop } from '@stencil/core'
 export class PBreadcrumb {
     @Prop()
     dark?: boolean = false
+
     @Element()
     public el: HTMLElement
 
