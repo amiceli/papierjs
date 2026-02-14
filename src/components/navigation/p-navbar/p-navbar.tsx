@@ -62,7 +62,7 @@ export class PNavbar {
                             </h3>
                         </div>
                         <div class="collapsible">
-                            <input id="collapsible1" type="checkbox" name="collapsible1" />
+                            <input id="collapsible1" name="collapsible1" type="checkbox" />
                             <label htmlFor="collapsible1">
                                 <div class="bar1"></div>
                                 <div class="bar2"></div>

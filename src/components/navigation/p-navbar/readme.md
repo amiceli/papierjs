@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `dark`   | `dark`    |             | `boolean` | `false`     |
-| `href`   | `href`    |             | `string`  | `'/'`       |
-| `icon`   | `icon`    |             | `string`  | `undefined` |
-| `target` | `target`  |             | `string`  | `undefined` |
+| Property    | Attribute    | Description | Type      | Default |
+| ----------- | ------------ | ----------- | --------- | ------- |
+| `dark`      | `dark`       |             | `boolean` | `false` |
+| `fixed`     | `fixed`      |             | `boolean` | `false` |
+| `rootLink`  | `root-link`  |             | `string`  | `'/'`   |
+| `rootTitle` | `root-title` |             | `string`  | `''`    |
+| `split`     | `split`      |             | `boolean` | `false` |
 
 
 ----------------------------------------------
