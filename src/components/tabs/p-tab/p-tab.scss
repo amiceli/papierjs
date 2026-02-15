@@ -1,13 +1,14 @@
 :host {
     @import "../../common";
-    @import '../../../../node_modules/papercss/src/core/config';
+    @import "../../../../node_modules/papercss/src/core/config";
 
     display: block;
 
     .papier:not(.is--selected) {
         display: none;
     }
-    .is--dark, &.is--dark {
+    .is--dark,
+    &.is--dark {
         color: white;
     }
 }

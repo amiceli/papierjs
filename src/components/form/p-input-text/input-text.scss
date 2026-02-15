@@ -4,21 +4,21 @@
     @include useBlock();
 
     label {
-        color : var(--primary);
+        color: var(--primary);
     }
 
     .with--icon input {
-        padding-left : 50px;
+        padding-left: 50px;
     }
 
     .for--input {
         position: relative;
-        width : max-content;
+        width: max-content;
 
         p-icon {
-            position : absolute;
-            left : 10px;
-            top : 5px;
+            position: absolute;
+            left: 10px;
+            top: 5px;
         }
     }
 
@@ -52,20 +52,20 @@
         &.is--dark {
             &.has--error {
                 label {
-                    color : var(--danger-light);
+                    color: var(--danger-light);
                 }
                 input {
-                    border-color : var(--danger-light);
+                    border-color: var(--danger-light);
                 }
             }
         }
         &:not(.is--dark) {
             &.has--error {
                 label {
-                    color : var(--danger-text);
+                    color: var(--danger-text);
                 }
                 input {
-                    border-color : var(--danger-text);
+                    border-color: var(--danger-text);
                 }
             }
         }

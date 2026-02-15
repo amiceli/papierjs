@@ -1,11 +1,11 @@
-@import '../mixins.scss';
+@import "../mixins.scss";
 
 p-leaf {
-    display: inline-block;;
+    display: inline-block;
 
     .papier {
         @import "papercss/dist/paper";
-    
+
         font-family: "Neucha", sans-serif;
         font-size: 20px;
     }

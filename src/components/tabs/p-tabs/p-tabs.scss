@@ -1,7 +1,7 @@
 :host {
     @import "../../common";
     display: block;
-    
+
     label.is--selected {
         color: var(--primary) !important;
         border-bottom-color: var(--secondary);
@@ -13,7 +13,8 @@
         display: block !important;
     }
 
-    &.is--dark, .is--dark {
+    &.is--dark,
+    .is--dark {
         background: #41403e;
     }
 }

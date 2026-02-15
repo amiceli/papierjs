@@ -35,8 +35,9 @@
         height: 27px;
 
         &.is--dark {
-            color : white;
-            .dropdown__header, .dropdown__children {
+            color: white;
+            .dropdown__header,
+            .dropdown__children {
                 background: #41403e;
             }
         }
@@ -103,5 +104,4 @@
             box-sizing: border-box;
         }
     }
-
 }

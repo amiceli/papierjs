@@ -11,7 +11,7 @@ build:
     npm run build
 
 biome:
-  npx biome check --write
+  npx biome check --write --diagnostic-level='error'
 
 create component:
     npx stencil g {{component}}

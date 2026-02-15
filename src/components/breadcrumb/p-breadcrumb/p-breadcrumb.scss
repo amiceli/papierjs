@@ -1,6 +1,6 @@
 :host {
     @import "../../common";
-    @import '../../../../node_modules/papercss/src/core/config';
+    @import "../../../../node_modules/papercss/src/core/config";
 
     .breadcrumb {
         .border {
@@ -10,7 +10,7 @@
 
     .breadcrumb-item {
         font-size: 20px;
-        
+
         &.is--dark {
             @include color('color', 'white');
         }
@@ -25,7 +25,7 @@
 
         &:not(.is--first) {
             &:before {
-                content: '/\00a0';
+                content: "/\00a0";
                 padding: 8px;
             }
         }
