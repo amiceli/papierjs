@@ -1,0 +1,29 @@
+:host {
+    @import "../common";
+
+    .papier {
+        display: block;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 30px;
+        box-sizing: border-box;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &:hover {
+            background: #323337;
+            cursor: pointer;
+        }
+
+        &.is--active {
+            background: #323337;
+            border-bottom-left-radius: 15px 255px;
+            border-bottom-right-radius: 225px 15px;
+            border-top-left-radius: 255px 15px;
+            border-top-right-radius: 15px 225px;
+            box-sizing: border-box;
+            border: 1px white solid;
+        }
+    }
+}
