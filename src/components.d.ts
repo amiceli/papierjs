@@ -50,9 +50,6 @@ export namespace Components {
         "type"?: BadgeColor;
     }
     interface PBreadcrumb {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
     }
     interface PBreadcrumbItem {
@@ -270,11 +267,11 @@ export namespace Components {
         "value"?: number;
     }
     interface PSidebar {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
         "logo"?: string;
+        /**
+          * @default ''
+         */
         "title": string;
         "user"?: PSidebarUser;
     }
@@ -780,9 +777,6 @@ declare namespace LocalJSX {
         "type"?: BadgeColor;
     }
     interface PBreadcrumb {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
     }
     interface PBreadcrumbItem {
@@ -1003,11 +997,11 @@ declare namespace LocalJSX {
         "value"?: number;
     }
     interface PSidebar {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
         "logo"?: string;
+        /**
+          * @default ''
+         */
         "title"?: string;
         "user"?: PSidebarUser;
     }
