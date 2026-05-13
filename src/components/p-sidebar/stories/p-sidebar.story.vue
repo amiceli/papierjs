@@ -17,7 +17,7 @@
                 >
                     <p-sidebar-item
                         icon="home"
-                        url="1home"
+                        url="#home"
                         :active="state.activeMenu === 'home'"
                     >
                         Home
@@ -35,6 +35,14 @@
                         :active="state.activeMenu === 'support'"
                     >
                         Support
+                    </p-sidebar-item>
+                    <p-sidebar-item
+                        icon="help"
+                        url="https://www.leboncoin.fr/boutique/7446608/tic_and_retro.htm#overview"
+                        target="_blank"
+                        :active="state.activeMenu === 'support'"
+                    >
+                        Real url
                     </p-sidebar-item>
                 </p-sidebar>
             </div>

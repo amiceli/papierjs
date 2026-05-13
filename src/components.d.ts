@@ -264,6 +264,9 @@ export namespace Components {
         "value"?: number;
     }
     interface PSidebar {
+        /**
+          * Allow to force dark or lighe mode.  By default component follows browser mode
+         */
         "dark"?: boolean;
         "logo"?: string;
         /**
@@ -278,11 +281,13 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
+          * Allow to force dark or lighe mode. By default component follows browser mode
           * @default false
          */
         "dark"?: boolean;
         "icon"?: string;
-        "url": string;
+        "target"?: string;
+        "url"?: string;
     }
     interface PSlider {
         /**
@@ -991,6 +996,9 @@ declare namespace LocalJSX {
         "value"?: number;
     }
     interface PSidebar {
+        /**
+          * Allow to force dark or lighe mode.  By default component follows browser mode
+         */
         "dark"?: boolean;
         "logo"?: string;
         /**
@@ -1005,10 +1013,12 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
+          * Allow to force dark or lighe mode. By default component follows browser mode
           * @default false
          */
         "dark"?: boolean;
         "icon"?: string;
+        "target"?: string;
         "url"?: string;
     }
     interface PSlider {
@@ -1220,6 +1230,7 @@ declare namespace LocalJSX {
         "dark": boolean;
         "active": boolean;
         "url": string;
+        "target": string;
         "icon": string;
     }
     interface PSliderAttributes {

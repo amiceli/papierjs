@@ -13,6 +13,11 @@ export type PSidebarUser = {
     shadow: true,
 })
 export class PSidebar {
+    /**
+     * Allow to force dark or lighe mode.
+     *
+     * By default component follows browser mode
+     */
     @Prop()
     public dark?: boolean
 
