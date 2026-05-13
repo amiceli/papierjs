@@ -17,7 +17,7 @@
         }
 
         &:not(.is--dark):hover {
-            background : #eee;
+            background: #eee;
             cursor: pointer;
         }
 
@@ -27,10 +27,10 @@
                 border: 1px white solid;
             }
             &:not(.is--dark) {
-                background : #eee;
+                background: #eee;
                 border: 1px #323337 solid;
             }
-            
+
             border-bottom-left-radius: 15px 255px;
             border-bottom-right-radius: 225px 15px;
             border-top-left-radius: 255px 15px;
