@@ -9,9 +9,9 @@
 
 | Property | Attribute | Description | Type                                              | Default     |
 | -------- | --------- | ----------- | ------------------------------------------------- | ----------- |
-| `dark`   | `dark`    |             | `boolean`                                         | `false`     |
+| `dark`   | `dark`    |             | `boolean`                                         | `undefined` |
 | `logo`   | `logo`    |             | `string`                                          | `undefined` |
-| `title`  | `title`   |             | `string`                                          | `undefined` |
+| `title`  | `title`   |             | `string`                                          | `''`        |
 | `user`   | --        |             | `{ name: string; email: string; photo: string; }` | `undefined` |
 
 

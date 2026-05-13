@@ -1,4 +1,5 @@
-import { Component, Host, h, Prop } from '@stencil/core'
+import { Component, Host, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '../../utils/dark-mode'
 
 export type PSidebarUser = {
     name: string
@@ -13,16 +14,39 @@ export type PSidebarUser = {
 })
 export class PSidebar {
     @Prop()
-    public dark?: boolean = false
+    public dark?: boolean
 
     @Prop()
     public logo?: string
 
     @Prop()
-    public title: string
+    public title: string = ''
 
     @Prop()
     public user?: PSidebarUser
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    onDarkChange() {
+        this.darkController.update()
+    }
 
     render() {
         return (
@@ -30,7 +54,7 @@ export class PSidebar {
                 <div
                     class={{
                         papier: true,
-                        'is--dark': this.dark,
+                        'is--dark': this.isDark,
                     }}
                 >
                     <div class="sidebar card">
