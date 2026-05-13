@@ -9,7 +9,7 @@
 
 | Property | Attribute | Description                                    | Type      | Default     |
 | -------- | --------- | ---------------------------------------------- | --------- | ----------- |
-| `dark`   | `dark`    |                                                | `boolean` | `false`     |
+| `dark`   | `dark`    |                                                | `boolean` | `undefined` |
 | `image`  | `image`   |                                                | `string`  | `undefined` |
 | `radius` | `radius`  | Use border radius style like button, badge etc | `boolean` | `false`     |
 

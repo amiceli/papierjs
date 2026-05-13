@@ -98,9 +98,6 @@ export namespace Components {
         "type"?: ButtonColor;
     }
     interface PCard {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
         "image"?: string;
         /**
@@ -825,9 +822,6 @@ declare namespace LocalJSX {
         "type"?: ButtonColor;
     }
     interface PCard {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
         "image"?: string;
         /**
