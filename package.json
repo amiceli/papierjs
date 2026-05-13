@@ -56,9 +56,9 @@
     "@types/node": "*"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.0",
-    "@commitlint/cli": "20.4.1",
-    "@commitlint/config-conventional": "20.4.1",
+    "@biomejs/biome": "2.4.15",
+    "@commitlint/cli": "21.0.1",
+    "@commitlint/config-conventional": "21.0.1",
     "@histoire/plugin-vue": "1.0.0-beta.1",
     "@stencil/core": "4.43.0",
     "@stencil/sass": "3.2.3",
