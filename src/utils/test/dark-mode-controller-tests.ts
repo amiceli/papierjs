@@ -1,13 +1,16 @@
 import { newE2EPage } from '@stencil/core/testing'
 
-describe('p-spinner', () => {
-    it('renders', async () => {
-        const page = await newE2EPage()
-        await page.setContent('<p-spinner></p-spinner>')
-
-        const element = await page.find('p-spinner')
-        expect(element).toHaveClass('hydrated')
-    })
+/**
+ * Shared E2E helper to test the DarkModeController integration on a component.
+ *
+ * @param tag         The custom element tag to test (e.g. `p-button`)
+ * @param innerSelector The selector pointing to the element holding `is--dark`,
+ *                    relative to the host. Use `>>> .papier` for shadow components,
+ *                    or `.papier` for light-DOM components.
+ * @param attrs       Optional extra attributes appended to opening tag.
+ */
+export function runDarkModeControllerTests(tag: string, innerSelector: string, attrs: string = '') {
+    const open = (extra: string = '') => `<${tag}${attrs ? ` ${attrs}` : ''}${extra}></${tag}>`
 
     describe('dark mode controller', () => {
         it('applies is--dark when dark="true"', async () => {
@@ -18,9 +21,9 @@ describe('p-spinner', () => {
                     value: 'light',
                 },
             ])
-            await page.setContent('<p-spinner dark="true"></p-spinner>')
+            await page.setContent(open(' dark="true"'))
 
-            const inner = await page.find('p-spinner >>> .papier')
+            const inner = await page.find(`${tag} ${innerSelector}`)
 
             expect(inner).toHaveClass('is--dark')
         })
@@ -33,10 +36,10 @@ describe('p-spinner', () => {
                     value: 'dark',
                 },
             ])
-            await page.setContent('<p-spinner></p-spinner>')
+            await page.setContent(open())
 
             await page.$eval(
-                'p-spinner',
+                tag,
                 (
                     el: any & {
                         dark: boolean
@@ -47,7 +50,7 @@ describe('p-spinner', () => {
             )
             await page.waitForChanges()
 
-            const inner = await page.find('p-spinner >>> .papier')
+            const inner = await page.find(`${tag} ${innerSelector}`)
 
             expect(inner).not.toHaveClass('is--dark')
         })
@@ -60,9 +63,9 @@ describe('p-spinner', () => {
                     value: 'dark',
                 },
             ])
-            await page.setContent('<p-spinner></p-spinner>')
+            await page.setContent(open())
 
-            const darkInner = await page.find('p-spinner >>> .papier')
+            const darkInner = await page.find(`${tag} ${innerSelector}`)
 
             expect(darkInner).toHaveClass('is--dark')
 
@@ -74,9 +77,9 @@ describe('p-spinner', () => {
             ])
             await page.waitForChanges()
 
-            const lightInner = await page.find('p-spinner >>> .papier')
+            const lightInner = await page.find(`${tag} ${innerSelector}`)
 
             expect(lightInner).not.toHaveClass('is--dark')
         })
     })
-})
+}
