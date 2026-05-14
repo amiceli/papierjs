@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `dark`   | `dark`    |             | `boolean` | `false`     |
-| `first`  | `first`   |             | `boolean` | `false`     |
-| `link`   | `link`    |             | `string`  | `undefined` |
+| Property | Attribute | Description                                                                                                       | Type      | Default     |
+| -------- | --------- | ----------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `dark`   | `dark`    | Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`). | `boolean` | `undefined` |
+| `first`  | `first`   |                                                                                                                   | `boolean` | `false`     |
+| `link`   | `link`    |                                                                                                                   | `string`  | `undefined` |
 
 
 ----------------------------------------------
