@@ -1,5 +1,5 @@
 import { Component, Element, Host, h, Prop, State, Watch } from '@stencil/core'
-import { DarkModeController } from '../../utils/dark-mode'
+import { DarkModeController } from '@/utils/dark-mode'
 
 /**
  * @slot header - card header
@@ -14,6 +14,10 @@ import { DarkModeController } from '../../utils/dark-mode'
     shadow: true,
 })
 export class PCard {
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
     dark?: boolean
     /**

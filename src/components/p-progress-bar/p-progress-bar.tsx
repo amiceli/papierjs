@@ -1,4 +1,5 @@
-import { Component, h, Prop, State } from '@stencil/core'
+import { Component, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 type ProgressBarColor = 'secondary' | 'success' | 'warning' | 'danger' | 'muted' | 'primary'
 
@@ -14,13 +15,36 @@ export class PProgressBar {
     value?: number = 0
     @Prop()
     striped?: boolean = false
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    dark?: boolean
     @Prop()
     auto?: number
 
     @State()
     interval?: number
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    @Watch('dark')
+    onDarkChange() {
+        this.darkController.update()
+    }
 
     public componentDidLoad() {
         if (this.auto) {
@@ -31,6 +55,7 @@ export class PProgressBar {
     }
 
     public disconnectedCallback() {
+        this.darkController.disconnect()
         window.clearInterval(this.interval)
     }
 
@@ -63,7 +88,7 @@ export class PProgressBar {
     public getParentClass() {
         let cssClass = 'papier is--block'
 
-        if (this.dark) {
+        if (this.isDark) {
             cssClass = `${cssClass} is--dark`
         }
 

@@ -1,4 +1,5 @@
-import { Component, Event, type EventEmitter, h, Prop } from '@stencil/core'
+import { Component, Event, type EventEmitter, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-input-text',
@@ -23,8 +24,12 @@ export class PInputText {
     @Prop()
     required?: boolean = false
 
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    dark?: boolean
 
     @Prop()
     label?: string
@@ -37,6 +42,29 @@ export class PInputText {
 
     @Prop()
     error?: string
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    onDarkChange() {
+        this.darkController.update()
+    }
 
     @Event({
         eventName: 'change',
@@ -51,7 +79,7 @@ export class PInputText {
     public getParentClass() {
         let cssClass = 'papier form-group'
 
-        if (this.dark) {
+        if (this.isDark) {
             cssClass = `${cssClass} is--dark`
         }
         if (this.icon) {

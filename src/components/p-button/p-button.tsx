@@ -1,4 +1,5 @@
-import { Component, Element, h, Prop } from '@stencil/core'
+import { Component, Element, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
 
@@ -25,10 +26,37 @@ export class PButton {
     block?: boolean = false
     @Prop()
     disabled?: boolean = false
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    dark?: boolean
     @Prop()
     loading?: boolean = false
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    onDarkChange() {
+        this.darkController.update()
+    }
 
     public getClass(): string {
         const types = [
@@ -65,19 +93,19 @@ export class PButton {
             cssClass = `${cssClass} is--block`
         }
 
-        if (this.dark) {
+        if (this.isDark) {
             cssClass = `${cssClass} is--dark`
         }
 
         return cssClass
     }
     render() {
-        const color = `var(--${this.type}${this.dark ? '-light' : ''})`
+        const color = `var(--${this.type}${this.isDark ? '-light' : ''})`
 
         return (
             <div class={this.getParentClass()}>
                 <button class={this.getClass()} disabled={this.disabled} type="button">
-                    {!this.loading ? <slot /> : <p-spinner color={color} dark={this.dark} />}
+                    {!this.loading ? <slot /> : <p-spinner color={color} dark={this.isDark} />}
                 </button>
             </div>
         )

@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, Watch } from '@stencil/core'
-import { DarkModeController } from '../../../utils/dark-mode'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-breadcrumb',
@@ -7,6 +7,10 @@ import { DarkModeController } from '../../../utils/dark-mode'
     shadow: true,
 })
 export class PBreadcrumb {
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
     dark?: boolean
 

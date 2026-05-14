@@ -1,5 +1,6 @@
-import { Component, Element, Event, type EventEmitter, h, Listen, Prop, State } from '@stencil/core'
+import { Component, Element, Event, type EventEmitter, h, Listen, Prop, State, Watch } from '@stencil/core'
 import feather from 'feather-icons'
+import { DarkModeController } from '@/utils/dark-mode'
 
 /**
  * @slot - slot for p-dropdown-item
@@ -10,8 +11,12 @@ import feather from 'feather-icons'
     shadow: true,
 })
 export class PDropdown {
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    dark?: boolean
     /** Prevent dropdown self update selected value */
     @Prop()
     preventSelected?: boolean = false
@@ -29,6 +34,26 @@ export class PDropdown {
     @Element()
     public el: HTMLElement
 
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+            this.syncItems()
+        },
+        getProp: () => this.dark,
+    })
+
+    disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    onDarkChange() {
+        this.darkController.update()
+    }
+
     @Event({
         eventName: 'select',
     })
@@ -37,7 +62,7 @@ export class PDropdown {
     public getParentClass() {
         return {
             'papier dropdown': true,
-            'is--dark': this.dark,
+            'is--dark': this.isDark,
             'is--open': this.open,
         }
     }
@@ -59,13 +84,26 @@ export class PDropdown {
         }
     }
 
-    public componentWillLoad() {
+    private syncItems() {
         const items = Array.from(this.el.getElementsByTagName('p-dropdown-item'))
 
         for (const item of items) {
-            if (this.dark) {
+            if (this.isDark) {
                 item.setAttribute('dark', 'true')
+            } else {
+                item.removeAttribute('dark')
             }
+        }
+    }
+
+    public componentWillLoad() {
+        this.darkController.connect()
+
+        const items = Array.from(this.el.getElementsByTagName('p-dropdown-item'))
+
+        this.syncItems()
+
+        for (const item of items) {
             if (item.selected === true) {
                 this.value = item.value
             }

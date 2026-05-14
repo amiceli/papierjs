@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, State, Watch } from '@stencil/core'
-import { DarkModeController } from '../../utils/dark-mode'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-sidebar-item',
@@ -8,11 +8,11 @@ import { DarkModeController } from '../../utils/dark-mode'
 })
 export class PSidebarItem {
     /**
-     * Allow to force dark or lighe mode.
-     * By default component follows browser mode
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    public dark?: boolean = false
+    public dark?: boolean
 
     @Prop()
     public active?: boolean = false

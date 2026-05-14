@@ -6,7 +6,6 @@
         <Variant title="Sample">
             <p-accordion
                 :title="state.title"
-                :dark="darkMode"
                 :open="state.open"
             >
                 <p-leaf>

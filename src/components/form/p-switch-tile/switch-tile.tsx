@@ -1,4 +1,5 @@
-import { Component, Event, type EventEmitter, Host, h, Prop } from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 type TileBackground = 'primary' | 'danger' | 'secondary' | 'success' | 'muted'
 
@@ -12,15 +13,41 @@ type TileBackground = 'primary' | 'danger' | 'secondary' | 'success' | 'muted'
     shadow: true,
 })
 export class PSwitchTile {
-    /** Enable dark mode */
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    public dark?: boolean = false
+    public dark?: boolean
     @Prop()
     public checked?: boolean = false
     @Prop()
     public checkedBackground?: TileBackground = 'primary'
     @Prop()
     public uncheckedBackground?: TileBackground
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    onDarkChange() {
+        this.darkController.update()
+    }
 
     @Event({
         eventName: 'change',
@@ -59,7 +86,7 @@ export class PSwitchTile {
                 <div
                     class={{
                         papier: true,
-                        'is--dark': this.dark,
+                        'is--dark': this.isDark,
                     }}
                 >
                     <div class="form-group">

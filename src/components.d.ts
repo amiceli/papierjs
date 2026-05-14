@@ -12,7 +12,7 @@ export { PSidebarUser } from "./components/p-sidebar/p-sidebar";
 export namespace Components {
     interface PAccordion {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -31,7 +31,7 @@ export namespace Components {
          */
         "closable"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -41,7 +41,7 @@ export namespace Components {
     }
     interface PBadge {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -50,11 +50,14 @@ export namespace Components {
         "type"?: BadgeColor;
     }
     interface PBreadcrumb {
+        /**
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
+         */
         "dark"?: boolean;
     }
     interface PBreadcrumbItem {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -69,7 +72,7 @@ export namespace Components {
          */
         "block"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -98,6 +101,9 @@ export namespace Components {
         "type"?: ButtonColor;
     }
     interface PCard {
+        /**
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
+         */
         "dark"?: boolean;
         "image"?: string;
         /**
@@ -108,7 +114,7 @@ export namespace Components {
     }
     interface PDropdown {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "placeholder"?: string;
@@ -125,7 +131,7 @@ export namespace Components {
     }
     interface PDropdownItem {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -151,7 +157,7 @@ export namespace Components {
          */
         "block"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -179,7 +185,7 @@ export namespace Components {
      */
     interface PLeaf {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
     }
@@ -189,7 +195,7 @@ export namespace Components {
     }
     interface PNavbar {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -211,7 +217,7 @@ export namespace Components {
     }
     interface PNavbarItem {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -247,7 +253,7 @@ export namespace Components {
     interface PProgressBar {
         "auto"?: number;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -281,8 +287,7 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
-          * Allow to force dark or lighe mode. By default component follows browser mode
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "icon"?: string;
@@ -295,7 +300,7 @@ export namespace Components {
          */
         "block"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "max"?: number;
@@ -310,6 +315,9 @@ export namespace Components {
     }
     interface PSpinner {
         "color"?: string;
+        /**
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
+         */
         "dark"?: boolean;
         /**
           * @default false
@@ -322,7 +330,7 @@ export namespace Components {
          */
         "checked"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -346,15 +354,14 @@ export namespace Components {
          */
         "checkedBackground"?: TileBackground;
         /**
-          * Enable dark mode
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "uncheckedBackground"?: TileBackground;
     }
     interface PTab {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -365,7 +372,7 @@ export namespace Components {
     }
     interface PTabs {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
     }
@@ -740,7 +747,7 @@ declare namespace LocalJSX {
 
     interface PAccordion {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -759,7 +766,7 @@ declare namespace LocalJSX {
          */
         "closable"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "onClose"?: (event: PAlertCustomEvent<any>) => void;
@@ -770,7 +777,7 @@ declare namespace LocalJSX {
     }
     interface PBadge {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -779,11 +786,14 @@ declare namespace LocalJSX {
         "type"?: BadgeColor;
     }
     interface PBreadcrumb {
+        /**
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
+         */
         "dark"?: boolean;
     }
     interface PBreadcrumbItem {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -798,7 +808,7 @@ declare namespace LocalJSX {
          */
         "block"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -827,6 +837,9 @@ declare namespace LocalJSX {
         "type"?: ButtonColor;
     }
     interface PCard {
+        /**
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
+         */
         "dark"?: boolean;
         "image"?: string;
         /**
@@ -837,7 +850,7 @@ declare namespace LocalJSX {
     }
     interface PDropdown {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "onSelect"?: (event: PDropdownCustomEvent<string>) => void;
@@ -855,7 +868,7 @@ declare namespace LocalJSX {
     }
     interface PDropdownItem {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "onChange"?: (event: PDropdownItemCustomEvent<string>) => void;
@@ -882,7 +895,7 @@ declare namespace LocalJSX {
          */
         "block"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -912,7 +925,7 @@ declare namespace LocalJSX {
      */
     interface PLeaf {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
     }
@@ -921,7 +934,7 @@ declare namespace LocalJSX {
     }
     interface PNavbar {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -943,7 +956,7 @@ declare namespace LocalJSX {
     }
     interface PNavbarItem {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -979,7 +992,7 @@ declare namespace LocalJSX {
     interface PProgressBar {
         "auto"?: number;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -1013,8 +1026,7 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * Allow to force dark or lighe mode. By default component follows browser mode
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "icon"?: string;
@@ -1027,7 +1039,7 @@ declare namespace LocalJSX {
          */
         "block"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "max"?: number;
@@ -1043,6 +1055,9 @@ declare namespace LocalJSX {
     }
     interface PSpinner {
         "color"?: string;
+        /**
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
+         */
         "dark"?: boolean;
         /**
           * @default false
@@ -1055,7 +1070,7 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "onChange"?: (event: PSwitchCustomEvent<boolean>) => void;
@@ -1080,8 +1095,7 @@ declare namespace LocalJSX {
          */
         "checkedBackground"?: TileBackground;
         /**
-          * Enable dark mode
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         "onChange"?: (event: PSwitchTileCustomEvent<boolean>) => void;
@@ -1089,7 +1103,7 @@ declare namespace LocalJSX {
     }
     interface PTab {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
         /**
@@ -1100,7 +1114,7 @@ declare namespace LocalJSX {
     }
     interface PTabs {
         /**
-          * @default false
+          * Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`).
          */
         "dark"?: boolean;
     }

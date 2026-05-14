@@ -1,4 +1,5 @@
-import { Component, Element, Host, h, Prop } from '@stencil/core'
+import { Component, Element, Host, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-navbar',
@@ -15,8 +16,12 @@ export class PNavbar {
     @Prop()
     public fixed: boolean = false
 
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    public dark?: boolean = false
+    public dark?: boolean
 
     @Prop()
     public rootLink: string = '/'
@@ -24,12 +29,48 @@ export class PNavbar {
     @Prop()
     public rootTitle: string = ''
 
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+            this.syncItems()
+        },
+        getProp: () => this.dark,
+    })
+
+    componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    onDarkChange() {
+        this.darkController.update()
+    }
+
     public getClass() {
         return {
             border: true,
             fixed: this.fixed === true,
             'split-nav': this.split === true,
-            'is--dark': this.dark === true,
+            'is--dark': this.isDark,
+        }
+    }
+
+    private syncItems() {
+        const items = Array.from(this.el.getElementsByTagName('p-navbar-item'))
+
+        for (const item of items) {
+            if (this.isDark) {
+                item.setAttribute('dark', 'true')
+            } else {
+                item.removeAttribute('dark')
+            }
         }
     }
 
@@ -40,11 +81,7 @@ export class PNavbar {
             item.style.marginLeft = '10px'
         }
 
-        if (this.dark) {
-            for (const item of items) {
-                item.setAttribute('dark', 'true')
-            }
-        }
+        this.syncItems()
 
         items.at(0)?.setAttribute('first', 'true')
     }

@@ -1,9 +1,9 @@
 <template>
     <Story title="Navigation/Navbar/Specs">
-        <div class="markstream-vue">
+        <div :class="['specs-readme', dark ? 'is-dark' : 'is-light']">
             <MarkdownRender
                 :content="readme"
-                :isDark="true"
+                :isDark="dark"
             />
         </div>
         <template #source>No need</template>
@@ -14,10 +14,9 @@
 import MarkdownRender from 'markstream-vue'
 import readme from '../readme.md?raw'
 import 'markstream-vue/index.css'
+import '@h/specs.css'
+import { useSpecsDarkMode } from '@h/useSpecsDarkMode'
+
+const { dark } = useSpecsDarkMode()
 </script>
 
-<style scoped>
-.markstream-vue {
-    color: white;
-}
-</style>

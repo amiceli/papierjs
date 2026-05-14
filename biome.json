@@ -36,7 +36,12 @@
             },
             "style": {
                 "noUnusedTemplateLiteral": "off",
-                "noInferrableTypes": "off"
+                "noInferrableTypes": "off",
+                "useConsistentMemberAccessibility": {
+                    "options": {
+                        "accessibility": "explicit"
+                    }
+                }
             }
         }
     },

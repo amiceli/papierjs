@@ -1,4 +1,5 @@
-import { Component, Element, Host, h, Prop, State } from '@stencil/core'
+import { Component, Element, Host, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 import type { PTab } from '../p-tab/p-tab'
 
 /** @slot - slot with <p-tab> components */
@@ -14,8 +15,46 @@ export class PTabs {
     tabs: PTab[] = []
     @State()
     selectedTab?: PTab
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    dark?: boolean
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+            this.syncItems()
+        },
+        getProp: () => this.dark,
+    })
+
+    componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    onDarkChange() {
+        this.darkController.update()
+    }
+
+    private syncItems() {
+        for (const tab of this.tabs) {
+            if (this.isDark) {
+                ;(tab as unknown as HTMLElement).setAttribute('dark', 'true')
+            } else {
+                ;(tab as unknown as HTMLElement).removeAttribute('dark')
+            }
+        }
+    }
 
     public componentDidLoad() {
         const slot = this.el.shadowRoot.querySelector('slot')
@@ -23,13 +62,7 @@ export class PTabs {
 
         this.tabs = tabs
 
-        for (const tab of this.tabs) {
-            if (this.dark) {
-                ;(tab as unknown as HTMLElement).setAttribute('dark', 'true')
-            } else {
-                ;(tab as unknown as HTMLElement).removeAttribute('dark')
-            }
-        }
+        this.syncItems()
         this.updateSelectedTab()
     }
 
@@ -65,7 +98,7 @@ export class PTabs {
             <Host>
                 <div
                     class={{
-                        'is--dark': this.dark,
+                        'is--dark': this.isDark,
                         papier: true,
                     }}
                 >

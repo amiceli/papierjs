@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, State, Watch } from '@stencil/core'
-import { DarkModeController } from '../../utils/dark-mode'
+import { DarkModeController } from '@/utils/dark-mode'
 
 export type PSidebarUser = {
     name: string
