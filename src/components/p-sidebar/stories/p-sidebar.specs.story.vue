@@ -1,5 +1,5 @@
 <template>
-    <Story title="Components/Modal/Specs">
+    <Story title="Navigation/Sidebar/Specs">
         <div :class="['specs-readme', dark ? 'is-dark' : 'is-light']">
             <MarkdownRender
                 :content="readme"

@@ -1,0 +1,78 @@
+:host {
+    @import "../common";
+
+    display: block;
+    height: 100%;
+
+    .papier,
+    .sidebar {
+        height: 100%;
+    }
+
+    .sidebar {
+        width: 256px;
+        display: grid !important;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr;
+        justify-content: space-between;
+
+        border-bottom-left-radius: 15px 255px;
+        border-bottom-right-radius: 225px 15px;
+        border-top-left-radius: 255px 15px;
+        border-top-right-radius: 15px 225px;
+        box-sizing: border-box;
+        padding: 20px;
+
+        &__menu {
+            display: block;
+        }
+
+        &__footer {
+            position: relative;
+
+            .footer__clickable {
+                display: grid;
+                grid-template-columns: 40px 1fr;
+                gap: 20px;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 4px;
+
+                    & + div {
+                        display: flex;
+                        flex-direction: column;
+
+                        span {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+
+            // .footer__actions {
+            //     position: absolute;
+            //     background: red;
+            //     width: 100%;
+            //     height: 100px;
+            // }
+        }
+
+        &__top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+
+            span {
+                font-size: 18px;
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}

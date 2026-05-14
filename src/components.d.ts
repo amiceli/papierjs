@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { PushOptions } from "./components/notification/p-notification-handler/p-notification-handler";
+import { PSidebarUser } from "./components/p-sidebar/p-sidebar";
 export { PushOptions } from "./components/notification/p-notification-handler/p-notification-handler";
+export { PSidebarUser } from "./components/p-sidebar/p-sidebar";
 export namespace Components {
     interface PAccordion {
         /**
@@ -48,9 +50,6 @@ export namespace Components {
         "type"?: BadgeColor;
     }
     interface PBreadcrumb {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
     }
     interface PBreadcrumbItem {
@@ -99,9 +98,6 @@ export namespace Components {
         "type"?: ButtonColor;
     }
     interface PCard {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
         "image"?: string;
         /**
@@ -266,6 +262,32 @@ export namespace Components {
           * @default 0
          */
         "value"?: number;
+    }
+    interface PSidebar {
+        /**
+          * Allow to force dark or lighe mode.  By default component follows browser mode
+         */
+        "dark"?: boolean;
+        "logo"?: string;
+        /**
+          * @default ''
+         */
+        "title": string;
+        "user"?: PSidebarUser;
+    }
+    interface PSidebarItem {
+        /**
+          * @default false
+         */
+        "active"?: boolean;
+        /**
+          * Allow to force dark or lighe mode. By default component follows browser mode
+          * @default false
+         */
+        "dark"?: boolean;
+        "icon"?: string;
+        "target"?: string;
+        "url"?: string;
     }
     interface PSlider {
         /**
@@ -595,6 +617,18 @@ declare global {
         prototype: HTMLPProgressBarElement;
         new (): HTMLPProgressBarElement;
     };
+    interface HTMLPSidebarElement extends Components.PSidebar, HTMLStencilElement {
+    }
+    var HTMLPSidebarElement: {
+        prototype: HTMLPSidebarElement;
+        new (): HTMLPSidebarElement;
+    };
+    interface HTMLPSidebarItemElement extends Components.PSidebarItem, HTMLStencilElement {
+    }
+    var HTMLPSidebarItemElement: {
+        prototype: HTMLPSidebarItemElement;
+        new (): HTMLPSidebarItemElement;
+    };
     interface HTMLPSliderElementEventMap {
         "change": number;
     }
@@ -690,6 +724,8 @@ declare global {
         "p-notification-handler": HTMLPNotificationHandlerElement;
         "p-notification-preview": HTMLPNotificationPreviewElement;
         "p-progress-bar": HTMLPProgressBarElement;
+        "p-sidebar": HTMLPSidebarElement;
+        "p-sidebar-item": HTMLPSidebarItemElement;
         "p-slider": HTMLPSliderElement;
         "p-spinner": HTMLPSpinnerElement;
         "p-switch": HTMLPSwitchElement;
@@ -743,9 +779,6 @@ declare namespace LocalJSX {
         "type"?: BadgeColor;
     }
     interface PBreadcrumb {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
     }
     interface PBreadcrumbItem {
@@ -794,9 +827,6 @@ declare namespace LocalJSX {
         "type"?: ButtonColor;
     }
     interface PCard {
-        /**
-          * @default false
-         */
         "dark"?: boolean;
         "image"?: string;
         /**
@@ -964,6 +994,32 @@ declare namespace LocalJSX {
           * @default 0
          */
         "value"?: number;
+    }
+    interface PSidebar {
+        /**
+          * Allow to force dark or lighe mode.  By default component follows browser mode
+         */
+        "dark"?: boolean;
+        "logo"?: string;
+        /**
+          * @default ''
+         */
+        "title"?: string;
+        "user"?: PSidebarUser;
+    }
+    interface PSidebarItem {
+        /**
+          * @default false
+         */
+        "active"?: boolean;
+        /**
+          * Allow to force dark or lighe mode. By default component follows browser mode
+          * @default false
+         */
+        "dark"?: boolean;
+        "icon"?: string;
+        "target"?: string;
+        "url"?: string;
     }
     interface PSlider {
         /**
@@ -1165,6 +1221,18 @@ declare namespace LocalJSX {
         "dark": boolean;
         "auto": number;
     }
+    interface PSidebarAttributes {
+        "dark": boolean;
+        "logo": string;
+        "title": string;
+    }
+    interface PSidebarItemAttributes {
+        "dark": boolean;
+        "active": boolean;
+        "url": string;
+        "target": string;
+        "icon": string;
+    }
     interface PSliderAttributes {
         "value": number;
         "min": number;
@@ -1226,6 +1294,8 @@ declare namespace LocalJSX {
         "p-notification-handler": PNotificationHandler;
         "p-notification-preview": PNotificationPreview;
         "p-progress-bar": Omit<PProgressBar, keyof PProgressBarAttributes> & { [K in keyof PProgressBar & keyof PProgressBarAttributes]?: PProgressBar[K] } & { [K in keyof PProgressBar & keyof PProgressBarAttributes as `attr:${K}`]?: PProgressBarAttributes[K] } & { [K in keyof PProgressBar & keyof PProgressBarAttributes as `prop:${K}`]?: PProgressBar[K] };
+        "p-sidebar": Omit<PSidebar, keyof PSidebarAttributes> & { [K in keyof PSidebar & keyof PSidebarAttributes]?: PSidebar[K] } & { [K in keyof PSidebar & keyof PSidebarAttributes as `attr:${K}`]?: PSidebarAttributes[K] } & { [K in keyof PSidebar & keyof PSidebarAttributes as `prop:${K}`]?: PSidebar[K] };
+        "p-sidebar-item": Omit<PSidebarItem, keyof PSidebarItemAttributes> & { [K in keyof PSidebarItem & keyof PSidebarItemAttributes]?: PSidebarItem[K] } & { [K in keyof PSidebarItem & keyof PSidebarItemAttributes as `attr:${K}`]?: PSidebarItemAttributes[K] } & { [K in keyof PSidebarItem & keyof PSidebarItemAttributes as `prop:${K}`]?: PSidebarItem[K] };
         "p-slider": Omit<PSlider, keyof PSliderAttributes> & { [K in keyof PSlider & keyof PSliderAttributes]?: PSlider[K] } & { [K in keyof PSlider & keyof PSliderAttributes as `attr:${K}`]?: PSliderAttributes[K] } & { [K in keyof PSlider & keyof PSliderAttributes as `prop:${K}`]?: PSlider[K] };
         "p-spinner": Omit<PSpinner, keyof PSpinnerAttributes> & { [K in keyof PSpinner & keyof PSpinnerAttributes]?: PSpinner[K] } & { [K in keyof PSpinner & keyof PSpinnerAttributes as `attr:${K}`]?: PSpinnerAttributes[K] } & { [K in keyof PSpinner & keyof PSpinnerAttributes as `prop:${K}`]?: PSpinner[K] };
         "p-switch": Omit<PSwitch, keyof PSwitchAttributes> & { [K in keyof PSwitch & keyof PSwitchAttributes]?: PSwitch[K] } & { [K in keyof PSwitch & keyof PSwitchAttributes as `attr:${K}`]?: PSwitchAttributes[K] } & { [K in keyof PSwitch & keyof PSwitchAttributes as `prop:${K}`]?: PSwitch[K] };
@@ -1264,6 +1334,8 @@ declare module "@stencil/core" {
             "p-notification-handler": LocalJSX.IntrinsicElements["p-notification-handler"] & JSXBase.HTMLAttributes<HTMLPNotificationHandlerElement>;
             "p-notification-preview": LocalJSX.IntrinsicElements["p-notification-preview"] & JSXBase.HTMLAttributes<HTMLPNotificationPreviewElement>;
             "p-progress-bar": LocalJSX.IntrinsicElements["p-progress-bar"] & JSXBase.HTMLAttributes<HTMLPProgressBarElement>;
+            "p-sidebar": LocalJSX.IntrinsicElements["p-sidebar"] & JSXBase.HTMLAttributes<HTMLPSidebarElement>;
+            "p-sidebar-item": LocalJSX.IntrinsicElements["p-sidebar-item"] & JSXBase.HTMLAttributes<HTMLPSidebarItemElement>;
             "p-slider": LocalJSX.IntrinsicElements["p-slider"] & JSXBase.HTMLAttributes<HTMLPSliderElement>;
             "p-spinner": LocalJSX.IntrinsicElements["p-spinner"] & JSXBase.HTMLAttributes<HTMLPSpinnerElement>;
             "p-switch": LocalJSX.IntrinsicElements["p-switch"] & JSXBase.HTMLAttributes<HTMLPSwitchElement>;

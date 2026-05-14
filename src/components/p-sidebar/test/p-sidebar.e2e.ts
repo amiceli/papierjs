@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing'
 
-describe('p-card', () => {
+describe('p-sidebar', () => {
     it('renders', async () => {
         const page = await newE2EPage()
-        await page.setContent('<p-card></p-card>')
+        await page.setContent('<p-sidebar></p-sidebar>')
 
-        const element = await page.find('p-card')
+        const element = await page.find('p-sidebar')
         expect(element).toHaveClass('hydrated')
     })
 
@@ -18,9 +18,9 @@ describe('p-card', () => {
                     value: 'light',
                 },
             ])
-            await page.setContent('<p-card dark="true"></p-card>')
+            await page.setContent('<p-sidebar dark="true"></p-sidebar>')
 
-            const inner = await page.find('p-card >>> .papier')
+            const inner = await page.find('p-sidebar >>> .papier')
 
             expect(inner).toHaveClass('is--dark')
         })
@@ -33,11 +33,11 @@ describe('p-card', () => {
                     value: 'dark',
                 },
             ])
-            await page.setContent('<p-card></p-card>')
+            await page.setContent('<p-sidebar></p-sidebar>')
 
             // Force the prop to false explicitly via JS to avoid HTML boolean attribute coercion.
             await page.$eval(
-                'p-card',
+                'p-sidebar',
                 (
                     el: any & {
                         dark: boolean
@@ -48,7 +48,7 @@ describe('p-card', () => {
             )
             await page.waitForChanges()
 
-            const inner = await page.find('p-card >>> .papier')
+            const inner = await page.find('p-sidebar >>> .papier')
 
             expect(inner).not.toHaveClass('is--dark')
         })
@@ -61,9 +61,9 @@ describe('p-card', () => {
                     value: 'dark',
                 },
             ])
-            await page.setContent('<p-card></p-card>')
+            await page.setContent('<p-sidebar></p-sidebar>')
 
-            const darkInner = await page.find('p-card >>> .papier')
+            const darkInner = await page.find('p-sidebar >>> .papier')
 
             expect(darkInner).toHaveClass('is--dark')
 
@@ -75,7 +75,7 @@ describe('p-card', () => {
             ])
             await page.waitForChanges()
 
-            const lightInner = await page.find('p-card >>> .papier')
+            const lightInner = await page.find('p-sidebar >>> .papier')
 
             expect(lightInner).not.toHaveClass('is--dark')
         })

@@ -1,0 +1,41 @@
+:host {
+    @import "../common";
+
+    .papier {
+        display: block;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 30px;
+        box-sizing: border-box;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &.is--dark:hover {
+            background: #323337;
+            cursor: pointer;
+        }
+
+        &:not(.is--dark):hover {
+            background: #eee;
+            cursor: pointer;
+        }
+
+        &.is--active {
+            &.is--dark {
+                background: #323337;
+                border: 1px white solid;
+            }
+            &:not(.is--dark) {
+                background: #eee;
+                border: 1px #323337 solid;
+            }
+
+            border-bottom-left-radius: 15px 255px;
+            border-bottom-right-radius: 225px 15px;
+            border-top-left-radius: 255px 15px;
+            border-top-right-radius: 15px 225px;
+            box-sizing: border-box;
+        }
+    }
+}
