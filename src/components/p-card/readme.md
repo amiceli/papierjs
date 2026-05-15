@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                    | Type      | Default     |
-| -------- | --------- | ---------------------------------------------- | --------- | ----------- |
-| `dark`   | `dark`    |                                                | `boolean` | `undefined` |
-| `image`  | `image`   |                                                | `string`  | `undefined` |
-| `radius` | `radius`  | Use border radius style like button, badge etc | `boolean` | `false`     |
+| Property | Attribute | Description                                                                                                       | Type      | Default     |
+| -------- | --------- | ----------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `dark`   | `dark`    | Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`). | `boolean` | `undefined` |
+| `image`  | `image`   |                                                                                                                   | `string`  | `undefined` |
+| `radius` | `radius`  | Use border radius style like button, badge etc                                                                    | `boolean` | `false`     |
 
 
 ## Slots

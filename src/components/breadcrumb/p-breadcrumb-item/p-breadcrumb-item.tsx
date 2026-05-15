@@ -1,4 +1,5 @@
-import { Component, Element, h, Prop } from '@stencil/core'
+import { Component, Element, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-breadcrumb-item',
@@ -6,19 +7,46 @@ import { Component, Element, h, Prop } from '@stencil/core'
     shadow: true,
 })
 export class PBreadcrumbItem {
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    public dark?: boolean
     @Prop()
-    first?: boolean = false
+    public first?: boolean = false
     @Prop()
-    link?: string
+    public link?: string
     @Element()
     public el: HTMLElement
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    public disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    public onDarkChange() {
+        this.darkController.update()
+    }
 
     public getParentClass() {
         let cssClass = 'papier breadcrumb-item'
 
-        if (this.dark) {
+        if (this.isDark) {
             cssClass = `${cssClass} is--dark`
         }
         if (this.first) {
@@ -28,7 +56,7 @@ export class PBreadcrumbItem {
         return cssClass
     }
 
-    render() {
+    public render() {
         return (
             <span class={this.getParentClass()}>
                 {this.link ? (

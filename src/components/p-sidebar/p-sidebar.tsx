@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, State, Watch } from '@stencil/core'
-import { DarkModeController } from '../../utils/dark-mode'
+import { DarkModeController } from '@/utils/dark-mode'
 
 export type PSidebarUser = {
     name: string
@@ -40,20 +40,20 @@ export class PSidebar {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div

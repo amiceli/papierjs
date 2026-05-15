@@ -9,7 +9,7 @@ export class PNotificationPreview {
     public el: HTMLElement
 
     @State()
-    notificationType?: string
+    public notificationType?: string
 
     public addNotification(options: Partial<PushOptions>) {
         const handler = this.el.querySelector('p-notification-handler')
@@ -24,7 +24,7 @@ export class PNotificationPreview {
         }
     }
 
-    render() {
+    public render() {
         return (
             <div>
                 <p-notification-handler />

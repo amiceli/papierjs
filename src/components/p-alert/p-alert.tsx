@@ -1,4 +1,5 @@
-import { Component, Event, type EventEmitter, h, Prop } from '@stencil/core'
+import { Component, Event, type EventEmitter, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 type AlertColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 
@@ -12,12 +13,39 @@ type AlertColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 })
 export class PAlert {
     @Prop()
-    type?: AlertColor = 'primary'
+    public type?: AlertColor = 'primary'
     /** Show close icon */
     @Prop()
-    closable?: boolean = false
+    public closable?: boolean = false
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    public dark?: boolean
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    public disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    public onDarkChange() {
+        this.darkController.update()
+    }
 
     @Event({
         eventName: 'close',
@@ -50,7 +78,7 @@ export class PAlert {
     public getParentClass() {
         let cssClass = 'papier is--block'
 
-        if (this.dark) {
+        if (this.isDark) {
             cssClass = `${cssClass} is--dark`
         }
 
@@ -61,7 +89,7 @@ export class PAlert {
         this.close.emit(null)
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()}>
                 <div class={this.getClass()}>

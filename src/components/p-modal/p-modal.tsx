@@ -7,7 +7,7 @@ import { Component, Event, type EventEmitter, Host, h, Method, State } from '@st
 })
 export class PModal {
     @State()
-    isOpen: boolean = false
+    public isOpen: boolean = false
 
     @Event({
         eventName: 'close',
@@ -25,7 +25,7 @@ export class PModal {
         this.closeEvent.emit(null)
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 {this.isOpen && (

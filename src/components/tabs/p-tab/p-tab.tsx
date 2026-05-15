@@ -1,4 +1,5 @@
-import { Component, Host, h, Prop } from '@stencil/core'
+import { Component, Host, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-tab',
@@ -7,22 +8,49 @@ import { Component, Host, h, Prop } from '@stencil/core'
 })
 export class PTab {
     @Prop()
-    title: string
+    public title: string
     @Prop({
         mutable: true,
     })
-    selected?: boolean = false
+    public selected?: boolean = false
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    public dark?: boolean
 
-    render() {
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    public disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    public onDarkChange() {
+        this.darkController.update()
+    }
+
+    public render() {
         return (
             <Host>
                 <div
                     class={{
                         papier: true,
                         'is--selected': this.selected,
-                        'is--dark': this.dark,
+                        'is--dark': this.isDark,
                     }}
                 >
                     <slot />

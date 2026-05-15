@@ -1,4 +1,5 @@
-import { Component, Host, h, Prop } from '@stencil/core'
+import { Component, Host, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-navbar-item',
@@ -6,8 +7,12 @@ import { Component, Host, h, Prop } from '@stencil/core'
     shadow: true,
 })
 export class PNavbarItem {
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    public dark?: boolean = false
+    public dark?: boolean
 
     @Prop()
     public href: string = '/'
@@ -18,20 +23,43 @@ export class PNavbarItem {
     @Prop()
     public icon?: string
 
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    public disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    public onDarkChange() {
+        this.darkController.update()
+    }
+
     public getClass() {
         return {
             papier: true,
             'with--icon': this.icon !== undefined,
-            'is--dark': this.dark === true,
+            'is--dark': this.isDark,
         }
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <li class={this.getClass()}>
                     <a href={this.href} target={this.target}>
-                        {this.icon && <p-icon color={this.dark ? 'white' : '#41403e'} icon={this.icon} size={20}></p-icon>}
+                        {this.icon && <p-icon color={this.isDark ? 'white' : '#41403e'} icon={this.icon} size={20}></p-icon>}
                         <slot />
                     </a>
                 </li>

@@ -1,4 +1,5 @@
-import { Component, Event, type EventEmitter, Host, h, Prop } from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-slider',
@@ -7,15 +8,42 @@ import { Component, Event, type EventEmitter, Host, h, Prop } from '@stencil/cor
 })
 export class PSlider {
     @Prop()
-    value?: number = 0
+    public value?: number = 0
     @Prop()
-    min?: number = 0
+    public min?: number = 0
     @Prop()
-    max?: number
+    public max?: number
     @Prop()
-    block?: boolean = false
+    public block?: boolean = false
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    public dark?: boolean
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    public disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    public onDarkChange() {
+        this.darkController.update()
+    }
 
     @Event({
         eventName: 'change',
@@ -26,14 +54,14 @@ export class PSlider {
         this.changeEvent.emit(Number.parseInt((e.target as HTMLInputElement).value))
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div
                     class={{
                         papier: true,
                         'is--block': this.block,
-                        'is--dark': this.dark,
+                        'is--dark': this.isDark,
                     }}
                 >
                     <div class="form-group">

@@ -1,4 +1,5 @@
-import { Component, Event, type EventEmitter, h, Prop } from '@stencil/core'
+import { Component, Event, type EventEmitter, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-input-text',
@@ -7,36 +8,63 @@ import { Component, Event, type EventEmitter, h, Prop } from '@stencil/core'
 })
 export class PInputText {
     @Prop()
-    placeholder?: string
+    public placeholder?: string
 
     /**
      * Any icon allowed with p-icon can be used
      */
     @Prop()
-    icon?: string
+    public icon?: string
 
     @Prop({
         mutable: true,
     })
-    value?: string = ''
+    public value?: string = ''
 
     @Prop()
-    required?: boolean = false
+    public required?: boolean = false
+
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
+    @Prop()
+    public dark?: boolean
 
     @Prop()
-    dark?: boolean = false
+    public label?: string
 
     @Prop()
-    label?: string
+    public disabled?: boolean = false
 
     @Prop()
-    disabled?: boolean = false
+    public block?: boolean = false
 
     @Prop()
-    block?: boolean = false
+    public error?: string
 
-    @Prop()
-    error?: string
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    public disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    public onDarkChange() {
+        this.darkController.update()
+    }
 
     @Event({
         eventName: 'change',
@@ -51,7 +79,7 @@ export class PInputText {
     public getParentClass() {
         let cssClass = 'papier form-group'
 
-        if (this.dark) {
+        if (this.isDark) {
             cssClass = `${cssClass} is--dark`
         }
         if (this.icon) {
@@ -77,7 +105,7 @@ export class PInputText {
         this.changeEvent.emit(this.value)
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()}>
                 {this.label && (

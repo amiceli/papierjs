@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `dark`   | `dark`    |             | `boolean` | `false`     |
-| `open`   | `open`    |             | `boolean` | `false`     |
-| `title`  | `title`   |             | `string`  | `undefined` |
+| Property | Attribute | Description                                                                                                       | Type      | Default     |
+| -------- | --------- | ----------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `dark`   | `dark`    | Force dark or light mode. If not provided, the component follows the browser preference (`prefers-color-scheme`). | `boolean` | `undefined` |
+| `open`   | `open`    |                                                                                                                   | `boolean` | `false`     |
+| `title`  | `title`   |                                                                                                                   | `string`  | `undefined` |
 
 
 ## Slots

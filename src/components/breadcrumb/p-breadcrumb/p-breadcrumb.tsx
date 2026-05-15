@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, Watch } from '@stencil/core'
-import { DarkModeController } from '../../../utils/dark-mode'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-breadcrumb',
@@ -7,8 +7,12 @@ import { DarkModeController } from '../../../utils/dark-mode'
     shadow: true,
 })
 export class PBreadcrumb {
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
 
     @Element()
     public el: HTMLElement
@@ -24,16 +28,16 @@ export class PBreadcrumb {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -67,7 +71,7 @@ export class PBreadcrumb {
         items.at(0)?.setAttribute('first', 'true')
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()}>
                 <div class="border">

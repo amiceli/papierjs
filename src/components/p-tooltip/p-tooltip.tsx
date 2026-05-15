@@ -7,19 +7,19 @@ import { Component, Host, h, Prop } from '@stencil/core'
 })
 export class PTooltip {
     @Prop()
-    title?: string
+    public title?: string
     @Prop()
-    disabled?: boolean = false
+    public disabled?: boolean = false
     @Prop()
-    left?: boolean = false
+    public left?: boolean = false
     @Prop()
-    right?: boolean = false
+    public right?: boolean = false
     @Prop()
-    bottom?: boolean = false
+    public bottom?: boolean = false
     @Prop()
-    top?: boolean = false
+    public top?: boolean = false
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div class="papier">

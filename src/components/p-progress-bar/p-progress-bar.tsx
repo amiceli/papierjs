@@ -1,4 +1,5 @@
-import { Component, h, Prop, State } from '@stencil/core'
+import { Component, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 type ProgressBarColor = 'secondary' | 'success' | 'warning' | 'danger' | 'muted' | 'primary'
 
@@ -9,18 +10,41 @@ type ProgressBarColor = 'secondary' | 'success' | 'warning' | 'danger' | 'muted'
 })
 export class PProgressBar {
     @Prop()
-    type?: ProgressBarColor = 'primary'
+    public type?: ProgressBarColor = 'primary'
     @Prop()
-    value?: number = 0
+    public value?: number = 0
     @Prop()
-    striped?: boolean = false
+    public striped?: boolean = false
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    public dark?: boolean
     @Prop()
-    auto?: number
+    public auto?: number
 
     @State()
-    interval?: number
+    public interval?: number
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    @Watch('dark')
+    public onDarkChange() {
+        this.darkController.update()
+    }
 
     public componentDidLoad() {
         if (this.auto) {
@@ -31,6 +55,7 @@ export class PProgressBar {
     }
 
     public disconnectedCallback() {
+        this.darkController.disconnect()
         window.clearInterval(this.interval)
     }
 
@@ -63,14 +88,14 @@ export class PProgressBar {
     public getParentClass() {
         let cssClass = 'papier is--block'
 
-        if (this.dark) {
+        if (this.isDark) {
             cssClass = `${cssClass} is--dark`
         }
 
         return cssClass
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()}>
                 <div class="progress">

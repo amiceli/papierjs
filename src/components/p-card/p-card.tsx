@@ -1,5 +1,5 @@
 import { Component, Element, Host, h, Prop, State, Watch } from '@stencil/core'
-import { DarkModeController } from '../../utils/dark-mode'
+import { DarkModeController } from '@/utils/dark-mode'
 
 /**
  * @slot header - card header
@@ -14,21 +14,25 @@ import { DarkModeController } from '../../utils/dark-mode'
     shadow: true,
 })
 export class PCard {
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
     /**
      * Use border radius style like button, badge etc
      */
     @Prop()
-    radius?: boolean = false
+    public radius?: boolean = false
     @Prop()
-    image?: string
+    public image?: string
     @Element()
-    el: HTMLElement
+    public el: HTMLElement
     @State()
-    hasHeader: boolean
+    public hasHeader: boolean
     @State()
-    hasFooter: boolean
+    public hasFooter: boolean
 
     @State()
     private isDark: boolean = false
@@ -40,25 +44,25 @@ export class PCard {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
-    componentDidLoad() {
+    public componentDidLoad() {
         this.hasHeader = !!this.el.querySelector('[slot="header"]')
         this.hasFooter = !!this.el.querySelector('[slot="footer"]')
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div

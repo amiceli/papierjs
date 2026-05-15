@@ -63,7 +63,7 @@ export class PNotificationHandler {
         ))
     }
 
-    render() {
+    public render() {
         return <Host>{this.mapNotifications()}</Host>
     }
 }

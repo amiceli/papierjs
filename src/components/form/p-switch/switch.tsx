@@ -1,4 +1,5 @@
-import { Component, Event, type EventEmitter, Host, h, Prop } from '@stencil/core'
+import { Component, Event, type EventEmitter, Host, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-switch',
@@ -12,10 +13,37 @@ export class PSwitch {
     /** define switch parent style */
     @Prop()
     public square?: boolean = false
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    public dark?: boolean = false
+    public dark?: boolean
     @Prop()
     public checked?: boolean = false
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    public disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    public onDarkChange() {
+        this.darkController.update()
+    }
 
     @Event({
         eventName: 'change',
@@ -26,13 +54,13 @@ export class PSwitch {
         this.changeEvent.emit((e.target as HTMLInputElement).checked)
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div
                     class={{
                         papier: true,
-                        'is--dark': this.dark,
+                        'is--dark': this.isDark,
                     }}
                 >
                     <div class="form-group">

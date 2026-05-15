@@ -1,4 +1,5 @@
-import { Component, Event, type EventEmitter, h, Prop } from '@stencil/core'
+import { Component, Event, type EventEmitter, h, Prop, State, Watch } from '@stencil/core'
+import { DarkModeController } from '@/utils/dark-mode'
 
 @Component({
     tag: 'p-dropdown-item',
@@ -7,11 +8,38 @@ import { Component, Event, type EventEmitter, h, Prop } from '@stencil/core'
 })
 export class PDropdownItem {
     @Prop()
-    value!: string
+    public value!: string
     @Prop()
-    selected?: boolean = false
+    public selected?: boolean = false
+    /**
+     * Force dark or light mode. If not provided, the component follows
+     * the browser preference (`prefers-color-scheme`).
+     */
     @Prop()
-    dark?: boolean = false
+    public dark?: boolean
+
+    @State()
+    private isDark: boolean = false
+
+    private darkController = new DarkModeController({
+        onChange: (v) => {
+            this.isDark = v
+        },
+        getProp: () => this.dark,
+    })
+
+    public componentWillLoad() {
+        this.darkController.connect()
+    }
+
+    public disconnectedCallback() {
+        this.darkController.disconnect()
+    }
+
+    @Watch('dark')
+    public onDarkChange() {
+        this.darkController.update()
+    }
 
     @Event({
         eventName: 'change',
@@ -21,7 +49,7 @@ export class PDropdownItem {
     public getParentClass() {
         return {
             'papier dropdown-item': true,
-            'is--dark': this.dark,
+            'is--dark': this.isDark,
         }
     }
 
@@ -29,7 +57,7 @@ export class PDropdownItem {
         this.changeEvent.emit(this.value)
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()} onClick={() => this.sendClick()}>
                 <div
