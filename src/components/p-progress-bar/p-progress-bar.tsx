@@ -10,22 +10,22 @@ type ProgressBarColor = 'secondary' | 'success' | 'warning' | 'danger' | 'muted'
 })
 export class PProgressBar {
     @Prop()
-    type?: ProgressBarColor = 'primary'
+    public type?: ProgressBarColor = 'primary'
     @Prop()
-    value?: number = 0
+    public value?: number = 0
     @Prop()
-    striped?: boolean = false
+    public striped?: boolean = false
     /**
      * Force dark or light mode. If not provided, the component follows
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
     @Prop()
-    auto?: number
+    public auto?: number
 
     @State()
-    interval?: number
+    public interval?: number
 
     @State()
     private isDark: boolean = false
@@ -42,7 +42,7 @@ export class PProgressBar {
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -95,7 +95,7 @@ export class PProgressBar {
         return cssClass
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()}>
                 <div class="progress">

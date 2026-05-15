@@ -19,7 +19,7 @@ export class PIcon {
     @State()
     public svgContent: string
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div

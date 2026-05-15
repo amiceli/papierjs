@@ -64,7 +64,7 @@ export class PNotification {
         this.close.emit(this.timestamp)
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div class="papier">

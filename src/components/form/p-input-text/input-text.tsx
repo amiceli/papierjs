@@ -8,40 +8,40 @@ import { DarkModeController } from '@/utils/dark-mode'
 })
 export class PInputText {
     @Prop()
-    placeholder?: string
+    public placeholder?: string
 
     /**
      * Any icon allowed with p-icon can be used
      */
     @Prop()
-    icon?: string
+    public icon?: string
 
     @Prop({
         mutable: true,
     })
-    value?: string = ''
+    public value?: string = ''
 
     @Prop()
-    required?: boolean = false
+    public required?: boolean = false
 
     /**
      * Force dark or light mode. If not provided, the component follows
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
 
     @Prop()
-    label?: string
+    public label?: string
 
     @Prop()
-    disabled?: boolean = false
+    public disabled?: boolean = false
 
     @Prop()
-    block?: boolean = false
+    public block?: boolean = false
 
     @Prop()
-    error?: string
+    public error?: string
 
     @State()
     private isDark: boolean = false
@@ -53,16 +53,16 @@ export class PInputText {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -105,7 +105,7 @@ export class PInputText {
         this.changeEvent.emit(this.value)
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()}>
                 {this.label && (

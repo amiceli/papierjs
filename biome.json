@@ -38,6 +38,7 @@
                 "noUnusedTemplateLiteral": "off",
                 "noInferrableTypes": "off",
                 "useConsistentMemberAccessibility": {
+                    "level": "error",
                     "options": {
                         "accessibility": "explicit"
                     }

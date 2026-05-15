@@ -8,17 +8,17 @@ import { DarkModeController } from '@/utils/dark-mode'
 })
 export class PTab {
     @Prop()
-    title: string
+    public title: string
     @Prop({
         mutable: true,
     })
-    selected?: boolean = false
+    public selected?: boolean = false
     /**
      * Force dark or light mode. If not provided, the component follows
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
 
     @State()
     private isDark: boolean = false
@@ -30,20 +30,20 @@ export class PTab {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div

@@ -8,15 +8,15 @@ import { DarkModeController } from '@/utils/dark-mode'
 })
 export class PDropdownItem {
     @Prop()
-    value!: string
+    public value!: string
     @Prop()
-    selected?: boolean = false
+    public selected?: boolean = false
     /**
      * Force dark or light mode. If not provided, the component follows
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
 
     @State()
     private isDark: boolean = false
@@ -28,16 +28,16 @@ export class PDropdownItem {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -57,7 +57,7 @@ export class PDropdownItem {
         this.changeEvent.emit(this.value)
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()} onClick={() => this.sendClick()}>
                 <div

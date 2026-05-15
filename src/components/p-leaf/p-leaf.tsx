@@ -14,7 +14,7 @@ export class Pleaf {
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
 
     @State()
     private isDark: boolean = false
@@ -26,16 +26,16 @@ export class Pleaf {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -43,7 +43,7 @@ export class Pleaf {
         return this.isDark ? 'papier is--dark' : 'papier'
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()}>
                 <slot />

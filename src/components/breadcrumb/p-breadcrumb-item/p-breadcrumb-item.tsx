@@ -12,11 +12,11 @@ export class PBreadcrumbItem {
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
     @Prop()
-    first?: boolean = false
+    public first?: boolean = false
     @Prop()
-    link?: string
+    public link?: string
     @Element()
     public el: HTMLElement
 
@@ -30,16 +30,16 @@ export class PBreadcrumbItem {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -56,7 +56,7 @@ export class PBreadcrumbItem {
         return cssClass
     }
 
-    render() {
+    public render() {
         return (
             <span class={this.getParentClass()}>
                 {this.link ? (

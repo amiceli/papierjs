@@ -32,16 +32,16 @@ export class PSwitch {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -54,7 +54,7 @@ export class PSwitch {
         this.changeEvent.emit((e.target as HTMLInputElement).checked)
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div

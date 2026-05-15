@@ -36,16 +36,16 @@ export class PSidebarItem {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -63,7 +63,7 @@ export class PSidebarItem {
         }
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div class={this.getComponentClasses()} onClick={() => this.handleClick()}>

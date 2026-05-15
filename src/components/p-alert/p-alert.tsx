@@ -13,16 +13,16 @@ type AlertColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 })
 export class PAlert {
     @Prop()
-    type?: AlertColor = 'primary'
+    public type?: AlertColor = 'primary'
     /** Show close icon */
     @Prop()
-    closable?: boolean = false
+    public closable?: boolean = false
     /**
      * Force dark or light mode. If not provided, the component follows
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
 
     @State()
     private isDark: boolean = false
@@ -34,16 +34,16 @@ export class PAlert {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -89,7 +89,7 @@ export class PAlert {
         this.close.emit(null)
     }
 
-    render() {
+    public render() {
         return (
             <div class={this.getParentClass()}>
                 <div class={this.getClass()}>

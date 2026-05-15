@@ -8,19 +8,19 @@ import { DarkModeController } from '@/utils/dark-mode'
 })
 export class PSlider {
     @Prop()
-    value?: number = 0
+    public value?: number = 0
     @Prop()
-    min?: number = 0
+    public min?: number = 0
     @Prop()
-    max?: number
+    public max?: number
     @Prop()
-    block?: boolean = false
+    public block?: boolean = false
     /**
      * Force dark or light mode. If not provided, the component follows
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
 
     @State()
     private isDark: boolean = false
@@ -32,16 +32,16 @@ export class PSlider {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -54,7 +54,7 @@ export class PSlider {
         this.changeEvent.emit(Number.parseInt((e.target as HTMLInputElement).value))
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div

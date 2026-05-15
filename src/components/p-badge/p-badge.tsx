@@ -10,13 +10,13 @@ type BadgeColor = 'secondary' | 'success' | 'warning' | 'danger'
 })
 export class PBadge {
     @Prop()
-    type?: BadgeColor = undefined
+    public type?: BadgeColor = undefined
     /**
      * Force dark or light mode. If not provided, the component follows
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
 
     @State()
     private isDark: boolean = false
@@ -28,16 +28,16 @@ export class PBadge {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -55,7 +55,7 @@ export class PBadge {
         return `badge ${this.type || ''}`
     }
 
-    render() {
+    public render() {
         return (
             <span class={this.getParentClass()}>
                 <span class={this.getClass()}>

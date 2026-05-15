@@ -16,21 +16,21 @@ export class PDropdown {
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
     /** Prevent dropdown self update selected value */
     @Prop()
-    preventSelected?: boolean = false
+    public preventSelected?: boolean = false
     /** Selected item value */
     @Prop({
         mutable: true,
     })
-    value?: string = ''
+    public value?: string = ''
     @State()
-    open?: boolean = false
+    public open?: boolean = false
     @Prop()
-    placeholder?: string
+    public placeholder?: string
     @State()
-    selectedValue?: string
+    public selectedValue?: string
     @Element()
     public el: HTMLElement
 
@@ -45,12 +45,12 @@ export class PDropdown {
         getProp: () => this.dark,
     })
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -133,7 +133,7 @@ export class PDropdown {
         return selected?.innerText || this.placeholder || ''
     }
 
-    render() {
+    public render() {
         const selected = this.getSelectedValue()
         const arrowIcon = feather.icons['chevron-down'].toSvg()
 

@@ -13,27 +13,27 @@ type ButtonColor = 'success' | 'secondary' | 'primary' | 'danger' | 'warning'
 })
 export class PButton {
     @Element()
-    el: Element
+    public el: Element
     @Prop()
-    type?: ButtonColor = 'primary'
+    public type?: ButtonColor = 'primary'
     @Prop()
-    outline?: boolean = false
+    public outline?: boolean = false
     @Prop()
-    large?: boolean = false
+    public large?: boolean = false
     @Prop()
-    small?: boolean = false
+    public small?: boolean = false
     @Prop()
-    block?: boolean = false
+    public block?: boolean = false
     @Prop()
-    disabled?: boolean = false
+    public disabled?: boolean = false
     /**
      * Force dark or light mode. If not provided, the component follows
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
     @Prop()
-    loading?: boolean = false
+    public loading?: boolean = false
 
     @State()
     private isDark: boolean = false
@@ -45,16 +45,16 @@ export class PButton {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -99,7 +99,7 @@ export class PButton {
 
         return cssClass
     }
-    render() {
+    public render() {
         const color = `var(--${this.type}${this.isDark ? '-light' : ''})`
 
         return (

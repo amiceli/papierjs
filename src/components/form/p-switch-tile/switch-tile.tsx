@@ -36,16 +36,16 @@ export class PSwitchTile {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
@@ -80,7 +80,7 @@ export class PSwitchTile {
         return cssClass
     }
 
-    render() {
+    public render() {
         return (
             <Host>
                 <div

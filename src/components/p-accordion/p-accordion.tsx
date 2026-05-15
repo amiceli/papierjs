@@ -12,17 +12,17 @@ import { DarkModeController } from '@/utils/dark-mode'
 })
 export class PAccordion {
     @Prop()
-    title: string
+    public title: string
     @Prop({
         mutable: true,
     })
-    open: boolean = false
+    public open: boolean = false
     /**
      * Force dark or light mode. If not provided, the component follows
      * the browser preference (`prefers-color-scheme`).
      */
     @Prop()
-    dark?: boolean
+    public dark?: boolean
 
     @State()
     private isDark: boolean = false
@@ -34,20 +34,20 @@ export class PAccordion {
         getProp: () => this.dark,
     })
 
-    componentWillLoad() {
+    public componentWillLoad() {
         this.darkController.connect()
     }
 
-    disconnectedCallback() {
+    public disconnectedCallback() {
         this.darkController.disconnect()
     }
 
     @Watch('dark')
-    onDarkChange() {
+    public onDarkChange() {
         this.darkController.update()
     }
 
-    render() {
+    public render() {
         const icon = feather.icons['chevron-down'].toSvg()
         const openIcon = feather.icons['chevron-up'].toSvg()
 
