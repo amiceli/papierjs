@@ -71,6 +71,7 @@
     "jest-cli": "29.7.0",
     "lefthook": "2.1.6",
     "stencil-inline-svg": "1.1.0",
+    "markstream-vue": "0.0.7-beta.8",
     "svgo": "^4.0.1"
   },
   "optionalDependencies": {
@@ -78,9 +79,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "feather-icons": "4.29.2",
-    "markstream-vue": "0.0.7-beta.8",
     "papercss": "1.9.2",
-    "pixelarticons": "2.0.2"
+    "pixelarticons": "2.1.0"
   }
 }

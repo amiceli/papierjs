@@ -1,5 +1,4 @@
 import { Component, Element, Event, type EventEmitter, h, Listen, Prop, State, Watch } from '@stencil/core'
-import feather from 'feather-icons'
 import { DarkModeController } from '@/utils/dark-mode'
 
 /**
@@ -135,7 +134,7 @@ export class PDropdown {
 
     public render() {
         const selected = this.getSelectedValue()
-        const arrowIcon = feather.icons['chevron-down'].toSvg()
+        const iconName = this.open ? 'chevron-up' : 'chevron-down'
 
         return (
             <div class={this.getParentClass()}>
@@ -146,7 +145,9 @@ export class PDropdown {
                     }}
                 >
                     <span>{selected}</span>
-                    <span class="for--icon" innerHTML={arrowIcon} />
+                    <span class="for--icon">
+                        <p-icon icon={iconName}></p-icon>
+                    </span>
                 </div>
                 <div class="dropdown__children">
                     <slot />

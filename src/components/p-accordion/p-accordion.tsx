@@ -1,5 +1,4 @@
 import { Component, Host, h, Prop, State, Watch } from '@stencil/core'
-import feather from 'feather-icons'
 import { DarkModeController } from '@/utils/dark-mode'
 
 /**
@@ -48,8 +47,7 @@ export class PAccordion {
     }
 
     public render() {
-        const icon = feather.icons['chevron-down'].toSvg()
-        const openIcon = feather.icons['chevron-up'].toSvg()
+        const iconName = this.open ? 'chevron-up' : 'chevron-down'
 
         return (
             <Host>
@@ -68,7 +66,9 @@ export class PAccordion {
                         >
                             <span>{this.title}</span>
                             <span>
-                                <span class="for--icon" innerHTML={this.open ? openIcon : icon} />
+                                <span class="for--icon">
+                                    <p-icon icon={iconName}></p-icon>
+                                </span>
                             </span>
                         </div>
                         <div

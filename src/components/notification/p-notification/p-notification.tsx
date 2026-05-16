@@ -1,5 +1,4 @@
 import { Component, Element, Event, type EventEmitter, Host, h, Prop } from '@stencil/core'
-import feather from 'feather-icons'
 
 @Component({
     tag: 'p-notification',
@@ -25,20 +24,20 @@ export class PNotification {
     @Event({
         eventName: 'close',
     })
-    public close: EventEmitter<string>
+    public close!: EventEmitter<string>
 
-    public getIconName() {
+    public getIconName(): string {
         switch (this.type) {
             case 'primary':
-                return feather.icons.info.toSvg()
+                return 'info-box'
             case 'warning':
-                return feather.icons['alert-triangle'].toSvg()
+                return 'warning-diamond'
             case 'danger':
-                return feather.icons['alert-circle'].toSvg()
+                return 'circle-slash'
             case 'success':
-                return feather.icons['check-circle'].toSvg()
+                return 'checkbox-on'
             default:
-                return feather.icons.info.toSvg()
+                return 'info-box'
         }
     }
 
@@ -69,15 +68,15 @@ export class PNotification {
             <Host>
                 <div class="papier">
                     <div class={this.getClassName()}>
-                        <div innerHTML={this.getIconName()} />
+                        <p-icon icon={this.getIconName()} />
                         <div innerHTML={this.text} />
                         {this.canclose && (
-                            <span
-                                innerHTML={feather.icons.x.toSvg()}
+                            <p-icon
+                                icon="delete"
                                 onClick={() => {
                                     this.onClose()
                                 }}
-                            />
+                            ></p-icon>
                         )}
                     </div>
                 </div>
