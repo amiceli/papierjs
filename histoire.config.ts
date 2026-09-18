@@ -5,10 +5,12 @@ import { defineConfig } from 'histoire'
 
 export default defineConfig({
     setupFile: 'histoire/setup.ts',
+    outDir: 'histoire-dist',
     plugins: [
         HstVue(),
     ],
     vite: {
+        base: process.env.GITHUB_ACTIONS ? '/papierjs/' : '/',
         plugins: [
             vue(),
         ],
