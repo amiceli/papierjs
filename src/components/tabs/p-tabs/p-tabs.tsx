@@ -79,8 +79,8 @@ export class PTabs {
         this.selectedTab = this.tabs.find((s) => s.selected === true)
 
         if (!this.selectedTab) {
-            if (this.tabs.at(0)) {
-                this.onSelectTab(this.tabs.at(0))
+            if (this.tabs[0]) {
+                this.onSelectTab(this.tabs[0])
             }
         }
     }

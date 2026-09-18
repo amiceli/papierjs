@@ -30,7 +30,7 @@ describe('p-breadcrumb', () => {
 
         const elements = await page.findAll('p-breadcrumb-item')
 
-        expect(elements.at(0)).toHaveAttribute('first')
-        expect(elements.at(1)).not.toHaveAttribute('first')
+        expect(elements[0]).toHaveAttribute('first')
+        expect(elements[1]).not.toHaveAttribute('first')
     })
 })
