@@ -15,6 +15,14 @@
 | `user`   | --        |                                                                               | `{ name: string; email: string; photo: string; }` | `undefined` |
 
 
+## Slots
+
+| Slot        | Description      |
+| ----------- | ---------------- |
+|             | The default slot |
+| `"actions"` |                  |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

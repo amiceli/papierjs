@@ -68,3 +68,9 @@ To run histoire :
 ```bash
 npm run dev
 ```
+
+## Deploy the demo
+
+The Histoire demo is deployed to [GitHub Pages](https://amiceli.github.io/papierjs/) by
+`.github/workflows/deploy-pages.yml` after each push to `main`. In the repository
+settings, set **Pages > Build and deployment > Source** to **GitHub Actions**.

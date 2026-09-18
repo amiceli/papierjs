@@ -83,7 +83,7 @@ export class PNavbar {
 
         this.syncItems()
 
-        items.at(0)?.setAttribute('first', 'true')
+        items[0]?.setAttribute('first', 'true')
     }
 
     public render() {
