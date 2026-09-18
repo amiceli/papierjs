@@ -35,6 +35,16 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot          | Description      |
+| ------------- | ---------------- |
+|               | The default slot |
+| `"sub-title"` |                  |
+| `"text"`      |                  |
+| `"title"`     |                  |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

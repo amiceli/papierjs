@@ -16,13 +16,14 @@
 
 ## Slots
 
-| Slot         | Description   |
-| ------------ | ------------- |
-| `"footer"`   | card footer   |
-| `"header"`   | card header   |
-| `"subtitle"` | card subtitle |
-| `"text"`     | card text     |
-| `"title"`    | card title    |
+| Slot         | Description      |
+| ------------ | ---------------- |
+|              | The default slot |
+| `"footer"`   | card footer      |
+| `"header"`   | card header      |
+| `"subtitle"` | card subtitle    |
+| `"text"`     | card text        |
+| `"title"`    | card title       |
 
 
 ----------------------------------------------
